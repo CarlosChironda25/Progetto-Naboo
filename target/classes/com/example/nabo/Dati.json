@@ -1,0 +1,39 @@
+[
+  {
+    "Username": "Davide",
+    "Password": "Davide12",
+    "Mail ": "  marr.fff@studio.unibo.it",
+    "Admin": true,
+        "Tipo": "Vota"
+
+  },
+  {
+    "Username": "Caos",
+    "Password": "carr",
+    "Mail ": "  v.msrcp@studio.unibo.it",
+    "Admin": true,
+        "Tipo": "Lettore "
+
+
+},
+  {
+    "Username": "Prova1",
+    "Password": "Prova11",
+    "Mail ": "  jdjd.kdkd@studio.unibo.it",
+    "Admin": false,
+        "Tipo": "Commenta"
+
+  },
+  {
+    "Username": "sssa",
+    "Password": "rick",
+    "Mail ": "  ckckck.ase@studio.unibo.it",
+    "Admin": false,
+
+    "Tipo": "Commenta"
+
+  }
+
+
+]
+

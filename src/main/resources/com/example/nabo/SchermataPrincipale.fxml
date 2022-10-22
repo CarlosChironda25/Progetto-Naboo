@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="640.0" stylesheets="@Schermo.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.SchermataPrincipale">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="506.0" prefWidth="72.0" style="-fx-background-color: wheat;">
+         <children>
+            <FontAwesomeIconView fx:id="Exit" glyphName="SIGN_OUT" layoutX="30.0" layoutY="474.0" size="20.0" />
+            <FontAwesomeIconView fx:id="TELEGRAM" glyphName="TELEGRAM" layoutX="31.0" layoutY="260.0" size="20.0" />
+            <FontAwesomeIconView glyphName="HOME" layoutX="20.0" layoutY="103.0" size="35" />
+            <FontAwesomeIconView fx:id="Statistiche" glyphName="BAR_CHART" layoutX="30.0" layoutY="176.0" size="20.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="72.0" prefHeight="52.0" prefWidth="568.0" style="-fx-background-color: black;">
+         <children>
+            <Label alignment="CENTER" layoutX="109.0" layoutY="8.0" prefHeight="35.0" prefWidth="287.0" style="-fx-background-color: black;" text="          Bentornato Ammistrattore" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</fx:root>
