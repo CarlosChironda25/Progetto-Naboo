@@ -99,7 +99,8 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
                 }
 
-            }
+            }//ciao
+
 
 
         } else if (update.hasCallbackQuery()) {
