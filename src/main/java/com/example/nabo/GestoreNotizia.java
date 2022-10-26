@@ -2,6 +2,7 @@ package com.example.nabo;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.rometools.rome.feed.synd.SyndCategory;
 import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
@@ -21,31 +22,31 @@ import java.util.List;
 public class GestoreNotizia {
        private ArrayList<Notizia>notizias;
 
-       public  GestoreNotizia ( String link) throws MalformedURLException {
-               notizias =new ArrayList<>();
-              URL feedUrl = new URL(link);
+       public  GestoreNotizia (String link) throws MalformedURLException {
+           notizias =new ArrayList<>();
+           URL feedUrl = new URL(link);
 
-              SyndFeedInput input = new SyndFeedInput();
+           SyndFeedInput input = new SyndFeedInput();
 
-              try {
-                     SyndFeed feed = input.build(new InputSource(feedUrl.openStream()));
+           try {
+               SyndFeed feed = input.build(new InputSource(feedUrl.openStream()));
 
-                     List<SyndEntry> entries = feed.getEntries();
+               List<SyndEntry> entries = feed.getEntries();
 
-                     Iterator<SyndEntry> itEntries = entries.iterator();
-                     while (itEntries.hasNext()) {
+               Iterator<SyndEntry> itEntries = entries.iterator();
+               while (itEntries.hasNext()) {
 
-                            SyndEntry entry = itEntries.next();
-                               System.out.println(entry.getCategories());
-                            //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                            Notizia notizia =new Notizia((Date) entry.getPublishedDate(),entry.getTitle(),entry.getLink(), new SyndContent[]{entry.getDescription()},entry.getAuthor(), entry.getSource());
-                             notizias.add(notizia);
+                   SyndEntry entry = itEntries.next();
+                   //System.out.println(entry.getCategories());
+                   //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
+                   Notizia notizia = new Notizia(entry.getTitle(), new SyndContent[]{entry.getDescription()}, entry.getLink(), entry.getAuthor() ,  new SyndCategory[]{ entry.getCategories().get(0)}, (Date) entry.getPublishedDate(), entry.getSource());
+                   notizias.add(notizia);
 
-                     }
-              } catch (IllegalArgumentException | FeedException | IOException e) {
-                     // Errore lettura feed
-                     e.printStackTrace();
-              }
+               }
+           } catch (IllegalArgumentException | FeedException | IOException e) {
+               // Errore lettura feed
+               e.printStackTrace();
+           }
 
 
        }
@@ -55,11 +56,11 @@ public class GestoreNotizia {
        }
 
        public static void main(String[] args) throws IOException {
-           FileWriter fileWriter = new FileWriter("src/main/resources/com/example/nabo/Info-Notizie.json");
+           FileWriter fileWriter = new FileWriter("Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
            fileWriter.write( "[");
            String source = "http://xml2.corriereobjects.it/rss/homepage.xml";
            GestoreNotizia gestoreNotizia= new GestoreNotizia( source);
-           System.out.println( gestoreNotizia.getNotizia());
+           //System.out.println( gestoreNotizia.getNotizia());
            for( Notizia i : gestoreNotizia.getNotizia()) {
                 Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
                 String jsonString = gson4.toJson(i);

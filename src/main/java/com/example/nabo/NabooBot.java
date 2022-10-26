@@ -17,8 +17,8 @@ import java.util.List;
 
 
 public class NabooBot  extends  TelegramLongPollingBot {
-    private final String pathUtenti = "C:\\Users\\39348\\Documents\\Università\\Primo Anno\\Programmazione\\Intellij\\Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json";
-    private final String pathNews = "C:\\Users\\39348\\Documents\\Università\\Primo Anno\\Programmazione\\Intellij\\Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json";
+    private final String pathUtenti = "Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json";
+    private final String pathNews = "Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json";
     public String usernameControl;
     public String passwordControl;
     Gson gson = new Gson();
@@ -83,6 +83,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     case "/news" :
                         if (login) {
                             benvenuto(update);
+                            System.out.println("QUI");
                             try {
                                 news(update);
                             } catch (FileNotFoundException e) {

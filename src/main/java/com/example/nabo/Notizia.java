@@ -1,28 +1,31 @@
 package com.example.nabo;
 
+import com.rometools.rome.feed.synd.SyndCategory;
 import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndFeed;
 
-import java.security.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 
 public class Notizia {
 
-      public Date tempo;
+      public Date data;
       public   String title;
       public String link;
-      //public SyndContent Discrizione[];
+      public SyndContent[] Descrizione;
       public  String Autore;
       public   SyndFeed Fonte;
 
-    public Notizia(Date tempo, String title, String link,
-                   SyndContent discrizione[]
-            , String autore, SyndFeed fonte) {
-        this.tempo = tempo;
+      public SyndCategory[] category;
+
+    public Notizia(String title, SyndContent Descrizione[], String link, String autore
+                   , SyndCategory category[], Date data
+                   , SyndFeed fonte) {
+        this.data = data;
         this.title = title;
         this.link = link;
-        //Discrizione = discrizione;
+        category = category;
+        //Descrizione = Descrizione;
         Autore = autore;
         Fonte = fonte;
     }
@@ -38,6 +41,7 @@ public class Notizia {
         Autore = autore;
     }
 
+
     public SyndFeed getFonte(SyndFeed source) {
         return Fonte;
     }
@@ -50,21 +54,26 @@ public class Notizia {
 
       }
 
+    public SyndCategory[] getCategoria() {
+        return category;
+    }
     public String getLink() {
         return link;
     }
 
-    public Date getTempo() {
-        return tempo;
+    public Date getData() {
+        return data;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTempo(Date tempo) {
-        this.tempo = tempo;
+    public void setData(Date data) {
+        this.data = data;
     }
+
+    //public void setCategory(String category) {category = category;}
 
     public void setTitle(String title) {
         this.title = title;
@@ -87,6 +96,9 @@ public class Notizia {
     }*/
 
     public String toString(){
-        return title +"\n\n"+link;
+        return title +"\n\n"+
+                Arrays.deepToString(category)+"\n\n"+
+                link;
+
     }
 }
