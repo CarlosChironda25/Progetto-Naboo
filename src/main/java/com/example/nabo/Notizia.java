@@ -16,11 +16,11 @@ public class Notizia {
       public SyndContent[] Descrizione;
       public String Autore;
       public SyndFeed Fonte;
-      public SyndCategory category;
+      public String category;
 
 
     public Notizia(String title, SyndContent Descrizione[], String link, String autore
-                   , SyndCategory category, Date data
+                   , String category, Date data
                    , SyndFeed fonte) {
         this.data = data;
         this.title = title;
@@ -56,7 +56,7 @@ public class Notizia {
       }
       
 
-    public SyndCategory getCategory() {
+    public String getCategory() {
             return category;
     }
     public String getLink() {
