@@ -2,10 +2,7 @@ package com.example.nabo;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.rometools.rome.feed.synd.SyndCategory;
-import com.rometools.rome.feed.synd.SyndContent;
-import com.rometools.rome.feed.synd.SyndEntry;
-import com.rometools.rome.feed.synd.SyndFeed;
+import com.rometools.rome.feed.synd.*;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import org.xml.sax.InputSource;
@@ -37,9 +34,9 @@ public class GestoreNotizia {
                while (itEntries.hasNext()) {
 
                    SyndEntry entry = itEntries.next();
-                   //System.out.println(entry.getCategories());
+                   System.out.println(entry.getCategories().get(0));
                    //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                   Notizia notizia = new Notizia(entry.getTitle(), new SyndContent[]{entry.getDescription()}, entry.getLink(), entry.getAuthor() ,  new SyndCategory[]{ entry.getCategories().get(0)}, (Date) entry.getPublishedDate(), entry.getSource());
+                   Notizia notizia = new Notizia(entry.getTitle(), new SyndContent[]{entry.getDescription()}, entry.getLink(), entry.getAuthor() , entry.getCategories().get(0) , (Date) entry.getPublishedDate(), entry.getSource());
                    notizias.add(notizia);
 
                }
