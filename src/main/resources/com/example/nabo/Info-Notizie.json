@@ -1,1112 +1,601 @@
 [{
+  "data": "Oct 29, 2022, 5:01:13 PM",
+  "title": "L\u0027attacco a Sebastopoli: i droni, i sommergibili, le navi russe danneggiate, ecco cosa sappiamo",
+  "link": "https://www.corriere.it/esteri/22_ottobre_29/attacco-sebastopoli-cosa-sappiamo-8b6e178c-5794-11ed-9a55-f49030f49577.shtml",
+  "Autore": "Redazione Online",
+  "category": "Esteri"
+},{
   "data": "Oct 29, 2022, 7:41:07 AM",
   "title": "Il prezzo crollato del 70%, ora c’è gas in eccesso: i paradossi di un mercato impazzito",
   "link": "https://www.corriere.it/esteri/22_ottobre_28/prezzo-gas-paradossi-un-mercato-impazzito-cc43dd82-56d6-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Federico Rampini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Esteri"
-    }
-  }
+  "category": "Esteri"
 },{
   "data": "Oct 29, 2022, 10:12:13 AM",
   "title": " Superbonus, come cambierà: scenderà all’80% ma con meno obblighi, le ipotesi",
   "link": "https://www.corriere.it/economia/superbonus-sgravi-fiscali-casa/cards/superbonus-come-cambiera-scendera-all-80percento-ma-meno-obblighi-ipotesi/bonus-edilizi-scadenze-incognite_principale.shtml",
   "Autore": "Gino Pagliuca",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 2:00:44 PM",
-  "title": "Pensioni, bonus per chi rinvia l’uscita dopo i 63 anni: il 75% della manovra per le bollette",
-  "link": "https://www.corriere.it/economia/tasse/22_ottobre_29/conti-75percento-risorseper-riduzione-bollettepensioni-bonus-chi-rinvia-05a7cea6-56f2-11ed-a6e7-cb06b4dff777.shtml",
-  "Autore": "Enrico Marro Fabio Savelli",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 1:41:24 PM",
-  "title": "Il sondaggio Ipsos: Fratelli d’Italia sfiora il 30%. Pd al 18,8%, calano FI e Lega",
-  "link": "https://www.corriere.it/politica/22_ottobre_29/sondaggio-ipsos-fratelli-d-italia-sfiora-30percento-pd-188percento-calano-fi-lega-b0936446-56ee-11ed-a6e7-cb06b4dff777.shtml",
-  "Autore": "Nando Pagnoncelli",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 2:24:05 PM",
   "title": "Le multe per i vaccini Covid saranno sospese fino al 30 giugno",
   "link": "https://www.corriere.it/politica/22_ottobre_29/multe-vaccini-covid-sospese-30-giugno-795a69b8-577d-11ed-9a55-f49030f49577.shtml",
   "Autore": "Redazione Online",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "category": "Politica"
 },{
-  "data": "Oct 29, 2022, 1:04:48 PM",
-  "title": "M5S, Grillo rilancia il reddito di base universale",
-  "link": "https://www.corriere.it/politica/22_ottobre_29/m5s-grillo-rilancia-reddito-base-universale-9a4d3c54-5769-11ed-9a55-f49030f49577.shtml",
-  "Autore": "Emanuele Buzzi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "data": "Oct 29, 2022, 4:15:47 PM",
+  "title": "Il sondaggio Ipsos: Fratelli d’Italia sfiora il 30%. Pd al 18,8%, calano FI e Lega",
+  "link": "https://www.corriere.it/politica/22_ottobre_29/sondaggio-ipsos-fratelli-d-italia-sfiora-30percento-pd-188percento-calano-fi-lega-b0936446-56ee-11ed-a6e7-cb06b4dff777.shtml",
+  "Autore": "Nando Pagnoncelli",
+  "category": "Politica"
 },{
-  "data": "Oct 29, 2022, 1:11:57 PM",
-  "title": "Palermo, la vicesindaca Varchi contro i funzionari: «Chiamatemi \"vicesindaco\" o non sottoscrivo più nulla»",
-  "link": "https://www.corriere.it/politica/22_ottobre_29/palermo-varchi-vicesindaco-bdb2ad0c-5776-11ed-9a55-f49030f49577.shtml",
-  "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "data": "Oct 29, 2022, 4:58:22 PM",
+  "title": "Sovranità alimentare, cos’è per Lollobrigida: difesa dei prodotti, non autarchia",
+  "link": "https://www.corriere.it/economia/consumi/22_ottobre_29/sovranita-alimentare-cos-lollobrigida-difesa-prodotti-non-autarchia-550e507a-5786-11ed-9a55-f49030f49577.shtml",
+  "Autore": "Michelangelo Borrillo",
+  "category": "Economia"
+},{
+  "data": "Oct 29, 2022, 4:48:54 PM",
+  "title": "Sapienza, occupazione a Scienze politiche sospesa per il ponte dei Morti",
+  "link": "https://roma.corriere.it/notizie/cronaca/22_ottobre_29/sapienza-occupazione-scienze-politiche-sospesa-il-ponte-morti-cf660d0a-578a-11ed-9a55-f49030f49577.shtml",
+  "Autore": "Maria Rosa Pavia",
+  "category": "Roma - Cronaca"
 },{
   "data": "Oct 29, 2022, 9:28:38 AM",
   "title": "Intervista a Rudy Guede: «Non ho ucciso Meredith Kercher, ma mi pentirò per sempre di averla lasciata lì»",
   "link": "https://www.corriere.it/cronache/22_ottobre_29/rudy-guede-intervista2-d5479cf0-56e2-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Giusi Fasano",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cronache"
-    }
-  }
+  "category": "Cronache"
 },{
   "data": "Oct 29, 2022, 9:40:36 AM",
   "title": "Massimo Tarantino e le coltellate ad Assago: «L’ho disarmato d’istinto, ma non sono un eroe»",
   "link": "https://www.corriere.it/sport/calcio/22_ottobre_29/intervista-massimo-tarantino-assago-eroe-coltellate-08bd8fa2-56ea-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Monica Colombo e Andrea Sereni",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
 },{
   "data": "Oct 28, 2022, 7:06:27 PM",
   "title": "Pablo Marì: da Monza ad Assago, ecco perché era in quel supermercato",
   "link": "https://www.corriere.it/sport/calcio/serie-a/22_ottobre_28/pablo-mari-monza-ad-assago-ecco-perche-era-quel-supermercato-b82680c8-56ce-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Monica Colombo",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
 },{
   "data": "Oct 29, 2022, 2:29:48 PM",
   "title": "Jessica Morlacchi risponde a Memo Remigi: «Mai autorizzato ad allungare le mani, gesto inaccettabile»",
   "link": "https://www.corriere.it/spettacoli/22_ottobre_28/jessica-morlacchi-risponde-memo-remigi-mai-autorizzato-ad-allungare-mani-gesto-inaccettabile-f350a408-56ba-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Renato Franco",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 11:37:42 AM",
-  "title": "Incidente al Circo Orfei a Terlizzi: trapezista cade e si frattura il cranio",
-  "link": "https://www.corriere.it/cronache/22_ottobre_29/terlizzi-incidente-circo-orfei-trapezista-cade-si-frattura-cranio-88513032-575f-11ed-9a55-f49030f49577.shtml",
-  "Autore": "Carlotta Lombardo",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cronache"
-    }
-  }
+  "category": "Spettacoli"
 },{
   "data": "Oct 29, 2022, 10:50:22 AM",
   "title": "Canadair precipitato, uno dei piloti rimasti uccisi si schiantò già nel 1997 (e nell’incidente morì il suo secondo)",
   "link": "https://www.corriere.it/cronache/22_ottobre_28/canadair-precipitato-dei-piloti-si-schianto-gia-1997-nell-incidente-mori-suo-capitano-96963506-56c5-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Lara Sirignano",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cronache"
-    }
-  }
+  "category": "Cronache"
 },{
-  "data": "Oct 29, 2022, 2:31:11 PM",
+  "data": "Oct 29, 2022, 11:37:42 AM",
+  "title": "Incidente al Circo Orfei a Terlizzi: trapezista cade e si frattura il cranio",
+  "link": "https://www.corriere.it/cronache/22_ottobre_29/terlizzi-incidente-circo-orfei-trapezista-cade-si-frattura-cranio-88513032-575f-11ed-9a55-f49030f49577.shtml",
+  "Autore": "Carlotta Lombardo",
+  "category": "Cronache"
+},{
+  "data": "Oct 29, 2022, 3:41:42 PM",
+  "title": "Medici a gettone, chi ci guadagna (non i pazienti): fino a 1.800 euro per un turno di 12 ore",
+  "link": "https://www.corriere.it/sette/attualita/22_ottobre_29/medici-gettone-guadagno-c7f610f8-55da-11ed-be15-822086495e48.shtml",
+  "Autore": "Simona Ravizza e Giovanni Viafora",
+  "category": "Corriere"
+},{
+  "data": "Oct 29, 2022, 3:53:21 PM",
   "title": "Morta a 93 anni Hannah Goslar, tra le migliori amiche di Anna Frank: era la «Lies»  del Diario",
   "link": "https://www.corriere.it/cultura/22_ottobre_29/morta-93-anni-amica-anna-frank-era-hanneli-suo-diario-26e447c0-576a-11ed-9a55-f49030f49577.shtml",
   "Autore": "S.Mor.",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
-  "data": "Oct 29, 2022, 12:45:51 PM",
-  "title": " Torino, 36enne si uccide in carcere: era in cella da 2 giorni per il furto di un paio di auricolari",
-  "link": "https://torino.corriere.it/cronaca/22_ottobre_29/torino-36enne-si-uccide-carcere-era-cella-2-giorni-il-furto-un-paio-auricolari-4f8dcd54-5765-11ed-9a55-f49030f49577.shtml",
-  "Autore": "Massimo Massenzio",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Torino - Cronaca"
-    }
-  }
+  "data": "Oct 29, 2022, 3:30:22 PM",
+  "title": "Pensioni, bonus per chi rinvia l’uscita dopo i 63 anni: il 75% della manovra per le bollette",
+  "link": "https://www.corriere.it/economia/tasse/22_ottobre_29/conti-75percento-risorseper-riduzione-bollettepensioni-bonus-chi-rinvia-05a7cea6-56f2-11ed-a6e7-cb06b4dff777.shtml",
+  "Autore": "Enrico Marro Fabio Savelli",
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 12:28:14 PM",
   "title": "Massimo Moratti e l’Inter: «Juventus e Moggi disonesti sui sentimenti della gente»",
   "link": "https://www.corriere.it/sport/calcio/serie-a/22_ottobre_29/massimo-moratti-intervista2-3682cf44-56f2-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Aldo Cazzullo e Daniele Dallera",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
 },{
   "data": "Oct 29, 2022, 10:55:57 AM",
   "title": "Bonus occhiali, in arrivo il voucher o rimborso da 50 euro: come fare domanda",
   "link": "https://www.corriere.it/economia/consumi/22_ottobre_29/bonus-occhiali-arrivo-voucher-o-rimborso-50-euro-come-fare-domanda-6cc66c6c-5451-11ed-a58a-ad027d5a5146.shtml",
   "Autore": "Diana Cavalcoli",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 12:13:30 PM",
   "title": "Riscaldamenti e nuove regole: quanto si può risparmiare in bolletta (fino a 265 euro)",
   "link": "https://www.corriere.it/economia/consumi/cards/riscaldamenti-nuove-regole-ecco-quanto-si-puo-risparmiare-bolletta/nuove-regole-accensione-riscaldamenti_principale.shtml",
   "Autore": "Redazione Economia",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
-  "data": "Oct 29, 2022, 12:21:49 PM",
+  "data": "Oct 29, 2022, 3:53:03 PM",
   "title": " Ora solare, quando  spostare  le lancette e quanto peserà  in bolletta: ecco i  rincari",
   "link": "https://www.corriere.it/economia/finanza/cards/ora-solare-quando-spostare-lancette-quanto-pesera-bolletta-conto-rincari/domenica-torna-l-ora-solare_principale.shtml",
   "Autore": "Massimiliano Jattoni Dall’Asén",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
-  "data": "Oct 29, 2022, 2:51:10 PM",
+  "data": "Oct 29, 2022, 3:28:12 PM",
   "title": "Iva al 5%, dai pannolini al latte in polvere: su quali prodotti si applicherà la riduzione",
   "link": "https://www.corriere.it/economia/consumi/22_ottobre_29/iva-5percento-pannolini-latte-polvere-quali-prodotti-si-applichera-riduzione-ef39aff2-55bd-11ed-be15-822086495e48.shtml",
   "Autore": "Valentina Iorio",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 3:07:00 PM",
   "title": "Acqua in bottiglia, allarme siccità: falde impoverite, torrenti scomparsi",
   "link": "https://www.corriere.it/economia/consumi/22_ottobre_29/acqua-bottiglia-allarme-siccita-falde-impoverite-torrenti-scomparsi-bd3018ec-5776-11ed-9a55-f49030f49577.shtml",
   "Autore": "Redazione Economia",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 12:23:31 PM",
-  "title": "È l’Halloween più caldo della storia, poi peggioramento ",
-  "link": "https://www.corriere.it/meteo/22_ottobre_29/l-halloween-piu-caldo-storia-poi-peggioramento-08f1f058-5758-11ed-9a55-f49030f49577.shtml",
-  "Autore": "Carlotta Lombardo",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 2:35:37 PM",
   "title": "Rugby: la Haka potente  e rabbiosa della squadra femminile neozelandese ",
   "link": "https://video.corriere.it/rugby-haka-potente-rabbiosa-squadra-femminile-neozelandese/ee9d9b22-576a-11ed-9a55-f49030f49577",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
   "data": "Oct 29, 2022, 2:37:22 PM",
   "title": "Il nuovo video del Canadair dei vigili del fuoco precipitato sull’Etna: il momento del tragico impatto ",
   "link": "https://video.corriere.it/cronaca/nuovo-video-canadair-vigili-fuoco-precipitato-sull-etna-momento-tragico-impatto/c081e3a0-56ad-11ed-a727-0a765ede32f8",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
   "data": "Oct 29, 2022, 9:58:17 AM",
   "title": "Crozza è Berlusconi: «Ho visto cose che voi nipoti non potreste immaginare... andranno perdute come i miei voti a Meloni»",
   "link": "https://video.corriere.it/spettacoli/crozza-berlusconi-ho-visto-cose-che-voi-nipoti-non-potreste-immaginare-andranno-perdute-come-miei-voti-meloni/21eb4622-5703-11ed-a6e7-cb06b4dff777",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
   "data": "Oct 29, 2022, 11:18:29 AM",
   "title": "Antonino si trasforma in Loredana Bertè e conquista tutti",
   "link": "https://video.corriere.it/spettacoli/antonino-si-trasforma-loredana-berte-conquista-tutti/02cc7b72-5761-11ed-9a55-f49030f49577",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
-  "data": "Oct 28, 2022, 2:32:32 PM",
+  "data": "Oct 29, 2022, 4:44:22 PM",
   "title": "Nello studio di La Russa: la politica, il busto, la polizia e l\u0027Inter",
   "link": "https://video.corriere.it/politica/nello-studio-la-russa-politica-busto-polizia-inter/ce36d184-5614-11ed-be15-822086495e48",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
   "data": "Oct 28, 2022, 4:28:24 PM",
   "title": "Linda canta Rino Gaetano e conquista i giudici di X Factor: l’emozionante performance",
   "link": "https://video.corriere.it/spettacoli/linda-canta-rino-gaetano-conquista-giudici-x-factor-l-emozionante-performance/4bb6900a-56be-11ed-a727-0a765ede32f8",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
-  "data": "Oct 29, 2022, 2:02:55 PM",
+  "data": "Oct 29, 2022, 3:09:40 PM",
   "title": "«Ho il colesterolo alto e non prendo farmaci: ogni quanto dovrei far controllare il cuore?»",
   "link": "https://www.corriere.it/salute/cardiologia/22_ottobre_29/colesterolo-farmaci-controllare-cuore-75f0e434-53a7-11ed-a67a-b07760455bf9.shtml",
   "Autore": "Pietro Palermo",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Salute"
-    }
-  }
+  "category": "Salute"
 },{
   "data": "Oct 28, 2022, 11:08:43 AM",
   "title": "Il tumore al fegato che  «si nasconde»: sintomi difficili da interpretare Pancreas e segnali: cosa fare",
   "link": "https://www.corriere.it/salute/sportello_cancro/22_ottobre_27/tumore-fegato-si-nasconde-sintomi-colangiocarcinoma-41c9f438-53c6-11ed-8264-f90c1c20edd3.shtml",
   "Autore": "Redazione Salute",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
 },{
   "data": "Oct 29, 2022, 10:54:19 AM",
   "title": "Mi sono innamorato di un’altra, ma non voglio far soffrire la mia fidanzata. Come fare?",
   "link": "https://www.corriere.it/sette/editoriali/22_ottobre_29/mi-sono-innamorato-un-altra-ma-non-voglio-far-soffrire-mia-fidanzata-come-fare-31384632-56d3-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Massimo Gramellini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 11:17:38 AM",
   "title": "Con chi sta Musk: la Russia, l’Ucraina, la Cina o gli Usa? Qual è la sua politica estera?",
   "link": "https://www.corriere.it/oriente-occidente-federico-rampini/22_ottobre_29/con-chi-sta-musk-russia-ucraina-cina-usa-b86b1dea-5756-11ed-9a55-f49030f49577.shtml",
   "Autore": "Federico Rampini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Esteri"
-    }
-  }
+  "category": "Esteri"
 },{
   "data": "Oct 29, 2022, 1:52:13 PM",
   "title": "Complottista, antisemita e No Vax, chi è l’assalitore di Paul Pelosi ",
   "link": "https://www.corriere.it/esteri/22_ottobre_29/complottista-antisemita-no-vax-chi-l-assalitore-paul-pelosi-0bd8b1b0-5764-11ed-9a55-f49030f49577.shtml",
   "Autore": "Redazione Esteri",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Esteri"
-    }
-  }
+  "category": "Esteri"
 },{
   "data": "Oct 29, 2022, 1:19:16 AM",
   "title": "Come vivere senza contante  e con un fisco meno esoso",
   "link": "https://www.corriere.it/lodicoalcorriere/index/29-10-2022/index.shtml",
   "Autore": "Aldo Cazzullo",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
+},{
+  "data": "Oct 29, 2022, 4:45:51 PM",
+  "title": "Da Pac-man ai flipper, viaggio dentro la più grande collezione di videogiochi a gettone: «Oggi la gente li vuole tenere in casa» ",
+  "link": "https://www.corriere.it/cronache/22_ottobre_29/da-pac-man-flipper-viaggio-dentro-piu-grande-collezione-videogiochi-gettone-oggi-gente-li-vuole-tenere-casa-fe01fcc0-56a2-11ed-a727-0a765ede32f8.shtml",
+  "Autore": "Alessandro Fulloni",
+  "category": "Cronache"
 },{
   "data": "Oct 29, 2022, 11:04:23 AM",
   "title": "Scatta l\u0027ora solare, cibi che aiutano a regolare i disturbi del sonno",
   "link": "https://www.corriere.it/cook/news/cards/scatta-ora-solare-cibi-che-aiutano-regolare-disturbi-sonno/ora-legale-ora-solare-dieta_principale.shtml",
   "Autore": "Camilla Sernagiotto",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 11:14:11 AM",
-  "title": "Jerry Lee Lewis, morto a 87 anni il pioniere del rock and roll",
-  "link": "https://www.corriere.it/spettacoli/22_ottobre_28/jerry-lee-lewis-morto-87-anni-pioniere-rock-and-roll-0ae706ac-56e3-11ed-a6e7-cb06b4dff777.shtml",
-  "Autore": "Matteo Cruccu",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 3:07:29 PM",
   "title": "Budget, perché la Red Bull è stata graziata dalla Fia: il ruolo di Ecclestone",
   "link": "https://www.corriere.it/sport/formula-1/22_ottobre_29/budget-cap-perche-red-bull-stata-graziata-fia-ruolo-ecclestone-dietro-sentenza-519047d0-5760-11ed-9a55-f49030f49577.shtml",
   "Autore": "Daniele Sparisci e Giorgio Terruzzi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
+},{
+  "data": "Oct 29, 2022, 4:45:17 PM",
+  "title": "«Ogni anno in Italia uccisi illegalmente 5 milioni di uccelli»: il Wwf in campo contro i bracconieri  ",
+  "link": "https://www.corriere.it/animali/22_ottobre_29/azione-antibracconaggio-wwf-ogni-anno-uccisi-illegalmente-5-milioni-uccelli-c1b16020-5518-11ed-9aa3-c0d791a13b03.shtml",
+  "Autore": "Emily Capozucca",
+  "category": "Animali"
 },{
   "data": "Oct 29, 2022, 7:45:52 AM",
   "title": "Marta Flavi, da Agenzia matrimoniale al matrimonio con Costanzo. Il dolore per non avere figli ",
   "link": "https://www.corriere.it/spettacoli/cards/marta-flavi-agenzia-matrimoniale-matrimonio-costanzo-dolore-non-avere-figli/flavi-l-attacco-guillermo-mariotto_principale.shtml",
   "Autore": "Maria Volpe",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 2:47:47 PM",
-  "title": "X Factor 2022, le pagelle del primo Live: Ambra va al «tilt» per i suoi concorrenti al ballottaggio (voto 4), Michielin tra «raga» e «regaz» (6)",
-  "link": "https://www.corriere.it/spettacoli/cards/x-factor-2022-pagelle-primo-live-ambra-va-tilt-suoi-concorrenti-ballottaggio-voto-4-michielin-raga-regaz-6/fedez-voto-5_principale.shtml",
-  "Autore": "Arianna Ascione",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
+  "category": "Spettacoli"
 },{
   "data": "Oct 29, 2022, 3:08:17 PM",
   "title": "Quanto costa curarsi dal dentista? Per molte famiglie troppo ",
   "link": "https://www.corriere.it/salute/22_ottobre_29/cure-dentista-costi-eccessivi-cause-rimedi-e02af53e-4884-11ed-9137-2a999573b4c6.shtml",
   "Autore": "Ruggiero Corcella",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Salute"
-    }
-  }
+  "category": "Salute"
 },{
   "data": "Oct 29, 2022, 1:23:15 PM",
   "title": "Halloween 2022, trasformismi: la marziana di Kendal Jenner o la space cowgirl di Kim Kardashian? ",
   "link": "https://www.corriere.it/moda/cards/halloween-2022-trasformismi-marziana-kendal-jenner-o-space-cowgirl-kim-kardashian/hailey-bieber-sosia-britney-spears_principale.shtml",
   "Autore": "Lorenzo de Caro",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Moda"
-    }
-  }
+  "category": "Moda"
 },{
   "data": "Oct 29, 2022, 7:57:39 AM",
   "title": "Gambero Rosso, le migliori pizzerie d’Italia: le 19 «Stelle» ",
   "link": "https://www.corriere.it/cook/news/cards/gambero-rosso-migliori-pizzerie-d-italia-19-stelle/migliori-pizzerie-d-italia_principale.shtml",
   "Autore": "Fabiana Salsi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 11:24:22 AM",
   "title": "Carlo III contro Harry: il re capitano dei Royal Marines al posto del figlio",
   "link": "https://www.corriere.it/moda/22_ottobre_29/carlo-iii-contro-harry-re-capitano-royal-marines-posto-figlio-adfa7272-56d2-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Federica Bandirali",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Moda"
-    }
-  }
+  "category": "Moda"
 },{
-  "data": "Oct 29, 2022, 12:51:23 PM",
+  "data": "Oct 29, 2022, 3:13:16 PM",
   "title": "Alfa Romeo Giulia e Stelvio, il restyling porta più tecnologia. Dai fari a Led alla strumentazione digitale",
   "link": "https://www.corriere.it/motori/news/22_ottobre_29/alfa-romeo-giulia-stelvio-restyling-porta-piu-tecnologia-fari-led-strumentazione-digitale-b8a4541c-5773-11ed-9a55-f49030f49577.shtml",
   "Autore": "Edoardo Nastri",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Motori"
-    }
-  }
+  "category": "Motori"
 },{
   "data": "Oct 29, 2022, 7:50:28 AM",
   "title": "Via Tuscolana come una trappola mortale per scooter e biciclette ",
   "link": "https://roma.corriere.it/notizie/cronaca/22_ottobre_29/via-tuscolana-come-trappola-mortale-scooter-biciclette-e4f15600-5705-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Camilla Palladino",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Roma - Cronaca"
-    }
-  }
+  "category": "Roma - Cronaca"
 },{
   "data": "Oct 29, 2022, 7:33:03 AM",
   "title": "Infermiera violentata all’Umberto I, le tracce di dna dell’aggressore e la rabbia delle colleghe",
   "link": "https://roma.corriere.it/notizie/cronaca/22_ottobre_29/infermiera-violentata-all-umberto-tracce-dna-dell-aggressore-rabbia-colleghe-8d540236-5704-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Rinaldo Frignani",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Roma - Cronaca"
-    }
-  }
+  "category": "Roma - Cronaca"
 },{
   "data": "Oct 29, 2022, 7:35:03 AM",
   "title": "Sapienza, le ragazze della Generazione Z che si definiscono «studentu»",
   "link": "https://roma.corriere.it/notizie/cronaca/22_ottobre_29/sapienza-ragazze-generazione-z-che-si-definiscono-studentu-fa1f2ae6-56f3-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Diana Romersi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Roma - Cronaca"
-    }
-  }
+  "category": "Roma - Cronaca"
 },{
   "data": "Oct 29, 2022, 1:33:12 PM",
   "title": "Cosa fare ad Halloween? Ecco la bella iniziativa del Bioparco di Roma ",
   "link": "https://roma.corriere.it/notizie/diario-romano/22_ottobre_29/cosa-fare-ad-halloween-ecco-bella-iniziativa-bioparco-roma-2fa8895a-5776-11ed-9a55-f49030f49577.shtml",
   "Autore": "Redazione Roma",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Roma - Diario romano"
-    }
-  }
+  "category": "Roma - Diario romano"
 },{
   "data": "Oct 29, 2022, 2:01:01 PM",
   "title": "Dopo 2 anni catturato il figlio del «biondo», primo esemplare di cane-lupo in Piemonte",
   "link": "https://torino.corriere.it/piemonte/22_ottobre_28/dopo-2-anni-catturato-biondo-primo-esemplare-cane-lupo-piemonte-168226d8-56fa-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Massimo Massenzio",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Torino - Piemonte"
-    }
-  }
+  "category": "Torino - Piemonte"
+},{
+  "data": "Oct 29, 2022, 1:33:22 PM",
+  "title": "«Questioni di Borsa, non parlatene nelle interviste»L’accordo nella chat Juve",
+  "link": "https://torino.corriere.it/sport/juventus/22_ottobre_29/questioni-borsa-non-parlatene-intervistel-accordo-chat-juve-c604dc8c-5758-11ed-9a55-f49030f49577.shtml",
+  "Autore": "Massimiliano Nerozzi@MaxNerozzi",
+  "category": "Torino - Juventus"
 },{
   "data": "Oct 28, 2022, 10:18:43 AM",
   "title": "Morto Simone Borin, papà della piccola Matilda, uccisa nel 2005 a soli 22 mesi",
   "link": "https://torino.corriere.it/cronaca/22_ottobre_28/morto-simone-borin-papa-piccola-matilda-uccisa-2005-soli-22-mesi-c4ba7e4a-5695-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Floriana Rullo",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Torino - Cronaca"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 1:49:48 PM",
-  "title": "Sant’Anna, senza acqua frizzante fatturato giù del 30%. «Ma ora il problema è la lunga siccità»",
-  "link": "https://torino.corriere.it/economia/22_ottobre_29/sant-anna-senza-acqua-frizzante-fatturato-giu-30percento-ma-ora-problema-lunga-siccita-2661f01e-577d-11ed-9a55-f49030f49577.shtml",
-  "Autore": "Redazione online",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Torino - Economia"
-    }
-  }
+  "category": "Torino - Cronaca"
 },{
   "data": "Oct 29, 2022, 3:05:20 PM",
   "title": "Quell’ode di Ceronetti alla bagna cauda. «Pedemontis rex est cardus...»",
   "link": "https://torino.corriere.it/food/22_ottobre_29/quell-ode-ceronetti-bagna-cauda-piemonte-rex-est-cardus-8326adde-5779-11ed-9a55-f49030f49577.shtml",
   "Autore": "Gabriele Ferraris",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Torino - Food"
-    }
-  }
+  "category": "Torino - Food"
 },{
   "data": "Oct 26, 2022, 6:05:07 PM",
   "title": "Meloni tende la mano alla Svp che ricambia con l’astensione dei suoi parlamentari sulla fiducia al governo",
   "link": "https://www.corriere.it/elezioni/22_ottobre_26/meloni-tende-mano-svp-che-ricambia-l-astensione-suoi-parlamentari-fiducia-governo-aef6e1d6-5544-11ed-9aa3-c0d791a13b03.shtml",
   "Autore": "Marco Angelucci",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "category": "Politica"
 },{
   "data": "Oct 26, 2022, 1:59:15 PM",
   "title": "Beppe Grillo: «Il governo? Spero che duri a lungo, Conte sta tirando fuori tutto il nostro orgoglio»",
   "link": "https://www.corriere.it/politica/22_ottobre_26/m5s-grillo-neo-eletti-se-siete-qui-grazie-regola-due-mandati-c33ecca6-550f-11ed-9aa3-c0d791a13b03.shtml",
   "Autore": "Emanuele Buzzi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "category": "Politica"
 },{
   "data": "Oct 26, 2022, 1:08:09 PM",
   "title": "Il futuro di Di Maio, proiettato verso una consulenza all’estero",
   "link": "https://www.corriere.it/politica/22_ottobre_24/futuro-di-maio-proiettato-una-consulenza-all-estero-9b42eb6c-5396-11ed-a67a-b07760455bf9.shtml",
   "Autore": "Alessandro Trocino",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "category": "Politica"
 },{
   "data": "Oct 1, 2022, 8:11:52 AM",
   "title": "Il gradimento di Draghi al 63%. Sale ancora dopo le dimissioni",
   "link": "https://www.corriere.it/politica/22_settembre_30/gradimento-draghi-63percento-sale-ancora-le-dimissioni-81a0c2a4-40fb-11ed-8b65-55aa2f703574.shtml",
   "Autore": "Nando Pagnoncelli",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Politica"
-    }
-  }
+  "category": "Politica"
 },{
   "data": "Oct 28, 2022, 11:45:08 AM",
   "title": "Fontana a Montecitorio, un blitz dei partiti. Chi vota destra non è razzista",
   "link": "https://www.corriere.it/sette/cultura-societa/22_ottobre_28/fontana-montecitorio-blitz-partiti-chi-vota-destra-non-razzista-6b7f3efc-553b-11ed-9aa3-c0d791a13b03.shtml",
   "Autore": "Roberto Saviano",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 28, 2022, 11:39:43 AM",
   "title": "Walt Disney, si festeggia un secolo di meraviglie disegnate: da Topolino ai robot digitali",
   "link": "https://www.corriere.it/sette/cultura-societa/22_ottobre_19/walt-disney-secolo-meraviglie-disegnate-topolino-robot-digitali-6e0e95e0-4ee8-11ed-8304-dc6918921d5f.shtml",
   "Autore": "Gian Luca Bauzano",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 28, 2022, 11:46:09 AM",
   "title": "Itinerari per ritrovare sé stessi e avvicinarsi alla natura, con qualche idea per la notte di Halloween",
   "link": "https://www.corriere.it/sette/viaggi/22_ottobre_27/itinerari-ritrovare-se-stessi-avvicinarsi-natura-qualche-idea-la-notte-streghe-2868846a-55fa-11ed-be15-822086495e48.shtml",
   "Autore": "Manuela Croci",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 26, 2022, 1:14:01 PM",
   "title": "Pasolini: «Un massacro firmato da pariolini neofascisti. Ma ora anche i sottoproletari sono criminali»",
   "link": "https://www.corriere.it/sette/cultura-societa/22_ottobre_25/pasolini-un-massacro-firmato-pariolini-neofascisti-ma-ora-anche-sottoproletari-sono-criminali-4c1bcc74-4fbe-11ed-b010-6f56425cdcb2.shtml",
   "Autore": "Pier Paolo Pasolini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 1:26:33 PM",
   "title": "La stranezza di Servillo-Pirandello e i becchini Ficarra \u0026 Picone: i film nei cinema e sulle varie piattaforme",
   "link": "https://www.corriere.it/spettacoli/cards/stranezza-servillo-pirandello-becchini-ficarra-picone-palma-d-oro-cannes-l-abisso-donato-carrisi-javier-bardem-canta-il-coccodrillo-mel-gibson-star-radio-film-cinema-sky-netflix-prime-altre-piattaforme/stranezza-sale_principale.shtml",
   "Autore": "Paolo Baldini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
+  "category": "Spettacoli"
 },{
   "data": "Oct 28, 2022, 11:04:18 AM",
   "title": "Le serie tv per il weekend: «The Devil’s Hour» e le nuove stagioni di «Boris» e «Gangs of London»",
   "link": "https://www.corriere.it/spettacoli/cinema-serie-tv/cards/serie-tv-il-weekend-the-devil-s-hour-nuove-stagioni-boris-gangs-of-london/the-devil-s-hour-amazon-prime-video_principale.shtml",
   "Autore": "Giacomo Fasola",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
+  "category": "Spettacoli"
 },{
   "data": "Oct 28, 2022, 8:59:18 PM",
   "title": "«Che c’è di nuovo», Ilaria D’Amico tra destra e sinistra",
   "link": "https://www.corriere.it/spettacoli/22_ottobre_28/che-c-nuovo-ilaria-d-amico-destra-sinistra-d10a2114-56cc-11ed-a727-0a765ede32f8.shtml",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
+  "category": "Spettacoli"
 },{
   "data": "Oct 28, 2022, 8:59:02 PM",
   "title": "«A cena da Maria Latella»:parlo di politica a tavolacosì gli ospiti non litigano",
   "link": "https://www.corriere.it/spettacoli/22_ottobre_28/a-cena-maria-latellaparlo-politica-tavolacosi-ospiti-non-litigano-1bb7ea9e-56e5-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Maria Volpe",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Spettacoli"
-    }
-  }
+  "category": "Spettacoli"
 },{
   "data": "Oct 29, 2022, 6:18:56 AM",
   "title": "L’imprenditore Bruno Berti ai suoi 55 dipendenti: «Le bollette ve le pago io»",
   "link": "https://www.corriere.it/buone-notizie/22_ottobre_28/imprenditore-bruno-berti-suoi-55-dipendenti-le-bollette-ve-pago-io-7a24279a-5696-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Jacopo Storni",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 6:22:57 AM",
   "title": "Dall’acqua dei fagioli  ai fondi di caffè: le 10 cose da non buttare",
   "link": "https://www.corriere.it/buone-notizie/cards/dalle-bucce-limone-arancia-tappi-sughero-10-cose-non-buttare/i-rifiuti-quotidiani-che-fanno-bene_principale.shtml",
   "Autore": "Redazione Buone Notizie",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 9:34:52 AM",
   "title": "Il meteo diventa sociale: fisici e matematici «insegnano» il clima ",
   "link": "https://www.corriere.it/buone-notizie/22_ottobre_28/meteo-diventa-sociale-fisici-matematici-insegnano-clima-a07cde88-526c-11ed-8180-68ab22e31c66.shtml",
   "Autore": "Anna Gandolfi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 25, 2022, 6:12:40 PM",
   "title": " L’appello delle ong: un viceministro tecnico per la cooperazione",
   "link": "https://www.corriere.it/buone-notizie/22_ottobre_24/appello-ong-viceministro-tecnico-la-cooperazione-28c8637a-539e-11ed-a67a-b07760455bf9.shtml",
   "Autore": "Silvia Stilli*",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 27, 2022, 6:09:09 PM",
   "title": "I cavi sottomarini in fibra ottica sabotati, Sunak studia contromisure",
   "link": "https://www.corriere.it/esteri/22_ottobre_27/i-cavi-sottomarini-fibra-ottica-sabotati-sunak-studia-contromisure-847d52b8-55b8-11ed-be15-822086495e48.shtml",
   "Autore": "Francesco Battistini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Esteri"
-    }
-  }
+  "category": "Esteri"
 },{
   "data": "Oct 26, 2022, 1:42:04 PM",
   "title": "Verso il Midterm, in Pennsylvania il convalescente Fetterman fatica contro il dottor Oz",
   "link": "https://www.corriere.it/esteri/22_ottobre_26/pennsylvania-convalescente-fetterman-fatica-contro-dottor-oz-c9c05316-5513-11ed-9aa3-c0d791a13b03.shtml",
   "Autore": "Massimo Gaggi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Esteri"
-    }
-  }
+  "category": "Esteri"
 },{
   "data": "Oct 27, 2022, 6:15:53 PM",
   "title": "Israele, sulla fecondazione in vitro torna il giudizio di Salomone: di chi è il figlio concepito in vitro?",
   "link": "https://www.corriere.it/esteri/22_ottobre_25/israele-torna-giudizio-salomone-chi-figlio-concepito-vitro-62aedf30-548c-11ed-a58a-ad027d5a5146.shtml",
   "Autore": "Davide Frattini, nostro corrispondente a Gerusalemme",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Esteri"
-    }
-  }
+  "category": "Esteri"
 },{
-  "data": "Oct 28, 2022, 9:02:15 PM",
+  "data": "Oct 29, 2022, 4:49:04 PM",
   "title": "Caloria negativa contro caloria vuota: come riconoscerle a tavola per dimagrire",
   "link": "https://www.corriere.it/cook/news/cards/caloria-negativa-contro-caloria-vuota-come-riconoscerle-tavola-dimagrire/calorie-negative-vs-calorie-vuote-nomi-che-traggono-inganno_principale.shtml",
   "Autore": "Camilla Sernagiotto",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 7:39:04 AM",
   "title": "Gli sposi «taccagni»: matrimonio in un wine resort ma non offrono il vino",
   "link": "https://www.corriere.it/cook/news/22_ottobre_28/gli-sposi-taccagni-matrimonio-un-wine-resort-ma-non-offrono-vino-62f6d732-5549-11ed-9aa3-c0d791a13b03.shtml",
   "Autore": "Fabiana Salsi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 7:39:15 AM",
   "title": "Frank Gramuglia: «Le cose che vorremmo dire, ma non possiamo, quando siamo al ristorante»",
   "link": "https://www.corriere.it/cook/news/22_ottobre_27/frank-gramuglia-le-cose-che-vorremmo-dire-ma-non-possiamo-quando-siamo-ristorante-c8565758-44d5-11ed-b1df-7473c7dbd1a7.shtml",
   "Autore": "Benny Mirko Procopio",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 28, 2022, 9:02:14 PM",
   "title": "Antinori cantina più bella al mondo secondo «50 Best Vineyards», tra le prime 50 anche Ferrari e Donnafugata ",
   "link": "https://www.corriere.it/cook/news/cards/antinori-cantina-piu-bella-mondo-secondo-50-best-vineyards-le-prime-50-anche-ferrari-donnafugata/vino-antinori-vetta_principale.shtml",
   "Autore": "Alessandra Dal Monte",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Corriere"
-    }
-  }
+  "category": "Corriere"
 },{
   "data": "Oct 29, 2022, 9:55:14 AM",
   "title": "Chi è Massimo Tarantino, l’ex difensore che ha disarmato l’accoltellatore del Carrefour di Assago",
   "link": "https://www.corriere.it/sport/calcio/22_ottobre_28/chi-massimo-tarantino-l-ex-difensore-che-ha-disarmato-l-accoltellatore-carrefour-assago-c112a4c0-5686-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Pierfrancesco Catucci",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
 },{
-  "data": "Oct 29, 2022, 2:41:52 PM",
-  "title": "Kyrie Irving (Nba) promuove un film antisemita: scoppia la polemica",
-  "link": "https://www.corriere.it/sport/22_ottobre_29/kyrie-irving-nba-promuove-film-antisemita-scoppia-polemica-13e2cda6-5781-11ed-9a55-f49030f49577.shtml",
-  "Autore": "Flavio Vanetti",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
-},{
-  "data": "Oct 29, 2022, 12:11:15 PM",
+  "data": "Oct 29, 2022, 4:54:57 PM",
   "title": "Dove vedere Napoli-Sassuolo, Lecce-Juventus e Inter-Sampdoria",
   "link": "https://www.corriere.it/sport/calcio/serie-a/22_ottobre_29/dove-vedere-tv-partite-serie-a-oggi-9d5a6292-56e1-11ed-a6e7-cb06b4dff777.shtml",
   "Autore": "Salvatore Riggio",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Sport"
-    }
-  }
+  "category": "Sport"
 },{
   "data": "Oct 28, 2022, 6:30:33 PM",
   "title": "Scuola, merito e ascensore sociale. Il fallimento del modello americano",
   "link": "https://www.corriere.it/scuola/medie/22_ottobre_26/scuola-merito-ascensore-sociale-fallimento-modello-americano-b45979b4-553e-11ed-9aa3-c0d791a13b03.shtml",
   "Autore": "Orsola Riva",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
   "data": "Oct 26, 2022, 9:22:25 AM",
   "title": "Donne e lavoro: solo le laureate in materie Stem guadagnano come gli uomini (anzi: leggermente di più)",
   "link": "https://www.corriere.it/scuola/universita/cards/donne-lavoro-solo-laureate-materie-stem-guadagnano-come-uomini-anzi-leggermente-piu/svantaggiate-gli-svantaggiati_principale.shtml",
   "Autore": "Francesco Sellari",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
   "data": "Oct 26, 2022, 9:23:27 AM",
   "title": "La resistenza magica di sette fate e una gatta nella notte di San Giovanni | Video",
   "link": "https://video.corriere.it/scuola/sette-fate-gatta-notte-magica-san-giovanni/c3bb66be-53a0-11ed-a67a-b07760455bf9",
   "Autore": "",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "CorriereTV"
-    }
-  }
+  "category": "CorriereTV"
 },{
   "data": "Oct 26, 2022, 9:24:58 AM",
   "title": "Maggiordomo: quel «capo» della servitù sempre impeccabile, eterno sospettato",
   "link": "https://www.corriere.it/scuola/22_ottobre_26/maggiordomo-combatte-realta-diventando-star-letteratura-438dd6e4-548f-11ed-a58a-ad027d5a5146.shtml",
   "Autore": "Paolo Fallai",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
-  "data": "Oct 29, 2022, 7:56:08 AM",
+  "data": "Oct 29, 2022, 3:22:00 PM",
   "title": "Ictus, ogni minuto è prezioso per salvare la vita ed evitare disabilità. Sintomi, terapie, come prevenirlo",
   "link": "https://www.corriere.it/salute/neuroscienze/cards/ictus-ogni-minuto-prezioso-salvare-vita-ed-evitare-disabilita-sintomi-terapie-come-prevenirlo/fare-presto_principale.shtml",
   "Autore": "Maria Giovanna Faiella",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Salute"
-    }
-  }
+  "category": "Salute"
 },{
   "data": "Oct 28, 2022, 2:14:43 PM",
   "title": "Che cos’è «l’effetto doccia»: il pensiero libero e la creatività",
   "link": "https://www.corriere.it/salute/neuroscienze/22_ottobre_28/effetto-doccia-creativita-8b006726-48a0-11ed-9137-2a999573b4c6.shtml",
   "Autore": "Simona Marchetti",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Salute"
-    }
-  }
+  "category": "Salute"
 },{
   "data": "Oct 28, 2022, 2:17:25 PM",
   "title": "Quando il cuore batte troppo velocemente (anche a riposo): operata ragazza di 21 anni",
   "link": "https://www.corriere.it/salute/cardiologia/22_ottobre_27/tachicardia-cuore-batte-troppo-velocemente-operata-ragazza-2272add6-55f7-11ed-be15-822086495e48.shtml",
   "Autore": "Laura Cuppini",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Salute"
-    }
-  }
+  "category": "Salute"
 },{
   "data": "Oct 24, 2022, 10:17:49 AM",
   "title": "Sette cavalli selvaggi dell\u0027Aveto catturati e rinchiusi. Gli animalisti: «Devono tornare in libertà»",
   "link": "https://www.corriere.it/animali/22_ottobre_23/sette-cavalli-selvaggi-aveto-rinchiusi-animalisti-devono-tornare-liberta-9404683a-52f1-11ed-9995-eee0d5da864b.shtml",
   "Autore": "Silvia Morosi",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Animali"
-    }
-  }
+  "category": "Animali"
 },{
   "data": "Oct 20, 2022, 11:01:45 AM",
   "title": "Si è spenta l’orsa Greta, salvata dalla Lituania e ospitata nel Parco d’Abruzzo",
   "link": "https://www.corriere.it/cronache/22_ottobre_20/si-spenta-l-orsa-greta-salvata-lituania-ospitata-parco-d-abruzzo-ebe03f6c-503e-11ed-9fe8-4b642e287986.shtml",
   "Autore": "Paolo Virtuani",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cronache"
-    }
-  }
+  "category": "Cronache"
 },{
   "data": "Oct 24, 2022, 5:17:46 PM",
   "title": "«Basta uccidere i pulcini maschi». La richiesta dei ministri dell’Agricoltura ",
   "link": "https://www.corriere.it/animali/22_ottobre_23/basta-uccidere-pulcini-maschi-richiesta-ministri-dell-agricoltura-086ea5bc-52bd-11ed-9995-eee0d5da864b.shtml",
   "Autore": "Alessandro Sala",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Animali"
-    }
-  }
+  "category": "Animali"
 },{
   "data": "Oct 22, 2022, 1:40:25 PM",
   "title": "La lezione «diplomatica» dei cani: conoscersi riduce ed evita i conflitti",
   "link": "https://www.corriere.it/animali/bonnie-e-co/notizie/lezione-diplomatica-cani-conoscersi-riduce-ed-evita-conflitti-34717e7e-51e0-11ed-8180-68ab22e31c66.shtml",
   "Autore": "Fabrizio Rondolino",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Scienze"
-    }
-  }
+  "category": "Scienze"
 },{
   "data": "Oct 24, 2022, 2:50:52 PM",
   "title": "Incentivi auto, dal 2 novembre al via i nuovi bonus. Fino a 7.500 euro di sconto sulle elettriche I modelli acquistabili",
   "link": "https://www.corriere.it/motori/news/22_ottobre_21/incentivi-auto-2-novembre-via-nuovi-bonus-fino-7500-euro-sconto-elettriche-modelli-acquistabili-f24d2898-5128-11ed-ae37-402d6a32bf5d.shtml",
   "Autore": "Edoardo Nastri",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Motori"
-    }
-  }
+  "category": "Motori"
 },{
   "data": "Oct 20, 2022, 3:17:18 PM",
   "title": "Crash test, le nuove auto alla prova: otto su dieci prendono il massimo punteggio",
   "link": "https://www.corriere.it/motori/news/tecnologia/cards/crash-test-nuove-auto-prova-otto-dieci-prendono-massimo-punteggio/crash-test-euro-ncap-sessione-molto-positiva_principale.shtml",
   "Autore": "Maurizio Bertera",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Motori"
-    }
-  }
+  "category": "Motori"
 },{
   "data": "Oct 24, 2022, 2:52:01 PM",
   "title": "Ferrari 296 GTS, come va la prima V6 spider a cielo aperto di Maranello. Video e foto",
   "link": "https://www.corriere.it/motori/prove/22_ottobre_17/ferrari-296-gts-come-va-prima-v6-spider-cielo-aperto-maranello-video-foto-7c2b51d8-4bda-11ed-9dcb-b248fbaa757f.shtml",
   "Autore": "Stefano Bargiggia",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Motori"
-    }
-  }
+  "category": "Motori"
 },{
   "data": "Oct 20, 2022, 3:04:59 PM",
   "title": "Jeep Avenger, il debutto del primo Suv completamente elettrico. Ecco com’è",
   "link": "https://www.corriere.it/motori/news/anteprime/cards/jeep-avenger-debutto-primo-suv-completamente-elettrico-ecco-com-e/modello-strategico_principale.shtml",
   "Autore": "Maurizio Bertera",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Motori"
-    }
-  }
+  "category": "Motori"
 },{
   "data": "Oct 28, 2022, 8:41:30 PM",
   "title": "Santoni su Vonnegut, e Graeber in anteprima: la newsletter de «la Lettura»",
   "link": "https://www.corriere.it/la-lettura/22_ottobre_27/santoni-vonnegut-graeber-anteprima-newsletter-de-la-lettura-5427639e-5610-11ed-be15-822086495e48.shtml",
   "Autore": "Redazione Cultura",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
   "data": "Oct 26, 2022, 8:45:36 PM",
   "title": "Scatti per l’emergenza: a Roma la mostra per i trent’anni di Intersos  ",
   "link": "https://www.corriere.it/cultura/22_ottobre_26/scatti-l-emergenza-roma-mostra-trent-anni-intersos-6945eb44-548d-11ed-a58a-ad027d5a5146.shtml",
   "Autore": "MARTA SERAFINI",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
   "data": "Oct 27, 2022, 6:14:24 PM",
   "title": "«La Lettura», ecco l’Agendina 2023 ",
   "link": "https://www.corriere.it/la-lettura/22_ottobre_10/lettura-ecco-l-agendina-2023-9533f6c6-4874-11ed-9137-2a999573b4c6.shtml",
   "Autore": "Redazione Cultura",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
   "data": "Oct 26, 2022, 3:24:14 PM",
   "title": "Paolo Giordano, esce il nuovo romanzo: «Tasmania»",
   "link": "https://www.corriere.it/cultura/22_ottobre_21/paolo-giordano-esce-nuovo-romanzo-tasmania-5bbb7256-509f-11ed-9fe8-4b642e287986.shtml",
   "Autore": "NICOLA H. COSENTINO",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Cultura"
-    }
-  }
+  "category": "Cultura"
 },{
   "data": "Oct 28, 2022, 4:18:13 PM",
   "title": "Antitrust, aumenti in bolletta: nuovi provvedimenti contro Iren, E.On, Dolomiti e Iberdrola ",
   "link": "https://www.corriere.it/economia/consumi/22_ottobre_28/antitrust-aumenti-bolletta-nuovi-provvedimenti-contro-iren-eon-dolomiti-iberdrola-5e8724f2-5690-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Fausta Chiesa",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 9:54:51 AM",
   "title": "Tetto al contante, Meloni media: il compromesso a quota 5 mila euro",
   "link": "https://www.corriere.it/economia/consumi/22_ottobre_28/tetto-contante-meloni-media-compromesso-quota-5-mila-euro-3509fdf4-5689-11ed-a727-0a765ede32f8.shtml",
   "Autore": "Fabio Savelli",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 29, 2022, 11:54:41 AM",
   "title": "Btp Italia, come funziona il titolo anti inflazione: la nuova emissione di novembre e il premio fedeltà",
   "link": "https://www.corriere.it/economia/finanza/cards/btp-italia-come-funziona-titolo-anti-inflazione-nuova-emissione-novembre-premio-fedelta/ritorno-btp-italia-collocamento-14-16-novembre-2022_principale.shtml",
   "Autore": "Diana Cavalcoli",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{
   "data": "Oct 27, 2022, 5:18:15 PM",
   "title": "Poste Italiane accelera sui dati: acquisito il 70% di Agile Lab per 18 milioni",
   "link": "https://www.corriere.it/economia/aziende/22_ottobre_27/poste-italiane-accelera-dati-acquisito-70percento-agile-lab-18-milioni-2f14aa4a-55fb-11ed-be15-822086495e48.shtml",
   "Autore": "Redazione Economia",
-  "category": {
-    "subject": {
-      "taxonomyUri": "https://www.corriere.it",
-      "value": "Economia"
-    }
-  }
+  "category": "Economia"
 },{}  ]

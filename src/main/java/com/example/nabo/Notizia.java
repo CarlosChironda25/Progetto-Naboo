@@ -99,7 +99,7 @@ public class Notizia {
 
     public String toString(){
         return title +"\n\n"+
-                category +"\n\n"+
+                "Category : " + category +"\n\n"+
                 link;
 
     }

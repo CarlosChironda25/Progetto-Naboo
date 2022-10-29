@@ -36,7 +36,7 @@ public class GestoreNotizia {
                    SyndEntry entry = itEntries.next();
                    System.out.println(entry.getCategories().get(0));
                    //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                   Notizia notizia = new Notizia(entry.getTitle(), new SyndContent[]{entry.getDescription()}, entry.getLink(), entry.getAuthor() , entry.getCategories().get(0).getNome() , (Date) entry.getPublishedDate(), entry.getSource());
+                   Notizia notizia = new Notizia(entry.getTitle(), new SyndContent[]{entry.getDescription()}, entry.getLink(), entry.getAuthor() , entry.getCategories().get(0).getName() , (Date) entry.getPublishedDate(), entry.getSource());
                    notizias.add(notizia);
 
                }
