@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -34,9 +35,9 @@ public class GestoreNotizia {
                while (itEntries.hasNext()) {
 
                    SyndEntry entry = itEntries.next();
-                   System.out.println(entry.getCategories().get(0));
+                   //System.out.println(entry.getCategories().get(0));
                    //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                   Notizia notizia = new Notizia(entry.getTitle(), new SyndContent[]{entry.getDescription()}, entry.getLink(), entry.getAuthor() , entry.getCategories().get(0).getName() , (Date) entry.getPublishedDate(), entry.getSource());
+                   Notizia notizia = new Notizia(entry.getTitle(), entry.getDescription().getValue() , entry.getLink(), entry.getAuthor() , entry.getCategories().get(0).getName() , (Date) entry.getPublishedDate(), entry.getSource());
                    notizias.add(notizia);
 
                }

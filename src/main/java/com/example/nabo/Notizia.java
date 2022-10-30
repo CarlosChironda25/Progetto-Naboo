@@ -5,6 +5,8 @@ import com.rometools.rome.feed.synd.SyndCategoryImpl;
 import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndFeed;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -13,35 +15,34 @@ public class Notizia {
       public Date data;
       public String title;
       public String link;
-      public SyndContent[] Descrizione;
-      public String Autore;
+      public String descrizione;
+      public String autore;
       public SyndFeed Fonte;
       public String category;
 
 
-    public Notizia(String title, SyndContent Descrizione[], String link, String autore
+    public Notizia(String title, String descrizione, String link, String autore
                    , String category, Date data
                    , SyndFeed fonte) {
         this.data = data;
         this.title = title;
         this.link = link;
         this.category = category;
-        //Descrizione = Descrizione;
-        Autore = autore;
+        this.descrizione = descrizione;
+        this.autore = autore;
         Fonte = fonte;
     }
 
 
-    // public void setDiscrizione(SyndContent[] discrizione) {Discrizione = discrizione;}
+    public void setDiscrizione(String descrizione) {this.descrizione = descrizione;}
 
     public String getAutore() {
-        return Autore;
+        return autore;
     }
 
     public void setAutore(String autore) {
-        Autore = autore;
+        autore = autore;
     }
-
 
     public SyndFeed getFonte(SyndFeed source) {
         return Fonte;
@@ -54,7 +55,6 @@ public class Notizia {
     public Notizia(){
 
       }
-      
 
     public String getCategory() {
             return category;
@@ -75,7 +75,7 @@ public class Notizia {
         this.data = data;
     }
 
-    //public void setCategory(String category) {category = category;}
+    public void setCategory(String category) {this.category = category;}
 
     public void setTitle(String title) {
         this.title = title;
@@ -86,21 +86,20 @@ public class Notizia {
     }
 
     @Override
-    /*public String toString() {
-        return "Notizia{" +
-                "tempo=" + tempo +
-                ", title='" + title + '\'' +
-                ", link='" + link + '\'' +
-             //   ", Discrizione='" + Arrays.toString(Discrizione) + '\'' +
-                ", Autore='" + Autore + '\'' +
-                ", Fonte='" + Fonte + '\'' +
-                '}';
-    }*/
+    public String toString() {
+        return title +
+                "\n\n"+ data +
+                //"\n" + descrizione +
+                "\n\nCategory : " + category +
+                "\n" + autore +
+                //"\n" + Fonte +
+                "\n\n" + link;
+    }
 
-    public String toString(){
+    /*public String toString(){
         return title +"\n\n"+
                 "Category : " + category +"\n\n"+
                 link;
 
-    }
+    }*/
 }
