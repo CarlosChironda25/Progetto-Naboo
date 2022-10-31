@@ -43,8 +43,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         this.update = update;
 
-
-
         if (update.hasMessage() && update.getMessage().hasText()) {
 
             String message = update.getMessage().getText();
@@ -55,9 +53,9 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 try {
                     login = loginP(message);
                     if(login)
-                        this.sendMessage("LOGIN EFFETTUATO CON SUCCESSO! PER VEDERE LE NOTIZIE CLICCA : \"/news\"");
+                        this.send("LOGIN EFFETTUATO CON SUCCESSO! PER VEDERE LE NOTIZIE CLICCA : \"/news\"");
                     else
-                        this.sendMessage("ERRORE COL LOGIN, RIPROVARE CLICCANDO : \"/login\" ");
+                        this.send("ERRORE COL LOGIN, RIPROVARE CLICCANDO : \"/login\" ");
 
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
@@ -68,43 +66,36 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 switch (message) {
 
                     case "/start":
-                        this.sendMessage("""
+                        this.send("""
                                 Grazie per essere entrato in NabooNews.
                                 Clicca su "/login"  e poi Inserisce la password e l'username separati da uno spazio.
                                 (ex. : Login = username password)""");
                         break;
 
-
                     case "/login":
-                        this.sendMessage("Inserisci username e password\n(ex. : Login = username password)");
+                        this.send("Inserisci username e password\n(ex. : Login = username password)");
                         break;
-
 
                     case "/news" :
                         if (login) {
                             benvenuto(update);
                             System.out.println("QUI");
                             try {
-                                news(update);
+                                news();
                             } catch (FileNotFoundException e) {
                                 throw new RuntimeException(e);
                             }
                         } else
-                            this.sendMessage("\uD83D\uDC49\uD83C\uDFFCEffettuare il login. Selezionare il comando /start ");
+                            this.send("\uD83D\uDC49\uD83C\uDFFCEffettuare il login. Selezionare il comando /start ");
                         break;
 
 
                     default:
-                        this.sendMessage("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando /start ");
+                        this.send("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando /start ");
                         break;
 
                 }
-
-            }//ciao
-            //ciaociao
-            //ciaociao
-
-
+            }
 
         } else if (update.hasCallbackQuery()) {
 
@@ -120,148 +111,164 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 case "CallNotizie" -> sendMessage.setText("OK2");
                 case "CallHelp" -> sendMessage.setText("OK3");
                 case "CallButton" -> sendMessage.setText("OK4");
+                case "CallVota" -> sendMessage.setText("OKOK");
             }
             try {
                 execute(sendMessage);
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             }
-
-            }
-
         }
-
-
-
-        private void news(Update update) throws FileNotFoundException{
-
-            JsonReader read = new JsonReader(new FileReader(pathNews));
-            notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
-            }).getType());
-
-            if (update.hasMessage()) {
-                for (Notizia n : notizia) {
-                        this.sendMessage(n.toString());
-                }
-
-            }
-
-        }
-
-
-
-        private boolean loginP(String messaggio) throws FileNotFoundException {
-
-            boolean b = false;
-
-            messaggio = messaggio.substring(8);
-
-            String[] passUser = messaggio.trim().split(" ");
-            usernameControl = passUser[0];
-            passwordControl = passUser[1];
-
-            JsonReader leggi = new JsonReader(new FileReader(pathUtenti));
-            Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
-            }).getType());
-
-            for(Utente control : Utenti){
-
-                if(usernameControl.equals(control.getUsername()) && passwordControl.equals(control.getPassword())) {
-                    if(control.isAdmin()) {
-                        System.out.println("GIUSTO!!! AMMINISTRATORE");
-                    }else {
-                        System.out.println("GIUSTO!!! UTENTE");
-                    }
-                    b = true;
-                    break;
-                }
-                else
-                    System.out.println("NO!! CREDENZIALI SBAGLIATE");
-            }
-            return b;
-
-        }
-
-
-
-        public void benvenuto (Update update){
-
-            if (update.hasMessage()) {                  //aggiorna : ho un messaggio ? TRUE
-                Message message = update.getMessage();  // inserisco nella variabile messagge il messaggio ricevuto
-
-                SendMessage sendMessage = new SendMessage();
-                sendMessage.setChatId(String.valueOf(message.getChatId()));
-
-                System.out.println("Messaggio ricevuto!");
-
-                sendMessage.setText("Benvenuto " + update.getMessage().getChat().getFirstName());
-                sendMessage.setParseMode("Markdown");
-
-                //button();
-                InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
-                List<List<InlineKeyboardButton>> inlineButtons = new ArrayList<>();
-
-                List<InlineKeyboardButton> firstBottonRow = new ArrayList<>();
-                List<InlineKeyboardButton> secondBottonRow = new ArrayList<>();
-
-
-                /*
-                 * InlineButton 1
-                 */
-
-                InlineKeyboardButton menuButton = new InlineKeyboardButton();   //nuovo bottone
-                menuButton.setText("Menu");
-                menuButton.setCallbackData("CallMenu");
-                firstBottonRow.add(menuButton);             //aggiungo a riga 1
-
-                /*
-                 * InlineButton 2
-                 */
-                InlineKeyboardButton newsBotton = new InlineKeyboardButton();
-                newsBotton.setText("News");
-                newsBotton.setCallbackData("CallNotizie");
-                firstBottonRow.add(newsBotton);
-
-                /*
-                 * InlineButton 3
-                 */
-                InlineKeyboardButton helpButton = new InlineKeyboardButton();
-                helpButton.setText("Help");
-                helpButton.setCallbackData("CallHelp");
-                secondBottonRow.add(helpButton);
-
-                /*
-                 * InlineButton 4
-                 */
-                InlineKeyboardButton Button = new InlineKeyboardButton();   // nuovo bottone
-                Button.setText("Button");
-                Button.setCallbackData("CallButton");
-                secondBottonRow.add(Button);            //aggiungo alla seconda riga
-
-                inlineButtons.add(firstBottonRow);      //aggiungo bottoneRiga1
-                inlineButtons.add(secondBottonRow);     //aggiungo bottoneRiga2
-
-                inlineKeyboardMarkup.setKeyboard(inlineButtons);
-                sendMessage.setReplyMarkup(inlineKeyboardMarkup);
-
-                try {
-                    execute(sendMessage);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
-            }
 
     }
 
 
 
-    public void sendMessage(String msg){
-        SendMessage sendmessage = new SendMessage();
-        sendmessage.setChatId(this.update.getMessage().getChatId().toString());
-        sendmessage.setText(msg);
+    private void news() throws FileNotFoundException {
+
+        JsonReader read = new JsonReader(new FileReader(pathNews));
+        notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
+        }).getType());
+
+        String chatId = update.getMessage().getChatId().toString();
+        SendMessage sendMessage = new SendMessage();
+
+        InlineKeyboardMarkup keyboardVoteCommentMarkup = new InlineKeyboardMarkup();   //creiamo struttura buttoni per Vote & Comment
+        List<List<InlineKeyboardButton>> inlineKeybVoteComment = new ArrayList<>();    //creiamo lista di righe
+
+
+        List<InlineKeyboardButton> inlineKeyboardButtonsVeC = new ArrayList<>();   //creiamo una riga dove inserire i bottoni
+        InlineKeyboardButton buttonVote = new InlineKeyboardButton("vote");     //button vote
+        InlineKeyboardButton buttonComment = new InlineKeyboardButton("comment");       //button comment
+        buttonVote.setCallbackData("CallVota");         // risposta al click sul bottone
+        buttonComment.setCallbackData("CallCommenta");
+
+        inlineKeyboardButtonsVeC.add(buttonVote);       //aggiungiamo i due bottoni alla riga creata
+        inlineKeyboardButtonsVeC.add(buttonComment);
+        inlineKeybVoteComment.add(inlineKeyboardButtonsVeC);    //aggiungiamo la riga alla lista di righe
+        keyboardVoteCommentMarkup.setKeyboard(inlineKeybVoteComment);      //aggiungiamo le liste di righe alla struttura
+
+        for (Notizia n : notizia) {
+
+            sendMessage.setText(n.toString());
+            sendMessage.setChatId(chatId);
+            sendMessage.setReplyMarkup(keyboardVoteCommentMarkup);  //inseriamo al messaggio delle news la struttura dei bottoni
+
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
+
+
+    private boolean loginP(String messaggio) throws FileNotFoundException {
+
+        boolean b = false;
+
+        messaggio = messaggio.substring(8);
+
+        String[] passUser = messaggio.trim().split(" ");
+        usernameControl = passUser[0];
+        passwordControl = passUser[1];
+
+        JsonReader leggi = new JsonReader(new FileReader(pathUtenti));
+        Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
+        }).getType());
+
+        for(Utente control : Utenti){
+
+            if(usernameControl.equals(control.getUsername()) && passwordControl.equals(control.getPassword())) {
+                if(control.isAdmin()) {
+                    System.out.println("GIUSTO!!! AMMINISTRATORE");
+                }else {
+                    System.out.println("GIUSTO!!! UTENTE");
+                }
+                b = true;
+                break;
+            }
+            else
+                System.out.println("NO!! CREDENZIALI SBAGLIATE");
+            }
+        return b;
+
+    }
+
+
+
+    public void benvenuto (Update update){
+
+        if (update.hasMessage()) {                  //aggiorna : ho un messaggio ? TRUE
+            Message message = update.getMessage();  // inserisco nella variabile messagge il messaggio ricevuto
+
+            SendMessage sendMessage = new SendMessage();
+            sendMessage.setChatId(String.valueOf(message.getChatId()));
+
+            System.out.println("Messaggio ricevuto!");
+
+            sendMessage.setText("Benvenuto " + update.getMessage().getChat().getFirstName());
+            sendMessage.setParseMode("Markdown");
+
+            //button();
+            InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+            List<List<InlineKeyboardButton>> inlineButtons = new ArrayList<>();
+
+            List<InlineKeyboardButton> firstBottonRow = new ArrayList<>();
+            List<InlineKeyboardButton> secondBottonRow = new ArrayList<>();
+
+
+            /** InlineButton 1 **/
+            InlineKeyboardButton menuButton = new InlineKeyboardButton();   //nuovo bottone
+            menuButton.setText("Menu");
+            menuButton.setCallbackData("CallMenu");
+            firstBottonRow.add(menuButton);             //aggiungo a riga 1
+
+            /** InlineButton 2 **/
+            InlineKeyboardButton newsBotton = new InlineKeyboardButton();
+            newsBotton.setText("News");
+            newsBotton.setCallbackData("CallNotizie");
+            firstBottonRow.add(newsBotton);
+
+            /** InlineButton 3 **/
+            InlineKeyboardButton helpButton = new InlineKeyboardButton();
+            helpButton.setText("Help");
+            helpButton.setCallbackData("CallHelp");
+            secondBottonRow.add(helpButton);
+
+            /** InlineButton 4 **/
+            InlineKeyboardButton Button = new InlineKeyboardButton();   // nuovo bottone
+            Button.setText("Button");
+            Button.setCallbackData("CallButton");
+            secondBottonRow.add(Button);            //aggiungo alla seconda riga
+
+            inlineButtons.add(firstBottonRow);      //aggiungo bottoneRiga1
+            inlineButtons.add(secondBottonRow);     //aggiungo bottoneRiga2
+
+            inlineKeyboardMarkup.setKeyboard(inlineButtons);
+            sendMessage.setReplyMarkup(inlineKeyboardMarkup);
+
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
+
+    public void send(String msg){
+        SendMessage send = new SendMessage();
+        send.setChatId(this.update.getMessage().getChatId().toString());
+        send.setText(msg);
 
         try {
-            execute(sendmessage);
+            execute(send);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
