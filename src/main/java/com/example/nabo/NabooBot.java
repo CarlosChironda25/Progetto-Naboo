@@ -51,7 +51,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
             if (message.startsWith("Login")){
 
                 try {
-                    login = loginP(message);
+                    login = login(message);
                     if(login)
                         this.send("LOGIN EFFETTUATO CON SUCCESSO! PER VEDERE LE NOTIZIE CLICCA : \"/news\"");
                     else
@@ -111,7 +111,14 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 case "CallNotizie" -> sendMessage.setText("OK2");
                 case "CallHelp" -> sendMessage.setText("OK3");
                 case "CallButton" -> sendMessage.setText("OK4");
-                case "CallVota" -> sendMessage.setText("OKOK");
+                case "CallVota" -> sendMessage.setText("Voto");
+                /*case "CallCommenta" -> {
+                    try {
+                        addComment(update.getCallbackQuery().getMessage().getText().substring(0,30));
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }*/
             }
             try {
                 execute(sendMessage);
@@ -120,6 +127,39 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
         }
 
+    }
+
+    /**NON FUNZIONA**/
+    private void addComment(String link) throws FileNotFoundException {
+
+        System.out.println("QUI");
+
+        JsonReader read = new JsonReader(new FileReader(pathNews));
+        notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
+        }).getType());
+
+        System.out.println("QUIIII");
+
+        for (Notizia n : notizia) {
+            System.out.println("QUI QUI");
+            //System.out.println(n.toString());
+            System.out.println("LINK : " + link);
+            System.out.println("NEWS : " + n.getTitle().substring(0,30));
+
+            String a = n.getTitle().substring(0,30);
+
+            if (a.equalsIgnoreCase(link)) {
+                this.send("TRUE");
+                System.out.println("TRUE");
+                break;
+            } else {
+                this.send("FALSE");
+                System.out.println("FALSE");
+                break;
+            }
+        }
+        System.out.println("OK");
+            //System.out.println(link);
     }
 
 
@@ -148,12 +188,17 @@ public class NabooBot  extends  TelegramLongPollingBot {
         inlineKeybVoteComment.add(inlineKeyboardButtonsVeC);    //aggiungiamo la riga alla lista di righe
         keyboardVoteCommentMarkup.setKeyboard(inlineKeybVoteComment);      //aggiungiamo le liste di righe alla struttura
 
+        int contatore = 0;
+
         for (Notizia n : notizia) {
 
+            if(contatore == 10){
+                break;
+            }
+            contatore++;
             sendMessage.setText(n.toString());
             sendMessage.setChatId(chatId);
             sendMessage.setReplyMarkup(keyboardVoteCommentMarkup);  //inseriamo al messaggio delle news la struttura dei bottoni
-
             try {
                 execute(sendMessage);
             } catch (TelegramApiException e) {
@@ -166,7 +211,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
 
 
-    private boolean loginP(String messaggio) throws FileNotFoundException {
+    private boolean login(String messaggio) throws FileNotFoundException {
 
         boolean b = false;
 

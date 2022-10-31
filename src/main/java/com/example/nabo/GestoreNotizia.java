@@ -40,6 +40,7 @@ public class GestoreNotizia {
                    Notizia notizia = new Notizia(entry.getTitle(), entry.getDescription().getValue() , entry.getLink(), entry.getAuthor() , entry.getCategories().get(0).getName() , (Date) entry.getPublishedDate(), entry.getSource());
                    notizias.add(notizia);
 
+
                }
            } catch (IllegalArgumentException | FeedException | IOException e) {
                // Errore lettura feed
