@@ -1,0 +1,3 @@
+https://www.ansa.it/sito/ansait_rss.xml
+http://xml2.corriereobjects.it/rss/homepage_bologna.xml
+https://www.repubblica.it/rss/homepage/rss2.0.xml
