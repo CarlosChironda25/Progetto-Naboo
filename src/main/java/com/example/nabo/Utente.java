@@ -6,24 +6,21 @@ public class Utente {
 public String  Username;
 public   String Password;
     public  String Mail;
-    public   String  Commeta, Vota, ComentaEvota;
+    public   String  Commeta, Vota;
 
 
-    public Utente(String username, String password, String mail, String commeta, String vota, String comentaEvota, boolean admin) {
+    public Utente(String username, String password, String mail, String commeta, String vota, boolean admin) {
         Username = username;
         Password = password;
         Mail = mail;
         Commeta = commeta;
         Vota = vota;
-        ComentaEvota = comentaEvota;
         Admin = admin;
     }
-    public String getComentaEvota() {return ComentaEvota;}
     public String getVota() {return Vota;}
     public String getCommeta() {return Commeta;}
     public void setCommeta(String  commeta) {Commeta = commeta;}
     public void setVota(String vota) {Vota = vota;}
-    public void setComentaEvota(String  comentaEvota) {ComentaEvota = comentaEvota;}
 
 
     public String getMail() {
@@ -72,7 +69,6 @@ public   String Password;
                 ", Mail='" + Mail + '\'' +
                 ", Commeta='" + Commeta + '\'' +
                 ", Vota='" + Vota + '\'' +
-                ", ComentaEvota='" + ComentaEvota + '\'' +
                 ", Admin=" + Admin +
                 '}';
     }

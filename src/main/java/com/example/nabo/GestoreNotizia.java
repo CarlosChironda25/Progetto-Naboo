@@ -66,7 +66,7 @@ public class GestoreNotizia {
         fileWriter.close();
     }
 
-    public void updateUser(String newUsername, String newPassword, String newMail){
+   /* public void updateUser(String newUsername, String newPassword, String newMail){
         try {
             String jsonMessage = "{\" + username + "\" + password + "\" + mail + "\}";
         JSONParser parser = new JSONParser();//carichiamo il file JSON
@@ -81,7 +81,7 @@ public class GestoreNotizia {
     }
 }
 
-
+*/
     public void deleteNotizia(String toDeleteLink) throws IOException {
         //caricare il file JSON Info-Notizie.json
         FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
