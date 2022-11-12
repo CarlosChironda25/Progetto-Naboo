@@ -34,8 +34,8 @@ public class Prava_DataBAse {
 
 
         // Lettura del path dei File
-        FileWriter votiCometi = new FileWriter("C:\\Users\\carlosvasco.chironda\\OneDrive - Alma Mater Studiorum Università di Bologna\\Desktop\\Progetto-Fedi-Robe\\src\\main\\resources\\Vote&Commenti.json");
-        FileWriter DatiUtente = new FileWriter("C:\\Users\\carlosvasco.chironda\\OneDrive - Alma Mater Studiorum Università di Bologna\\Desktop\\Progetto-Fedi-Robe\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
+        FileWriter votiCometi = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\Vote&Commenti.json");
+        FileWriter DatiUtente = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
         // Skip per scrivere correttamente nel file
         DatiUtente.write("[");
         votiCometi.write("[");
@@ -65,7 +65,7 @@ public class Prava_DataBAse {
     public  void letturadati( ) throws FileNotFoundException {
         Gson gson = new Gson();
 
-        JsonReader leggiUtente= new JsonReader(new FileReader("C:\\Users\\carlosvasco.chironda\\OneDrive - Alma Mater Studiorum Università di Bologna\\Desktop\\Naboo.Github\\src\\main\\resources\\com\\example\\nabo\\Dati.json"));
+        JsonReader leggiUtente = new JsonReader(new FileReader("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json"));
         List<Utente> DatiUtente = gson.fromJson(leggiUtente, (new TypeToken<List<Utente>>() {}).getType());
 
         for (Utente i: DatiUtente){

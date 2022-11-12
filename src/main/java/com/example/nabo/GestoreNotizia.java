@@ -26,7 +26,7 @@ public class GestoreNotizia {
 
     public  GestoreNotizia (ArrayList<String> link) throws MalformedURLException {
         this.sources = link;
-        notizias =new ArrayList<>();
+        notizias = new ArrayList<>();
         caricaNotizie();
     }
 
@@ -48,13 +48,13 @@ public class GestoreNotizia {
 
     public void deleteUser(String toDeleteUser) throws IOException {
         //carichiamo il file JSON
-        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\OneDrive\\Desktop\\Progetto-Naboo-main (1)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
         //troviamo l'utente che si chiama toDeleteUser
         //lo cancelliamo
     }
 
     public void addUser(String newUsername, String newPassword, String newMail) throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\OneDrive\\Desktop\\Progetto-Naboo-main (1)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
         String newUser =
                 "{" +
                         "Username:"+newUsername+","+
@@ -84,7 +84,7 @@ public class GestoreNotizia {
 */
     public void deleteNotizia(String toDeleteLink) throws IOException {
         //caricare il file JSON Info-Notizie.json
-        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
         //cancellare la notizia giusta
     }
 
@@ -135,9 +135,8 @@ public class GestoreNotizia {
 
                     //System.out.println(entry.getCategories().get(0));
                     //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                    Notizia notizia = new Notizia(entry.getTitle(), entry.getDescription().getValue() , entry.getLink(), entry.getAuthor() , entry.getCategories().get(0).getName() , (Date) entry.getPublishedDate(), entry.getSource());
+                    Notizia notizia = new Notizia((Date) entry.getPublishedDate(), entry.getTitle(),entry.getLink(), entry.getDescription().getValue(), entry.getAuthor() ,entry.getSource(), entry.getCategories().get(0).getName(), entry.getComments());
                     notizias.add(notizia);
-
 
                 }
             } catch (IllegalArgumentException | FeedException | IOException e) {
@@ -147,15 +146,19 @@ public class GestoreNotizia {
         }
     }
 
+    public void aggiungiCommento(Notizia news,String commento, String user){
+
+    }
+
     public static void main(String[] args) throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\OneDrive\\Desktop\\Progetto-Naboo-main (1)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
         fileWriter.write( "[");
         ArrayList<String> sources = new ArrayList<String> ();
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        GestoreNotizia gestoreNotizia= new GestoreNotizia(sources);
+        GestoreNotizia gestoreNotizia = new GestoreNotizia(sources);
         //System.out.println( gestoreNotizia.getNotizia());
         for( Notizia i : gestoreNotizia.getNotizia()) {
             Gson gson4 = new GsonBuilder().setPrettyPrinting().create();

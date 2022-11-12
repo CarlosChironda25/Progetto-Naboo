@@ -1,6 +1,7 @@
 package com.example.nabo;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -12,21 +13,31 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class NabooBot  extends  TelegramLongPollingBot {
-    private final String pathUtenti = "Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json";
-    private final String pathNews = "Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json";
+    private final String pathUtenti = "C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json";
+    private final String pathNews = "C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json";
     public String usernameControl;
     public String passwordControl;
     Gson gson = new Gson();
+
+    public Notizia not;
 
     List<Utente> Utenti;
     List<Notizia> notizia;
     boolean login;
     Update update;
+
+    boolean commento = false;
+
+    public Voti_Commenti votiecommenti;
+
 
     @Override
     public String getBotUsername() {
@@ -46,13 +57,14 @@ public class NabooBot  extends  TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
 
             String message = update.getMessage().getText();
-            System.out.println(message);
+            //System.out.println(message);
 
-            if (message.startsWith("Login")){
+
+            if (message.startsWith("Login")) {
 
                 try {
                     login = login(message);
-                    if(login)
+                    if (login)
                         this.send("LOGIN EFFETTUATO CON SUCCESSO! PER VEDERE LE NOTIZIE CLICCA : \"/news\"");
                     else
                         this.send("ERRORE COL LOGIN, RIPROVARE CLICCANDO : \"/login\" ");
@@ -61,6 +73,79 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     throw new RuntimeException(e);
                 }
 
+            } else if(commento){
+
+
+
+                /*JsonReader read = null;
+                try {
+                    read = new JsonReader(new FileReader("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json"));
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("QQ");
+
+                notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
+                }).getType());
+
+                FileWriter scriviNews = null;
+                try {
+                    scriviNews = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
+
+                int contatore = 0;
+                System.out.println("FOR");
+                for (Notizia n : notizia) {
+                    contatore++;
+                    if(n.getTitle().equals(null) || contatore == 15)
+                        break;
+                    //System.out.println(n);
+                    if((n.toString()).equals(not.toString())) {
+                        String jsonString = gson4.toJson(n + "\n\nComment : " + message);
+                        System.out.println(jsonString.toString());
+                        System.out.println("..");
+                        try {
+                            scriviNews.write(jsonString+ ",");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        String jsonString = gson4.toJson(n);
+                        System.out.println(jsonString.toString());
+                        System.out.println("..");
+                        try {
+                            scriviNews.write(jsonString + ",");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+
+                }
+
+                try {
+                    scriviNews.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }*/
+                //this.send(message + "\n" + not);
+                /*System.out.println("A");
+                try {
+                    System.out.println("AB");
+                    votiecommenti.setCommento(message,not);
+                    System.out.println("AABB");
+                } catch (IOException e) {
+                    System.out.println("CATC");
+                    throw new RuntimeException(e);
+                }
+                System.out.println("AA");*/
+                commento = false;
+                not = null;
+                System.out.println("BB");
+                this.send(String.valueOf(not));
             } else {
 
                 switch (message) {
@@ -76,13 +161,15 @@ public class NabooBot  extends  TelegramLongPollingBot {
                         this.send("Inserisci username e password\n(ex. : Login = username password)");
                         break;
 
-                    case "/news" :
+                    case "/news":
                         if (login) {
                             benvenuto(update);
                             System.out.println("QUI");
                             try {
                                 news();
                             } catch (FileNotFoundException e) {
+                                throw new RuntimeException(e);
+                            } catch (MalformedURLException e) {
                                 throw new RuntimeException(e);
                             }
                         } else
@@ -107,68 +194,85 @@ public class NabooBot  extends  TelegramLongPollingBot {
             sendMessage.setChatId(message.getChatId().toString());
 
             switch (data) {
-                case "CallMenu" -> sendMessage.setText("OK");
-                case "CallNotizie" -> sendMessage.setText("OK2");
-                case "CallHelp" -> sendMessage.setText("OK3");
-                case "CallButton" -> sendMessage.setText("OK4");
-                case "CallVota" -> sendMessage.setText("Voto");
-                /*case "CallCommenta" -> {
-                    try {
-                        addComment(update.getCallbackQuery().getMessage().getText().substring(0,30));
-                    } catch (FileNotFoundException e) {
-                        throw new RuntimeException(e);
+                case "CallCommenta" -> addComment(update.getCallbackQuery().getMessage().getText(), update );
+
+                    case "CallMenu" -> { sendMessage.setText("OK");
+                        try {
+                            execute(sendMessage);
+                        } catch (TelegramApiException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }*/
+                    case "CallNotizie" -> {sendMessage.setText("OK2");
+                        try {
+                            execute(sendMessage);
+                        } catch (TelegramApiException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    case "CallHelp" -> { sendMessage.setText("OK3");
+                        try {
+                            execute(sendMessage);
+                        } catch (TelegramApiException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    case "CallButton" -> { sendMessage.setText("OK4");
+                        try {
+                            execute(sendMessage);
+                        } catch (TelegramApiException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    case "CallVota" -> { sendMessage.setText("Voto");
+                        try {
+                            execute(sendMessage);
+                        } catch (TelegramApiException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
             }
-            try {
-                execute(sendMessage);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+
         }
 
     }
 
-    /**NON FUNZIONA**/
-    private void addComment(String link) throws FileNotFoundException {
 
-        System.out.println("QUI");
+    private void addComment(String text, Update update) {
+
+        Message message = update.getCallbackQuery().getMessage();
+
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(message.getChatId().toString());
+
+        for (Notizia value : notizia) {
+
+            if ((value.toString()).equals(text)) {
+                //System.out.println("IF");
+                sendMessage.setText("Insert comment : ");
+                not = (Notizia) value;
+                commento = true;
+
+                try {
+                        execute(sendMessage);
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+                break;
+                }
+            }
+        //System.out.println("FUORI");
+    }
+
+
+
+    private void news() throws FileNotFoundException, MalformedURLException {
 
         JsonReader read = new JsonReader(new FileReader(pathNews));
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
         }).getType());
 
-        System.out.println("QUIIII");
-
-        for (Notizia n : notizia) {
-            System.out.println("QUI QUI");
-            //System.out.println(n.toString());
-            System.out.println("LINK : " + link);
-            System.out.println("NEWS : " + n.getTitle().substring(0,30));
-
-            String a = n.getTitle().substring(0,30);
-
-            if (a.equalsIgnoreCase(link)) {
-                this.send("TRUE");
-                System.out.println("TRUE");
-                break;
-            } else {
-                this.send("FALSE");
-                System.out.println("FALSE");
-                break;
-            }
-        }
-        System.out.println("OK");
-            //System.out.println(link);
-    }
-
-
-
-    private void news() throws FileNotFoundException {
-
-        JsonReader read = new JsonReader(new FileReader(pathNews));
-        notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
-        }).getType());
 
         String chatId = update.getMessage().getChatId().toString();
         SendMessage sendMessage = new SendMessage();
@@ -191,10 +295,10 @@ public class NabooBot  extends  TelegramLongPollingBot {
         int contatore = 0;
 
         for (Notizia n : notizia) {
-
-            if(contatore == 10){
+            if (contatore == 10 || (n == null )) {
                 break;
             }
+            //notizia.add(n);
             contatore++;
             sendMessage.setText(n.toString());
             sendMessage.setChatId(chatId);
@@ -210,7 +314,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
     }
 
 
-
     private boolean login(String messaggio) throws FileNotFoundException {
 
         boolean b = false;
@@ -220,32 +323,29 @@ public class NabooBot  extends  TelegramLongPollingBot {
         String[] passUser = messaggio.trim().split(" ");
         usernameControl = passUser[0];
         passwordControl = passUser[1];
-
         JsonReader leggi = new JsonReader(new FileReader(pathUtenti));
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
 
-        for(Utente control : Utenti){
+        for (Utente control : Utenti) {
 
-            if(usernameControl.equals(control.getUsername()) && passwordControl.equals(control.getPassword())) {
-                if(control.isAdmin()) {
+            if (usernameControl.equals(control.getUsername()) && passwordControl.equals(control.getPassword())) {
+                if (control.isAdmin()) {
                     System.out.println("GIUSTO!!! AMMINISTRATORE");
-                }else {
+                } else {
                     System.out.println("GIUSTO!!! UTENTE");
                 }
                 b = true;
                 break;
-            }
-            else
+            } else
                 System.out.println("NO!! CREDENZIALI SBAGLIATE");
-            }
+        }
         return b;
 
     }
 
 
-
-    public void benvenuto (Update update){
+    public void benvenuto(Update update) {
 
         if (update.hasMessage()) {                  //aggiorna : ho un messaggio ? TRUE
             Message message = update.getMessage();  // inserisco nella variabile messagge il messaggio ricevuto
@@ -305,9 +405,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     }
 
-
-
-    public void send(String msg){
+    public void send(String msg) {
         SendMessage send = new SendMessage();
         send.setChatId(this.update.getMessage().getChatId().toString());
         send.setText(msg);
@@ -319,71 +417,12 @@ public class NabooBot  extends  TelegramLongPollingBot {
         }
     }
 
-
+}
 
     /*public class justRoflClass {
 
         public justRoflClass(long chatID) {
             sendRequest(chatID);
-        }
+    }*/
 
 
-
-        public justRoflClass(Update update) {
-
-            final String text = update.getMessage().getText();
-            final long chatID = update.getMessage().getChatId();
-            final String[] formed = getUsernameAndPasswordFromMessage(text);
-            if (formed == null) {
-                sendSetAlert(chatID, false, null);
-                return;
-            } else {
-                sendSetAlert(chatID, true, formed);
-            }
-            System.out.println(formed[0] + "e" + formed[1]);
-            final String userName = formed[0];
-            final String password = formed[1];
-        }
-
-
-
-
-        /*private void sendRequest(long chatID) {
-            SendMessage request = new SendMessage();
-            request.setChatId(String.valueOf(chatID));
-            request.setText("Send your user_name and password in format \"USER_NAME:PASSWORD\"");
-            try {
-                //new IndexMain().executeAsync(request);
-            } catch (Exception ignored) {
-
-            }
-        }
-
-        private String[] getUsernameAndPasswordFromMessage(String text) {
-            String[] formed = new String[2];
-            String[] splited = text.split(":");
-            if (splited.length < 2) {
-                return null;
-            }
-            try {
-                formed[0] = splited[0].split(" ")[splited[0].split(" ").length - 1];
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-            formed[1] = splited[1];
-            return formed;
-        }
-
-        private void sendSetAlert(String chatID, boolean success, String[] formed) {
-            SendMessage request = new SendMessage();
-            request.setChatId(chatID);
-            request.setText(success ? ("your user_name is \"" + formed[0] + "\" and password \"" + formed[1] + "\";") : "Incorrect format. Please use this format - \"USER_NAME:PASSWORD\"");
-            try {
-                //new IndexMain().executeAsync(request);
-            } catch (Exception ignored) {
-
-            }
-        }*/
-
-    }

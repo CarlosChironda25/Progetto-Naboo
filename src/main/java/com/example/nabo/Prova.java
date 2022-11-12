@@ -6,13 +6,19 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.objects.Update;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class Prova {
-    public   static Scanner scan= new Scanner(System.in);
+public class Prova extends TelegramLongPollingBot {
+
+
+
+    /*public   static Scanner scan= new Scanner(System.in);
     public static void main(String[] args)  throws JsonIOException, IOException {
       /* ArrayList<String> tipo= new ArrayList<>();
        tipo.add("lettore");
@@ -23,7 +29,7 @@ public class Prova {
             Gson gson = new Gson();
         String jsonParser =gson.toJson(utente);
                  System.out.println(jsonParser);
-                 */
+
 
         Gson gson = new Gson();
         JsonReader leggi = new JsonReader(new FileReader("src/main/resources/com/example/nabo/Info-Notizie.json"));
@@ -32,8 +38,27 @@ public class Prova {
         for (Notizia i : Utenti) {
             System.out.println(i);
         }
+    }*/
+
+    @Override
+    public String getBotUsername() {
+        return "MituNabooBot";
     }
+
+    @Override
+    public String getBotToken() {
+        return "5457602202:AAEFla9Exb6dxvQgQe_iRLvD_dxs7ls7_Ow";
     }
+
+    @Override
+    public void onUpdateReceived(Update update) {
+        if (update.hasMessage() && update.getMessage().hasText()) {
+
+            String message = update.getMessage().getText();
+            System.out.println(message);
+        }
+    }
+}
 
 /*System.err.println(update.getMessage().getReplyToMessage().getPoll().getTotalVoterCount());*
 
