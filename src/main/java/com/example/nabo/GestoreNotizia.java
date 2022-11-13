@@ -76,7 +76,7 @@ public class GestoreNotizia {
         FileReader reader = new FileReader("C:\\Users\\feder\\Downloads\\Progetto-Naboo-main (3)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
         String jsonstring = "{\\'Username\\':"+newUsername +",\\'Password\\':" + newPassword + ",\\'Mail\\':" + newMail + "\\'}'";
         JSONParser jsonParser = new JSONParser();
-        JSONObject jsonobject = jsonParser.parse(jsonstring);
+        JSONObject jsonobject = (JSONObject) jsonParser.parse(jsonstring);
         System.out.println();
 
         jsonobject.put("Username", newUsername);
