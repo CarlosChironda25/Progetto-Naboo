@@ -3,15 +3,13 @@ package com.example.nabo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import com.rometools.rome.feed.synd.*;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import org.xml.sax.InputSource;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -47,10 +45,10 @@ public class GestoreNotizia {
     }
 
     public void deleteUser(String toDeleteUser) throws IOException {
-        //carichiamo il file JSON
-        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
-        //troviamo l'utente che si chiama toDeleteUser
-        //lo cancelliamo
+        InputStream is = new FileInputStream("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
+        JsonReader filereader = Json.createReader(is);
+        JsonObject userNameObj = (JsonObject) Json.createParserFactory(fileReader)
+
     }
 
     public void addUser(String newUsername, String newPassword, String newMail) throws IOException {
@@ -66,22 +64,21 @@ public class GestoreNotizia {
         fileWriter.close();
     }
 
-   /* public void updateUser(String newUsername, String newPassword, String newMail){
-        try {
-            String jsonMessage = "{\" + username + "\" + password + "\" + mail + "\}";
-        JSONParser parser = new JSONParser();//carichiamo il file JSON
-        Object obj = parser.parse();
+    public void updateUser(String newUsername, String newPassword, String newMail) throws IOException {
+        FileReader reader = new FileReader("C:\\Users\\feder\\Downloads\\Progetto-Naboo-main (3)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
+        String JSONString = "{\\'Username\\':"+newUsername +",\\'Password\\':" + newPassword + ",\\'Mail\\':" + newMail + "\\'}'";
+        JSONParser jsonParser = new JSONParser();
+        JSONObject jsonObject = jsonParser.parse(JSONString);
+        System.out.println();
 
-        JsonObject jsonObject = (JSONObject) obj;
-        jsonObject.put("username", "newUsername");
-        jsonObject.put("password", "newPassword");
-        jsonObject.put("mail", "newMail");
-    } catch(Exception e) {
-        System.out.println(e);
+        jsonObject.put("Username", newUsername);
+        jsonObject.put("Password", newPassword);
+        jsonObject.put("Mail", newMail);
+        System.out.println();
+
     }
-}
 
-*/
+
     public void deleteNotizia(String toDeleteLink) throws IOException {
         //caricare il file JSON Info-Notizie.json
         FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
