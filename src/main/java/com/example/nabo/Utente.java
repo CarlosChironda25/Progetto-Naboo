@@ -1,27 +1,23 @@
 package com.example.nabo;
 
-import java.util.ArrayList;
+import org.json.simple.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Utente {
-public String  Username;
-public   String Password;
+    public String  Username;
+    public   String Password;
     public  String Mail;
-    public   String  Commeta, Vota;
 
 
-    public Utente(String username, String password, String mail, String commeta, String vota, boolean admin) {
+
+    public Utente(String username, String password, String mail) {
         Username = username;
         Password = password;
         Mail = mail;
-        Commeta = commeta;
-        Vota = vota;
-        Admin = admin;
-    }
-    public String getVota() {return Vota;}
-    public String getCommeta() {return Commeta;}
-    public void setCommeta(String  commeta) {Commeta = commeta;}
-    public void setVota(String vota) {Vota = vota;}
 
+
+    }
 
     public String getMail() {
         return Mail;
@@ -59,17 +55,41 @@ public   String Password;
         Password = password;
     }
 
+    public void createUserFile(){
+        //Creating a JSONObject object
+        JSONObject jsonobject = new JSONObject();
+        //Inserting key-value pairs into the json object
+        jsonobject.put("Username", "Prova1");
+        jsonobject.put("Password", "Prova11");
+        jsonobject.put("Mail", "home@home.it");
+        try {
+            FileWriter file = new FileWriter("dati.json");
+            file.write(jsonobject.toJSONString());
+            file.close();
+        } catch (IOException e) {
 
+            e.printStackTrace();
+        }
+        System.out.println("JSON file created: "+jsonobject);
+    }
 
-    @Override
-    public String toString() {
-        return "Utente{" +
-                "Username='" + Username + '\'' +
-                ", Password='" + Password + '\'' +
-                ", Mail='" + Mail + '\'' +
-                ", Commeta='" + Commeta + '\'' +
-                ", Vota='" + Vota + '\'' +
-                ", Admin=" + Admin +
-                '}';
+    public void createAdminFile(){
+        JSONObject jsonobject = new JSONObject();
+        //Inserting key-value pairs into the json object
+        jsonobject.put("Username", "Federica");
+        jsonobject.put("Password", "FedeMistu");
+        jsonobject.put("Mail", "home@home.it");
+        try {
+            FileWriter file = new FileWriter("admin.json");
+            file.write(jsonobject.toJSONString());
+            file.close();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        System.out.println("JSON file created: "+jsonobject);
     }
 }
+
+
+

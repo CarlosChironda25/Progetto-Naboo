@@ -3,16 +3,10 @@
   "Username": "Prova1",
   "Password": "Prova11",
   "Mail": "Elln@studio.unibo.it",
-  "Commeta": "si",
-  "Vota": "no",
-  "Admin": false
   },
   {
   "Username": "Carlos12",
   "Password": "Carlos200",
   "Mail": "carlosvas@studio.unibo.it",
-  "Commeta": "si",
-  "Vota": "no",
-  "Admin": true
   }
 ]

@@ -1,12 +1,20 @@
 package com.example.nabo;
-
+/*
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+ */
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.json.simple.JSONObject;
 import com.google.gson.stream.JsonReader;
 import com.rometools.rome.feed.synd.*;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.xml.sax.InputSource;
 
 import java.io.*;
@@ -64,17 +72,17 @@ public class GestoreNotizia {
         fileWriter.close();
     }
 
-    public void updateUser(String newUsername, String newPassword, String newMail) throws IOException {
+    public void updateUser(String newUsername, String newPassword, String newMail) throws IOException, ParseException {
         FileReader reader = new FileReader("C:\\Users\\feder\\Downloads\\Progetto-Naboo-main (3)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
-        String JSONString = "{\\'Username\\':"+newUsername +",\\'Password\\':" + newPassword + ",\\'Mail\\':" + newMail + "\\'}'";
+        String jsonstring = "{\\'Username\\':"+newUsername +",\\'Password\\':" + newPassword + ",\\'Mail\\':" + newMail + "\\'}'";
         JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = jsonParser.parse(JSONString);
+        JSONObject jsonobject = jsonParser.parse(jsonstring);
         System.out.println();
 
-        jsonObject.put("Username", newUsername);
-        jsonObject.put("Password", newPassword);
-        jsonObject.put("Mail", newMail);
-        System.out.println();
+        jsonobject.put("Username", newUsername);
+        jsonobject.put("Password", newPassword);
+        jsonobject.put("Mail", newMail);
+        System.out.println()
 
     }
 
@@ -164,7 +172,7 @@ public class GestoreNotizia {
 
         }
 
-        fileWriter.write( "{}  ]");
+        fileWriter.write( " ]");
         fileWriter.close();
 
     }

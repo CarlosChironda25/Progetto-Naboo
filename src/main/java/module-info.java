@@ -19,6 +19,7 @@ module com.example.nabo {
     requires de.jensd.fx.glyphs.fontawesome;
     requires org.apache.commons.io;
     requires java.sql;
+    requires json.simple;
 
     opens com.example.nabo to javafx.fxml;
     exports com.example.nabo;
