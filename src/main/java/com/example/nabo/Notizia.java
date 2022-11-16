@@ -19,9 +19,9 @@ public class Notizia {
       public String autore;
       public SyndFeed Fonte;
       public String category;
-      public String commento;
 
-    public Notizia(Date data, String title, String link, String descrizione, String autore, SyndFeed fonte, String category, String commento) {
+
+    public Notizia(Date data, String title, String link, String descrizione, String autore, SyndFeed fonte, String category) {
         this.data = data;
         this.title = title;
         this.link = link;
@@ -29,15 +29,6 @@ public class Notizia {
         this.autore = autore;
         Fonte = fonte;
         this.category = category;
-        this.commento = commento;
-    }
-
-    public String getCommento() {
-        return commento;
-    }
-
-    public void setCommento(String commento) {
-        this.commento = commento;
     }
 
     public void setDiscrizione(String descrizione) {this.descrizione = descrizione;}
@@ -93,14 +84,15 @@ public class Notizia {
 
     @Override
     public String toString() {
+
         return title + "\n\n" +
                 //descrizione + "\n\n" +
                 data + "\n\n" +
-                "Category : " +category + "\n" +
+                "Category : " + category + "\n" +
                 autore + "\n\n" +
-                link + "\n\n" +
+                link;
+                //+ "\n\n" +
                 //Fonte + "\n\n" +
-                commento;
-    }
 
+    }
 }

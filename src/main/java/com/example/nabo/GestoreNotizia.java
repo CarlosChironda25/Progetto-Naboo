@@ -5,9 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
  */
-import com.google.gson.JsonElement;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import org.json.simple.JSONObject;
 import com.google.gson.stream.JsonReader;
 import com.rometools.rome.feed.synd.*;
@@ -20,24 +20,23 @@ import org.xml.sax.InputSource;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 public class GestoreNotizia {
-    private ArrayList<Notizia>notizias;
+    private ArrayList<Notizia> listaNotizie;
     private ArrayList<String> sources;
 
     public  GestoreNotizia (ArrayList<String> link) throws MalformedURLException {
         this.sources = link;
-        notizias = new ArrayList<>();
+        listaNotizie = new ArrayList<>();
         caricaNotizie();
     }
 
     public ArrayList<Notizia> getNotizia(){
-        return notizias;
+        return listaNotizie;
     }
 
     public void addSource(String newSource){
@@ -52,12 +51,12 @@ public class GestoreNotizia {
         sources.remove(toDeleteSource);
     }
 
-    public void deleteUser(String toDeleteUser) throws IOException {
+    /*public void deleteUser(String toDeleteUser) throws IOException {
         InputStream is = new FileInputStream("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
         JsonReader filereader = Json.createReader(is);
-        JsonObject userNameObj = (JsonObject) Json.createParserFactory(fileReader)
+        JsonObject userNameObj = (JsonObject) Json.createParserFactory(fileReader);
 
-    }
+    }*/
 
     public void addUser(String newUsername, String newPassword, String newMail) throws IOException {
         FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
@@ -82,7 +81,7 @@ public class GestoreNotizia {
         jsonobject.put("Username", newUsername);
         jsonobject.put("Password", newPassword);
         jsonobject.put("Mail", newMail);
-        System.out.println()
+        System.out.println();
 
     }
 
@@ -140,8 +139,8 @@ public class GestoreNotizia {
 
                     //System.out.println(entry.getCategories().get(0));
                     //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                    Notizia notizia = new Notizia((Date) entry.getPublishedDate(), entry.getTitle(),entry.getLink(), entry.getDescription().getValue(), entry.getAuthor() ,entry.getSource(), entry.getCategories().get(0).getName(), entry.getComments());
-                    notizias.add(notizia);
+                    Notizia notizia = new Notizia((Date) entry.getPublishedDate(), entry.getTitle(),entry.getLink(), entry.getDescription().getValue(), entry.getAuthor() ,entry.getSource(), entry.getCategories().get(0).getName());
+                    listaNotizie.add(notizia);
 
                 }
             } catch (IllegalArgumentException | FeedException | IOException e) {
