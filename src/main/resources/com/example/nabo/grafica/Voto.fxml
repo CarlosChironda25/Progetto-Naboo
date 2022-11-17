@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: CCFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grafica.Voto">
+    <children>
+        <Label alignment="CENTER" layoutY="31.0" prefHeight="17.0" prefWidth="601.0" style="-fx-background-color: E0E0E0;" text="Manager Voto ">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Button layoutX="5.0" layoutY="36.0" mnemonicParsing="false" onAction="#Indietro" prefHeight="25.0" prefWidth="56.0" text="Back" />
+        <FontAwesomeIconView glyphName="INBOX" layoutX="193.0" layoutY="55.0" size="20.0" />
+        <FontAwesomeIconView glyphName="FOLDER" layoutX="8.0" layoutY="52.0" />
+        <Label layoutX="125.0" layoutY="139.0" prefHeight="25.0" prefWidth="132.0" text="Inserisce il Voto:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="272.0" layoutY="141.0" prefHeight="25.0" prefWidth="176.0" />
+        <Button layoutX="324.0" layoutY="188.0" mnemonicParsing="false" onAction="#CercaVoto" text="Search" />
+        <Button layoutX="399.0" layoutY="254.0" mnemonicParsing="false" onAction="#CancellaVoto" text="- Delet">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Button layoutX="399.0" layoutY="295.0" mnemonicParsing="false" onAction="#AggiugeVoto" prefHeight="25.0" prefWidth="49.0" text="+Add" />
+        <Label alignment="CENTER" layoutX="8.0" layoutY="222.0" prefHeight="17.0" prefWidth="587.0" text="Click in add to add new voto or in delet to remove an voto" />
+        <Label fx:id="Avviso" alignment="CENTER" layoutX="-2.0" layoutY="166.0" prefHeight="17.0" prefWidth="601.0" text="Label" visible="false" />
+    </children>
+</AnchorPane>

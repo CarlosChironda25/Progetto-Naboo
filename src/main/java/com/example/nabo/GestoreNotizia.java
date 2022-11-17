@@ -7,14 +7,9 @@ import com.google.gson.JsonParser;
  */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import org.json.simple.JSONObject;
-import com.google.gson.stream.JsonReader;
 import com.rometools.rome.feed.synd.*;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.xml.sax.InputSource;
 
 import java.io.*;
@@ -28,68 +23,11 @@ import java.util.List;
 public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
     private ArrayList<String> sources;
-
+    public static String Path= "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
     public  GestoreNotizia (ArrayList<String> link) throws MalformedURLException {
         this.sources = link;
         listaNotizie = new ArrayList<>();
         caricaNotizie();
-    }
-
-    public ArrayList<Notizia> getNotizia(){
-        return listaNotizie;
-    }
-
-    public void addSource(String newSource){
-        sources.add(newSource);
-    }
-
-    public void getSource(){
-        System.out.println(sources);
-    }
-
-    public void deleteSource(int toDeleteSource){
-        sources.remove(toDeleteSource);
-    }
-
-    /*public void deleteUser(String toDeleteUser) throws IOException {
-        InputStream is = new FileInputStream("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
-        JsonReader filereader = Json.createReader(is);
-        JsonObject userNameObj = (JsonObject) Json.createParserFactory(fileReader);
-
-    }*/
-
-    public void addUser(String newUsername, String newPassword, String newMail) throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
-        String newUser =
-                "{" +
-                        "Username:"+newUsername+","+
-                        "Password:"+newPassword+","+
-                        "Mail:"+newMail+
-                        "}";
-
-        fileWriter.write(newUser + ",");
-        fileWriter.close();
-    }
-
-    public void updateUser(String newUsername, String newPassword, String newMail) throws IOException, ParseException {
-        FileReader reader = new FileReader("C:\\Users\\feder\\Downloads\\Progetto-Naboo-main (3)\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\Dati.json");
-        String jsonstring = "{\\'Username\\':"+newUsername +",\\'Password\\':" + newPassword + ",\\'Mail\\':" + newMail + "\\'}'";
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonobject = (JSONObject) jsonParser.parse(jsonstring);
-        System.out.println();
-
-        jsonobject.put("Username", newUsername);
-        jsonobject.put("Password", newPassword);
-        jsonobject.put("Mail", newMail);
-        System.out.println();
-
-    }
-
-
-    public void deleteNotizia(String toDeleteLink) throws IOException {
-        //caricare il file JSON Info-Notizie.json
-        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
-        //cancellare la notizia giusta
     }
 
     public void importFromFile() throws IOException{
@@ -150,12 +88,10 @@ public class GestoreNotizia {
         }
     }
 
-    public void aggiungiCommento(Notizia news,String commento, String user){
 
-    }
 
     public static void main(String[] args) throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("src/main/resources/com/example/nabo/DataBase/Info-Notizie.json");
         fileWriter.write( "[");
         ArrayList<String> sources = new ArrayList<String> ();
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
@@ -174,6 +110,10 @@ public class GestoreNotizia {
         fileWriter.write( " ]");
         fileWriter.close();
 
+    }
+
+    private ArrayList<Notizia> getNotizia() {
+        return listaNotizie;
     }
 
 }

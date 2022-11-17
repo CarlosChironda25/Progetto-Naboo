@@ -20,8 +20,8 @@ import java.util.List;
 
 
 public class NabooBot  extends  TelegramLongPollingBot {
-    private final String pathUtenti = "C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json";
-    private final String pathNews = "C:\\Users\\39348\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Info-Notizie.json";
+    private final String pathUtenti = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    private final String pathNews = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
     public String usernameControl;
     public String passwordControl;
     Gson gson = new Gson();
@@ -314,11 +314,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
         for (Utente control : Utenti) {
 
             if (usernameControl.equals(control.getUsername()) && passwordControl.equals(control.getPassword())) {
-                if (control.isAdmin()) {
-                    System.out.println("GIUSTO!!! AMMINISTRATORE");
-                } else {
-                    System.out.println("GIUSTO!!! UTENTE");
-                }
+               System.out.println("credenziali corrette");
                 b = true;
                 break;
             } else
