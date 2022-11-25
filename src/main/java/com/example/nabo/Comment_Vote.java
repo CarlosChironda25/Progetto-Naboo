@@ -4,8 +4,8 @@ import java.io.*;
 
 public class Comment_Vote {
 
-    String nomeFileCommenti = "C:\\Users\\39348\\Desktop\\cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Commenti.txt";
-    String nomeFileVoti = "C:\\Users\\39348\\Desktop\\cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Voti.txt";
+    String nomeFileCommenti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Commenti.txt";
+    String nomeFileVoti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Voti.txt";
 
 
     public Comment_Vote(){

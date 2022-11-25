@@ -1,40 +1,34 @@
 package com.example.nabo;
 
-import com.rometools.rome.feed.synd.SyndCategory;
-import com.rometools.rome.feed.synd.SyndCategoryImpl;
-import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndFeed;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 
 public class Notizia {
 
-      public Date data;
-      public String title;
-      public String link;
-      public String descrizione;
-      public String autore;
+      public Date Data;
+      public String Title;
+      public String Link;
+      public String Descrizione;
+      public String Autore;
       public SyndFeed Fonte;
-      public String category;
+      public String Category;
 
 
     public Notizia(Date data, String title, String link, String descrizione, String autore, SyndFeed fonte, String category) {
-        this.data = data;
-        this.title = title;
-        this.link = link;
-        this.descrizione = descrizione;
-        this.autore = autore;
+        this.Data = data;
+        this.Title = title;
+        this.Link = link;
+        this.Descrizione = descrizione;
+        this.Autore = autore;
         Fonte = fonte;
-        this.category = category;
+        this.Category = category;
     }
 
-    public void setDiscrizione(String descrizione) {this.descrizione = descrizione;}
+    public void setDiscrizione(String descrizione) {this.Descrizione = descrizione;}
 
     public String getAutore() {
-        return autore;
+        return Autore;
     }
 
     public void setAutore(String autore) {
@@ -54,43 +48,43 @@ public class Notizia {
       }
 
     public String getCategory() {
-            return category;
+            return Category;
     }
     public String getLink() {
-        return link;
+        return Link;
     }
 
     public Date getData() {
-        return data;
+        return Data;
     }
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
     public void setData(Date data) {
-        this.data = data;
+        this.Data = data;
     }
 
-    public void setCategory(String category) {this.category = category;}
+    public void setCategory(String category) {this.Category = category;}
 
     public void setTitle(String title) {
-        this.title = title;
+        this.Title = title;
     }
 
     public void setLink(String link) {
-        this.link = link;
+        this.Link = link;
     }
 
     @Override
     public String toString() {
 
-        return title + "\n\n" +
+        return Title + "\n\n" +
                 //descrizione + "\n\n" +
-                data + "\n\n" +
-                "Category : " + category + "\n" +
-                autore + "\n\n" +
-                link;
+                Data + "\n\n" +
+                "Category : " + Category + "\n" +
+                Autore + "\n\n" +
+                Link;
                 //+ "\n\n" +
                 //Fonte + "\n\n" +
 

@@ -23,7 +23,7 @@ import java.util.List;
 public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
     private ArrayList<String> sources;
-    public static String Path= "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
+    public static String Path= "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
     public  GestoreNotizia (ArrayList<String> link) throws MalformedURLException {
         this.sources = link;
         listaNotizie = new ArrayList<>();
@@ -47,7 +47,7 @@ public class GestoreNotizia {
         BufferedReader input = null;
         try{
             String link;
-            input = new BufferedReader(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Links.txt"));
+            input = new BufferedReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\links.txt"));
             while((link = input.readLine()) != null){
                 sources.add(link);
             }
@@ -91,13 +91,13 @@ public class GestoreNotizia {
 
 
     public static void main(String[] args) throws IOException {
-        FileWriter fileWriter = new FileWriter("src/main/resources/com/example/nabo/DataBase/Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
         fileWriter.write( "[");
         ArrayList<String> sources = new ArrayList<String> ();
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
+        //sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
+        //sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
+        //sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
         GestoreNotizia gestoreNotizia = new GestoreNotizia(sources);
         //System.out.println( gestoreNotizia.getNotizia());
         for( Notizia i : gestoreNotizia.getNotizia()) {
