@@ -1,44 +1,57 @@
 package com.example.nabo;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Prova extends TelegramLongPollingBot {
 
+    static List<Notizia> notizia;
 
+    private static final String pathNews = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
 
-    /*public   static Scanner scan= new Scanner(System.in);
+    public static Scanner scan= new Scanner(System.in);
     public static void main(String[] args)  throws JsonIOException, IOException {
-      /* ArrayList<String> tipo= new ArrayList<>();
-       tipo.add("lettore");
-       tipo.add("scrittore");
-       tipo.add("abbonato");
-
-          Utente utente= new Utente("Carlos","Carlos12",tipo);
-            Gson gson = new Gson();
-        String jsonParser =gson.toJson(utente);
-                 System.out.println(jsonParser);
-
-
+        JsonReader read = new JsonReader(new FileReader(pathNews));
         Gson gson = new Gson();
-        JsonReader leggi = new JsonReader(new FileReader("src/main/resources/com/example/nabo/Info-Notizie.json"));
-        List<Notizia> Utenti = gson.fromJson(leggi, (new TypeToken<List<Notizia>>() {
+
+        Date nowdate = new Date();
+        long nowms = nowdate.getTime();
+        long differencems = 24 * 60 * 60 * 3000;
+        long thenms = nowms - differencems;
+        Date thendate = new Date(thenms);
+        thendate.setSeconds(0);
+        thendate.setHours(0);
+        thendate.setMinutes(0);
+
+        System.out.println("QUESTO : " + thendate);
+        System.out.println("QUELLO : " + thenms);
+
+        notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
         }).getType());
-        for (Notizia i : Utenti) {
-            System.out.println(i);
+
+
+        int contatore = 0;
+
+        for (Notizia n : notizia) {
+
+            if (contatore == 100 || (n == null )) {
+                break;
+            }
+            if(n.getData().getTime() >= thendate.getTime())
+                System.out.println(n);
+
+            contatore++;
         }
-    }*/
+    }
 
     @Override
     public String getBotUsername() {
