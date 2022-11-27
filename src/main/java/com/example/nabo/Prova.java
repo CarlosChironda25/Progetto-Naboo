@@ -23,17 +23,8 @@ public class Prova extends TelegramLongPollingBot {
         JsonReader read = new JsonReader(new FileReader(pathNews));
         Gson gson = new Gson();
 
-        Date nowdate = new Date();
-        long nowms = nowdate.getTime();
-        long differencems = 24 * 60 * 60 * 3000;
-        long thenms = nowms - differencems;
-        Date thendate = new Date(thenms);
-        thendate.setSeconds(0);
-        thendate.setHours(0);
-        thendate.setMinutes(0);
+        String stringa = "incendiata";
 
-        System.out.println("QUESTO : " + thendate);
-        System.out.println("QUELLO : " + thenms);
 
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
         }).getType());
@@ -46,7 +37,7 @@ public class Prova extends TelegramLongPollingBot {
             if (contatore == 100 || (n == null )) {
                 break;
             }
-            if(n.getData().getTime() >= thendate.getTime())
+            if(n.getTitle().contains(stringa) || n.getDescrizione().contains(stringa))
                 System.out.println(n);
 
             contatore++;

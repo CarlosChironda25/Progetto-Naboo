@@ -76,6 +76,10 @@ public class Notizia {
         this.Link = link;
     }
 
+    public String getDescrizione() {
+        return Descrizione;
+    }
+
     @Override
     public String toString() {
 
