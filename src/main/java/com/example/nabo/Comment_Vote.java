@@ -105,13 +105,13 @@ public class Comment_Vote {
 
 
         if(outputComment == null && outputVote == 0)
-            return "\n\nComments : \nNo comment. \n\nAverage votes : \nNo vote. ";
+            return "\n\nCommenti : \nNessun commento. \n\nMedia dei voti : \nNessun voto. ";
         else if(outputComment != null && outputVote == 0)
-            return "\n\nComments : " + outputComment + "\nAverage votes : \nNo vote. ";
+            return "\n\nCommenti : " + outputComment + "\nMedia dei voti : \nNessun voto. ";
         else if(outputComment == null && outputVote!= 0)
-            return "\n\nComments : \nNo comment. \n\nAverage votes : " + outputVote;
+            return "\n\nCommenti : \nNessun commento. \n\nMedia dei voti : " + outputVote;
         else
-            return "\n\nComments : " + outputComment + "\nAverage votes : " + outputVote;
+            return "\n\nCommenti : " + outputComment + "\nMedia dei voti : " + outputVote;
     }
 }
 

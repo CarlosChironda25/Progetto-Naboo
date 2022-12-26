@@ -1,0 +1,6 @@
+.jfx.button{
+    background-color: cornflowerblue;
+}
+.jfx.button:hover{
+    background-color: red;
+}

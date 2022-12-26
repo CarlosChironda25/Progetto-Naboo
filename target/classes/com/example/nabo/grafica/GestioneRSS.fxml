@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grafica.GestioneRss">
+    <children>
+        <Label alignment="CENTER" layoutY="24.0" prefHeight="33.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="   Upload Rss">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <FontAwesomeIconView glyphName="UPLOAD" layoutX="232.0" layoutY="44.0" size="20" />
+        <Button layoutY="27.0" mnemonicParsing="false" onAction="#Indietro" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: CCFFE5;" text="   Back" />
+        <FontAwesomeIconView glyphName="HOME" layoutX="8.0" layoutY="43.0" size="12" />
+        <Button layoutX="276.0" layoutY="169.0" mnemonicParsing="false" onAction="#CancellaNotizia" prefHeight="64.0" prefWidth="104.0" style="-fx-background-color: #99CCFF; -fx-alignment: black;" text="Remove News" />
+        <Button layoutX="164.0" layoutY="169.0" mnemonicParsing="false" onAction="#CaricaNotizia" prefHeight="64.0" prefWidth="104.0" style="-fx-background-color: white;" text="Upload News" />
+        <FontAwesomeIconView glyphName="REMOVE" layoutX="320.0" layoutY="157.0" size="20" text="" />
+        <FontAwesomeIconView glyphName="UPLOAD" layoutX="207.0" layoutY="157.0" size="20" text="" />
+        <Label alignment="CENTER" layoutY="115.0" prefHeight="17.0" prefWidth="600.0" text="choose one of the two buttons to uplaod or to remove news " textFill="#163d9f" />
+    </children>
+</AnchorPane>
