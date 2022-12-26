@@ -47,7 +47,7 @@ public class ControllerUtente implements Initializable {
             e.printStackTrace();
         }
     }
-    public Utente[] caricaUtenti(String file){
+    /*public Utente[] caricaUtenti(String file){
         //Carica gli utenti nella tabella
         Utente[] utenti;
         try(FileReader reader = new FileReader("dati.json")){
@@ -56,7 +56,7 @@ public class ControllerUtente implements Initializable {
         }catch(NullPointerException | IOException | JsonIOException | JsonSyntaxException e){
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

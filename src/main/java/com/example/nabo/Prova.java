@@ -5,7 +5,14 @@ import com.google.gson.JsonIOException;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ForceReplyKeyboard;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,33 +21,21 @@ import java.util.*;
 
 public class Prova extends TelegramLongPollingBot {
 
-    static List<Notizia> notizia;
 
-    private static final String pathNews = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
-
-    public static Scanner scan= new Scanner(System.in);
-    public static void main(String[] args)  throws JsonIOException, IOException {
-        JsonReader read = new JsonReader(new FileReader(pathNews));
-        Gson gson = new Gson();
-
-        String stringa = "incendiata";
+    public static void main(String[] args){
 
 
-        notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
-        }).getType());
+        for ( int i = 0; i <= 2; i ++ ) {
 
-
-        int contatore = 0;
-
-        for (Notizia n : notizia) {
-
-            if (contatore == 100 || (n == null )) {
-                break;
-            }
-            if(n.getTitle().contains(stringa) || n.getDescrizione().contains(stringa))
-                System.out.println(n);
-
-            contatore++;
+            Timer timer = new Timer();
+            int finalI = i;
+            timer.schedule(new TimerTask() {
+                               @Override
+                               public void run() {
+                                   System.out.println("30 secondi" + finalI);
+                               }
+                           }, 3000
+            );
         }
     }
 
@@ -60,8 +55,33 @@ public class Prova extends TelegramLongPollingBot {
 
             String message = update.getMessage().getText();
             System.out.println(message);
+
+            if(message.equals("/login")){
+                try {
+                    login(update);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            //update.
         }
     }
+
+    private void login(Update update) throws InterruptedException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
+
+
+        sendMessage.setText("inserisci username");
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }
 
 /*System.err.println(update.getMessage().getReplyToMessage().getPoll().getTotalVoterCount());*

@@ -15,7 +15,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class NewsController implements Initializable {
+/*public class NewsController implements Initializable {
     @FXML
     private TableView<Notizia> tablenews;
     //tabella creata per visualizzare tutti gli utenti del database
@@ -59,4 +59,4 @@ public class NewsController implements Initializable {
     }
 
 
-}
+}*/
