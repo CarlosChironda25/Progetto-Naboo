@@ -63,10 +63,10 @@ public class CancellaUtente {
         }else
             //Caso non sono vouti chiama il Metodo RimouveUtente(ActionEvent event)
             for( Utente i:Utenti){
-                if( Username.getText().equals(i.Username) &&Mail.getText().equals(i.Mail)){
-                    Avviso.setText("Utente Rimoso");
+                //if( Username.getText().equals(i.Username) &&Mail.getText().equals(i.Mail)){
+                    //Avviso.setText("Utente Rimoso");
                     // RimouveUtente(event);
-                }
+                //}
 
 
             }
@@ -80,7 +80,7 @@ public class CancellaUtente {
         AvisoUsername.setText( "La cancellazione è stata fatta");
     }
 
-    @FXML
+    /*@FXML
         // Metodo per la rimozione dell' utente
 
     void RimouveUtente(ActionEvent event) throws FileNotFoundException {
@@ -99,6 +99,6 @@ public class CancellaUtente {
             }
         }else
             AvisoUsername.setText(" ci sono dei campi vuoti");
-    }
+    }*/
 
 }

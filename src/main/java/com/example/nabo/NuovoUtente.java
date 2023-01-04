@@ -62,7 +62,7 @@ public class NuovoUtente {
         }
     }
 
-    @FXML
+    /*@FXML
         // Metodo per Aggiungere un nuovo utente nel database
     void UserName(ActionEvent event) {
         String User= String.valueOf(Username);
@@ -71,7 +71,7 @@ public class NuovoUtente {
         Utente utente1 = new Utente(User,pass,Ml);
         utentes.add(utente1);
 
-    }
+    }*/
 
     @FXML
     void UserPassword(ActionEvent event) {

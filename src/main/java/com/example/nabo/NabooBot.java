@@ -1,6 +1,7 @@
 package com.example.nabo;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.rometools.rome.io.FeedException;
@@ -13,6 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -30,6 +32,8 @@ public class NabooBot  extends  TelegramLongPollingBot {
     List<Utente> Utenti;
     List<Notizia> notizia;
     boolean login;
+
+    boolean register;
     Update update;
 
     boolean booleanAuthors = false;
@@ -65,18 +69,39 @@ public class NabooBot  extends  TelegramLongPollingBot {
             String message = update.getMessage().getText();    // String = message received
             System.out.println("Messaggio ricevuto  : " + message);
 
-            if (message.startsWith("Login") || message.startsWith("login")) {
+            if (message.startsWith("Login = ") || message.startsWith("login = ")) {
                 try {
                     login = login(message);     //try login
                     if (login) {      //if ( login is correct )
                         this.send("Login effettuato con successo! ");
-                            benvenuto();
+                        this.send("Benvenuto " + usernameControl);
+                        mainButton();
                     } else
                         this.send(""" 
                                 Errore col login,
                                 provare nuovamente cliccando : \"/login\"""");
 
                 } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+
+            } if (message.startsWith("Register = ") || message.startsWith("register = ")) {
+                try {
+                    register = register(message);     //try login
+                    if (register) {      //if ( login is correct )
+                        this.send("Registrazione effettuata con successo! ");
+                        this.send("Benvenuto " + usernameControl);
+                        login = true;
+                        mainButton();
+                    } else
+                        this.send(""" 
+                                Errore con la registrazione,
+                                provare nuovamente cliccando : 
+                                \"/register""");
+
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
 
@@ -141,8 +166,14 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     case "/start":
                         this.send("""
                                 Grazie per essere entrato in NabooNews.
-                                \nPer vedere le notizie è necessario autenticarsi, inserendo username e password.
-                                ( ex. : Login = username password )\"""");
+                                \nPer vedere le notizie è necessario autenticarsi.
+                                
+                                Per il login usare il seguente formato :
+                                ( ex. : Login = username password )
+                                
+                                oppure registrarsi usando il seguente formato :
+                                ( ex. : Register = username password password)""");
+
                         break;
 
                     case "/logout":
@@ -157,10 +188,26 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
                     case "/news":
                         if (login) {
+                            Message message2 = update.getCallbackQuery().getMessage();
+                            SendMessage sendMessage = new SendMessage();
+                            sendMessage.setChatId(message2.getChatId().toString());
+                            try {
+                                news(sendMessage);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            } catch (FeedException e) {
+                                throw new RuntimeException(e);
+                            }
                         } else
                             this.send("\uD83D\uDC49\uD83C\uDFFCPrima di vedere le notizie è necessario effettuare il login, cliccando su : \"/login");
                         break;
 
+                    case "/menu":
+                        if(login){
+                            mainButton();
+                        } else
+                            this.send("\uD83D\uDC49\uD83C\uDFFCPer poter selezionare il comanda è necessario effettuare il login, cliccando su : \"/login");
+                        break;
 
                     default:
                         this.send("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando : \"/start");
@@ -218,11 +265,12 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     news = null;
                 }
 
-                case "CallMenu" -> {
+                case "CallCommand" -> {
                     sendMessage.setText("""
                                         /start : messaggio iniziale;
                                         \n/login : richiesta di login;
                                         \n/news : visuallizzazione delle notizie;
+                                        \n/menu : visualizzazione bottoni principali;
                                         \n/logout : logout utente.""");
                     try {
                         execute(sendMessage);
@@ -235,13 +283,12 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 case "CallNotizie" -> {
                     try {
                         news(sendMessage);
-                    } catch (FileNotFoundException e) {
+                    } catch (IOException e) {
                         throw new RuntimeException(e);
                     } catch (FeedException e) {
                         throw new RuntimeException(e);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
                     }
+
                 }
 
                 case "CallFilter" -> filtering(sendMessage);
@@ -299,16 +346,16 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private void filtering(SendMessage sendMessage) {
 
-        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();   //creiamo struttura buttoni per Vote & Comment
+        InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();   //creiamo struttura bottoni
         List<List<InlineKeyboardButton>> inlineKeyboard = new ArrayList<>();    //creiamo lista di righe
 
 
         List<InlineKeyboardButton> firstButtonRow = new ArrayList<>();   //creiamo una riga dove inserire i bottoni
-        List<InlineKeyboardButton> secondButtonRow = new ArrayList<>();            //creiamo una seconda riga dove vedere i risultati dei commenti e voti
-        InlineKeyboardButton buttonCategoy = new InlineKeyboardButton("Categoria");     //button per filtro categoria
-        InlineKeyboardButton buttonAuthor = new InlineKeyboardButton("Autore");       //button per autore
-        InlineKeyboardButton buttonDate = new InlineKeyboardButton("Per data");       //button per data
-        InlineKeyboardButton buttonKeyword = new InlineKeyboardButton("Parola chiave");       //button per parola chiave
+        List<InlineKeyboardButton> secondButtonRow = new ArrayList<>();            //creiamo una seconda riga
+        InlineKeyboardButton buttonCategoy = new InlineKeyboardButton("\uD83D\uDCC8\u26BDCategoria");     //button per filtro categoria
+        InlineKeyboardButton buttonAuthor = new InlineKeyboardButton("\uD83D\uDE4DAutore");       //button per autore
+        InlineKeyboardButton buttonDate = new InlineKeyboardButton("\u231BPer data");       //button per data
+        InlineKeyboardButton buttonKeyword = new InlineKeyboardButton("\uD83D\uDD24Parola chiave");       //button per parola chiave
 
         buttonCategoy.setCallbackData("CallCategory");         //risposta al click sul bottone
         buttonAuthor.setCallbackData("CallAuthors");
@@ -360,6 +407,15 @@ public class NabooBot  extends  TelegramLongPollingBot {
         if (!trova) {
             this.send("Autore non valida");
         }
+
+        sendMessage.setReplyMarkup(null);
+        sendMessage.setText("\u293E/menu");
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -387,9 +443,20 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 }
             }
         }
+
         if (!trova) {
             this.send("Categoria non valida");
         }
+
+        sendMessage.setReplyMarkup(null);
+        sendMessage.setText("\u293E/menu");
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void filterKeyword(String keyword) throws FileNotFoundException {
@@ -417,10 +484,20 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
         }
 
+
+
         if (!trova) {
             this.send("Non è stata trovata nessuna notizia con la parola chiave \"" + keyword + "\"");
-
         }
+
+        sendMessage.setReplyMarkup(null);
+        sendMessage.setText("\u293E/menu");
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -460,9 +537,19 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
 
         }
+
+
         if(!trova) {
             this.send("Data non valida");
         }
+        sendMessage.setReplyMarkup(null);
+        sendMessage.setText("\u293E/menu");
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -495,34 +582,96 @@ public class NabooBot  extends  TelegramLongPollingBot {
             sendMessage.setReplyMarkup(buttonCommentiVoti());
 
             try {
-
                 execute(sendMessage);
-
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             }
 
         }
 
+        sendMessage.setReplyMarkup(null);
+        sendMessage.setText("\u293E/menu");
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+
     }
+
+    private boolean register(String messaggio) throws IOException {  //riceviamo richiesta registrazione
+
+        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+
+        String confermaPassword = null;
+
+        messaggio = messaggio.substring(11);  //username password confPassword
+        System.out.println(messaggio);
+
+        StringTokenizer string = new StringTokenizer(messaggio);
+        if (string.countTokens() == 3) {   //verifichiamo di avere 3 campi
+            usernameControl = string.nextToken();
+            passwordControl = string.nextToken();
+            confermaPassword = string.nextToken();
+            if(!passwordControl.equals(confermaPassword))   //verifichiamo che le due password coincidano
+                return register;
+        } else {
+            return register;
+        }
+
+        JsonReader leggi = new JsonReader(new FileReader(path));
+        Gson gson = new Gson();
+        Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
+        }).getType());
+
+        for (Utente control : Utenti) {
+            if (usernameControl.equals(control.getUsername())) {  //verifichiamo che non esista altri utenti con lo stesso username
+                System.out.println("username già in uso");
+                return register;
+            } else
+                System.out.println("username valido");
+        }
+
+        writeFile(usernameControl, passwordControl, path );   //possiamo scrivere i dati sul file json
+        return register = true;
+    }
+
+    public static void writeFile(String username, String password, String path) throws IOException {
+        Utente user = new Utente(username, password, false);
+        List<Utente> users = readFile(path);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Utente> listUser = new ArrayList<>();
+        listUser.addAll(users);
+        listUser.add(user);
+        String jsonString = gson.toJson(listUser);
+        FileWriter fw = new FileWriter(path);
+        fw.write(jsonString);
+        fw.close();
+    }
+
+    public static List<Utente> readFile(String path) throws FileNotFoundException {
+        Gson gson = new Gson();
+        JsonReader reader = new JsonReader(new FileReader(path));
+        List<Utente> user = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
+        return user;
+    }
+
 
 
     private boolean login(String messaggio) throws FileNotFoundException {
 
         boolean login = false;
 
-        if(messaggio.length() > 8) {            //controlla che il messaggio sia lungo almeno 8 caratteri
-            messaggio = messaggio.substring(8);
-            StringTokenizer string = new StringTokenizer(messaggio);
-            if ((string.countTokens() == 2)) {       //controllo che la stringa ricevuta abbia 2 campi
-                usernameControl = string.nextToken();
-                passwordControl = string.nextToken();
-            } else
-                return login;
+        messaggio = messaggio.substring(8);
+        StringTokenizer string = new StringTokenizer(messaggio);
+        if ((string.countTokens() == 2)) {       //controllo che la stringa ricevuta abbia 2 campi
+            usernameControl = string.nextToken();
+            passwordControl = string.nextToken();
         } else
             return login;
 
-        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
+
+        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
         Gson gson = new Gson();
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
@@ -541,9 +690,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     }
 
-
-    public void benvenuto() {
-
+    private void mainButton() {
         if (update.hasMessage()) {                  //aggiorna : ho un messaggio ? TRUE
 
             Message message = update.getMessage();  // inserisco nella variabile messagge il messaggio ricevuto
@@ -559,28 +706,28 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
             /** InlineButton 1 **/
             InlineKeyboardButton newsButton = new InlineKeyboardButton();   //nuovo bottone
-            newsButton.setText("Vedi notizie");
+            newsButton.setText("\uD83D\uDCF0Vedi notizie");
             newsButton.setCallbackData("CallNotizie");
             firstBottonRow.add(newsButton);             //aggiungo a riga 1
 
             /** InlineButton 2 **/
             InlineKeyboardButton filterButton = new InlineKeyboardButton();
-            filterButton.setText("Filtra notizie");
+            filterButton.setText("\uD83D\uDCCAFiltra notizie");
             filterButton.setCallbackData("CallFilter");
             firstBottonRow.add(filterButton);
 
             /** InlineButton 3 **/
-            InlineKeyboardButton menuButton = new InlineKeyboardButton();
-            menuButton.setText("Menu");
-            menuButton.setCallbackData("CallMenu");
-            secondBottonRow.add(menuButton);
+            InlineKeyboardButton commandButton = new InlineKeyboardButton();
+            commandButton.setText("\u2699Comandi");
+            commandButton.setCallbackData("CallCommand");
+            secondBottonRow.add(commandButton);
 
             inlineButtons.add(firstBottonRow);      //aggiungo bottoneRiga1
             inlineButtons.add(secondBottonRow);     //aggiungo bottoneRiga2
 
             inlineKeyboardMarkup.setKeyboard(inlineButtons);
 
-            sendMessage.setText("Benvenuto " + usernameControl);
+            sendMessage.setText("Selezionare un comando");
             sendMessage.setReplyMarkup(inlineKeyboardMarkup);
 
             try {
@@ -593,14 +740,14 @@ public class NabooBot  extends  TelegramLongPollingBot {
     }
 
     private InlineKeyboardMarkup buttonCommentiVoti(){
-        InlineKeyboardMarkup keyboardVoteCommentMarkup = new InlineKeyboardMarkup();   //creiamo struttura buttoni per Vote & Comment
-        List<List<InlineKeyboardButton>> inlineKeybVoteComment = new ArrayList<>();    //creiamo lista di righe
+        InlineKeyboardMarkup keyboardVoteCommentMarkup = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> inlineKeybVoteComment = new ArrayList<>();
 
 
         List<InlineKeyboardButton> inlineKeyboardButtonsVeC = new ArrayList<>();   //creiamo una riga dove inserire i bottoni
         List<InlineKeyboardButton> secondBottonRow = new ArrayList<>();            //creiamo una seconda riga dove vedere i risultati dei commenti e voti
-        InlineKeyboardButton buttonVote = new InlineKeyboardButton("vota");     //button vote
-        InlineKeyboardButton buttonComment = new InlineKeyboardButton("commenta");       //button commenti
+        InlineKeyboardButton buttonVote = new InlineKeyboardButton("\uD83D\uDC4Dvota");     //button vote
+        InlineKeyboardButton buttonComment = new InlineKeyboardButton("\uD83D\uDCACcommenta");       //button commenti
         InlineKeyboardButton buttonShowComment = new InlineKeyboardButton("mostra voti e commenti");       //button mostra commenti
 
         buttonVote.setCallbackData("CallVota");         // risposta al click sul bottone
@@ -623,7 +770,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
         JsonReader read = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json"));
 
         Gson gson = new Gson();
-
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
         }).getType());
 
@@ -634,6 +780,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
     public void send(String msg) {
         SendMessage send = new SendMessage();
         send.setChatId(this.update.getMessage().getChatId().toString());
+
         send.setText(msg);
 
         try {

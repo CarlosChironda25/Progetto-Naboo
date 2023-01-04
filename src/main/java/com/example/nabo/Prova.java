@@ -1,9 +1,12 @@
 package com.example.nabo;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -14,30 +17,31 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+
 public class Prova extends TelegramLongPollingBot {
 
+    private static String path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    public static List<Utente>  Utenti;
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
 
-
-        for ( int i = 0; i <= 2; i ++ ) {
-
-            Timer timer = new Timer();
-            int finalI = i;
-            timer.schedule(new TimerTask() {
-                               @Override
-                               public void run() {
-                                   System.out.println("30 secondi" + finalI);
-                               }
-                           }, 3000
-            );
-        }
     }
+
+
+
 
     @Override
     public String getBotUsername() {

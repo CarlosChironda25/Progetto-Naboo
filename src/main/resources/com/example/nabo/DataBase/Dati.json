@@ -1,12 +1,17 @@
 [
   {
-  "Username": "Prova1",
-  "Password": "Prova11",
-  "Mail": "Elln@studio.unibo.it"
+    "Username": "Prova1",
+    "Password": "Prova11",
+    "isAdmin": true
   },
   {
-  "Username": "Carlos12",
-  "Password": "Carlos200",
-  "Mail": "carlosvas@studio.unibo.it"
+    "Username": "Carlos12",
+    "Password": "Carlos200",
+    "isAdmin": false
+  },
+  {
+    "Username": "roberto",
+    "Password": "password1",
+    "isAdmin": false
   }
 ]
