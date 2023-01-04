@@ -23,4 +23,6 @@ module com.example.nabo {
 
     opens com.example.nabo to javafx.fxml;
     exports com.example.nabo;
+    exports com.example.nabo.GUI;
+    opens com.example.nabo.GUI to javafx.fxml;
 }

@@ -4,25 +4,15 @@ import java.util.ArrayList;
 public class Utente {
     public String Username;
     public String Password;
-    public String Mail;
+    public boolean isAdmin;
 
 
-    public Utente(String username, String password, String mail) {
+    public Utente(String username, String password, boolean isAdmin) {
         Username = username;
         Password = password;
-        Mail = mail;
+        this.isAdmin = isAdmin;
 
     }
-
-
-    public String getMail() {
-        return Mail;
-    }
-
-    public void setMail(String mail) {
-        Mail = mail;
-    }
-
 
     public String getUsername() {
         return Username;
@@ -41,12 +31,18 @@ public class Utente {
         Password = password;
     }
 
+    public boolean getIsAdmin(){
+        return isAdmin;
+    }
+    public void setIsAdmin(boolean isAdmin){ isAdmin = isAdmin; }
+
+
     @Override
     public String toString() {
         return "Utente{" +
                 "Username='" + this.Username + '\'' +
                 ", Password='" + this.Password+ '\'' +
-                ", Mail='" + this.Mail + '\'' +
+                ", isAdmin='" + this.isAdmin + '\'' +
                 '}';
     }
 
