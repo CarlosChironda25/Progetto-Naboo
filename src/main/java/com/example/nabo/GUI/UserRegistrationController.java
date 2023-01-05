@@ -40,14 +40,14 @@ public class UserRegistrationController {
     private Button btnConfirm;
 
 
-    private static String path = "C:\\Users\\feder\\Downloads\\progetto naboo 23 dicembre\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    private static String path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
         List<Utente> user = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
         return user;
     }
-    public static void writeFile(String username, String password, boolean isAdmin, String path) throws IOException {
+    public static void writeFile(String username, String password, boolean isAdmin) throws IOException {
         Utente user = new Utente(username, password, isAdmin);
         List<Utente> users = readFile(path);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -88,7 +88,7 @@ public class UserRegistrationController {
     @FXML
     public void registrationOperation(ActionEvent event) throws IOException{
         if(checkAlreadyRegistered()){
-            writeFile(txtUsername.getText(), txtPassword.getText(), boxUtente.isSelected(), path);
+            writeFile(txtUsername.getText(), txtPassword.getText(), boxUtente.isSelected());
             labelRegistrazione.setText("registrazione avvenuta con successo!!");
 
             txtUsername.setText("");

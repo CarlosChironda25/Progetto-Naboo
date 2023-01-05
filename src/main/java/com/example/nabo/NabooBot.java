@@ -1,7 +1,7 @@
 package com.example.nabo;
 
+import com.example.nabo.GUI.UserRegistrationController;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.rometools.rome.io.FeedException;
@@ -14,7 +14,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -79,13 +78,13 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     } else
                         this.send(""" 
                                 Errore col login,
-                                provare nuovamente cliccando : \"/login\"""");
+                                provare nuovamente cliccando : /login""");
 
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
                 }
 
-            } if (message.startsWith("Register = ") || message.startsWith("register = ")) {
+            } else if (message.startsWith("Register = ") || message.startsWith("register = ")) {
                 try {
                     register = register(message);     //try login
                     if (register) {      //if ( login is correct )
@@ -97,7 +96,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
                         this.send(""" 
                                 Errore con la registrazione,
                                 provare nuovamente cliccando : 
-                                \"/register""");
+                                /register""");
 
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
@@ -179,11 +178,17 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     case "/logout":
                         usernameControl = null;
                         passwordControl = null;
+                        login = false;
+                        register = false;
                         this.send("Logout effettuato.");
                         break;
 
                     case "/login":
                         this.send("Inserire username e password.\n( ex. : Login = username password )");
+                        break;
+
+                    case "/register":
+                        this.send("Inserire username password e confermaPassword.\n( ex. : Register = username password passoword)");
                         break;
 
                     case "/news":
@@ -206,7 +211,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
                         if(login){
                             mainButton();
                         } else
-                            this.send("\uD83D\uDC49\uD83C\uDFFCPer poter selezionare il comanda è necessario effettuare il login, cliccando su : \"/login");
+                            this.send("\uD83D\uDC49\uD83C\uDFFCPer poter selezionare il comando è necessario effettuare il login, cliccando su : \"/login");
                         break;
 
                     default:
@@ -269,6 +274,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
                     sendMessage.setText("""
                                         /start : messaggio iniziale;
                                         \n/login : richiesta di login;
+                                        \n/register : richiesta di registrazione;
                                         \n/news : visuallizzazione delle notizie;
                                         \n/menu : visualizzazione bottoni principali;
                                         \n/logout : logout utente.""");
@@ -405,7 +411,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
         }
         if (!trova) {
-            this.send("Autore non valida");
+            this.send("Autore non valido");
         }
 
         sendMessage.setReplyMarkup(null);
@@ -606,7 +612,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
         String confermaPassword = null;
 
         messaggio = messaggio.substring(11);  //username password confPassword
-        System.out.println(messaggio);
 
         StringTokenizer string = new StringTokenizer(messaggio);
         if (string.countTokens() == 3) {   //verifichiamo di avere 3 campi
@@ -625,35 +630,16 @@ public class NabooBot  extends  TelegramLongPollingBot {
         }).getType());
 
         for (Utente control : Utenti) {
-            if (usernameControl.equals(control.getUsername())) {  //verifichiamo che non esista altri utenti con lo stesso username
-                System.out.println("username già in uso");
+            if (usernameControl.equals(control.getUsername())) {  //verifichiamo che non esistano altri utenti con lo stesso username
                 return register;
-            } else
-                System.out.println("username valido");
+            }
         }
 
-        writeFile(usernameControl, passwordControl, path );   //possiamo scrivere i dati sul file json
-        return register = true;
-    }
+        UserRegistrationController userReg = new UserRegistrationController();
 
-    public static void writeFile(String username, String password, String path) throws IOException {
-        Utente user = new Utente(username, password, false);
-        List<Utente> users = readFile(path);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Utente> listUser = new ArrayList<>();
-        listUser.addAll(users);
-        listUser.add(user);
-        String jsonString = gson.toJson(listUser);
-        FileWriter fw = new FileWriter(path);
-        fw.write(jsonString);
-        fw.close();
-    }
-
-    public static List<Utente> readFile(String path) throws FileNotFoundException {
-        Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader(path));
-        List<Utente> user = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
-        return user;
+        userReg.writeFile(usernameControl, passwordControl, false );   //possiamo scrivere i dati sul file json
+        register = true;
+        return register;
     }
 
 
@@ -676,18 +662,14 @@ public class NabooBot  extends  TelegramLongPollingBot {
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
 
-
         for (Utente control : Utenti) {
             if (usernameControl.equals(control.getUsername()) && passwordControl.equals(control.getPassword())) {
-                System.out.println("Credenziali corrette");
                 login = true;
                 break;
-            } else
-                System.out.println("NO!! Credenziale errate");
+            }
         }
 
         return login;
-
     }
 
     private void mainButton() {

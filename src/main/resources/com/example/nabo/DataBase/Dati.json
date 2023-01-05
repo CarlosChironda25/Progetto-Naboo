@@ -13,5 +13,35 @@
     "Username": "roberto",
     "Password": "password1",
     "isAdmin": false
+  },
+  {
+    "Username": "roberto1",
+    "Password": "password1",
+    "isAdmin": false
+  },
+  {
+    "Username": "roberto2",
+    "Password": "password1",
+    "isAdmin": false
+  },
+  {
+    "Username": "roberto3",
+    "Password": "password1",
+    "isAdmin": false
+  },
+  {
+    "Username": "roberto4",
+    "Password": "password1",
+    "isAdmin": false
+  },
+  {
+    "Username": "prova",
+    "Password": "prova",
+    "isAdmin": false
+  },
+  {
+    "Username": "nuovo",
+    "Password": "nuovo",
+    "isAdmin": false
   }
 ]
