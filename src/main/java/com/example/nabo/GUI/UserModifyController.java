@@ -29,13 +29,13 @@ public class UserModifyController {
     @FXML
     public Label labelSave;
     @FXML
-    public TextField txtSearchedUser;
+    public TextField inputSearchedUser;
     @FXML
-    public TextField txtUsername;
+    public TextField inputUsername;
     @FXML
-    public TextField txtPassword;
+    public TextField inputPassword;
     @FXML
-    public TextField txtPassword2;
+    public TextField inputPassword2;
     @FXML
     public CheckBox boxUtente;
 
@@ -67,18 +67,18 @@ public class UserModifyController {
         List<Utente> utente = readFile(path);
         boolean userFound = false;
         for(int i = 0; i < utente.size(); i++){
-            if(utente.get(i).getUsername().equals(txtSearchedUser.getText())){
+            if(utente.get(i).getUsername().equals(inputSearchedUser.getText())){
                 userFound = true;
-                txtUsername.setText(utente.get(i).getUsername());//modifico username
-                txtPassword.setText(utente.get(i).getPassword());
-                txtPassword2.setText(utente.get(i).getPassword());
+                inputUsername.setText(utente.get(i).getUsername());//modifico username
+                inputPassword.setText(utente.get(i).getPassword());
+                inputPassword2.setText(utente.get(i).getPassword());
                 boxUtente.setSelected(utente.get(i).getIsAdmin());//modifico il permesso
             }
             if(!userFound){
                labelErrorSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
-               txtUsername.setText("");
-               txtPassword.setText("");
-               txtPassword2.setText("");
+               inputUsername.setText("");
+               inputPassword.setText("");
+               inputPassword2.setText("");
                boxUtente.setSelected(true);
             }
         }
@@ -87,25 +87,25 @@ public class UserModifyController {
     public void save(ActionEvent event) throws IOException {
         labelErrorSearchedUser.setText("");
         List<Utente> utente = readFile(path);
-        if (txtSearchedUser.getText().isEmpty()) {
+        if (inputSearchedUser.getText().isEmpty()) {
             labelErrorSearchedUser.setText("non hai cercato nessuno");
         } else {
             if (checkModify()) {
                 for (int i = 0; i < utente.size(); i++) {
-                    if (utente.get(i).getUsername().equals(txtSearchedUser.getText())) {
+                    if (utente.get(i).getUsername().equals(inputSearchedUser.getText())) {
 
-                        utente.get(i).setUsername(txtUsername.getText());
-                        utente.get(i).setPassword(txtPassword.getText());
+                        utente.get(i).setUsername(inputUsername.getText());
+                        utente.get(i).setPassword(inputPassword.getText());
                         utente.get(i).setIsAdmin(boxUtente.isSelected());
                         writeFile(utente, path);
                     }
                 }
-                labelSave.setText("utente " + txtUsername.getText() + "modificato senza prblemi");
+                labelSave.setText("utente " + inputUsername.getText() + "modificato senza prblemi");
                 //Dopo aver salvato svuoto tutti i campi
-                txtSearchedUser.setText("");
-                txtUsername.setText("");
-                txtPassword.setText("");
-                txtPassword2.setText("");
+                inputSearchedUser.setText("");
+                inputUsername.setText("");
+                inputPassword.setText("");
+                inputPassword2.setText("");
                 boxUtente.setSelected(true); //l'utente è di default utente normale
             }
         }
@@ -119,19 +119,19 @@ public class UserModifyController {
 
         boolean control = true;
 
-        if(txtUsername.getText().isEmpty()){
+        if(inputUsername.getText().isEmpty()){
             labelErrorUser.setText("Cambia il nome");
             control = false;
         }
-        if(txtPassword.getText().isEmpty()){
+        if(inputPassword.getText().isEmpty()){
             labelErrorPassword.setText("Cambia la password");
             control = false;
         }
-        if(txtUsername.getText().isEmpty() || txtPassword2.getText().isEmpty()){
+        if(inputUsername.getText().isEmpty() || inputPassword2.getText().isEmpty()){
             labelErrorUser.setText("Non hai inserito la password e la password di conferma");
             control = false;
         }else{
-            if(!txtPassword.getText().equals(txtPassword2.getText())){
+            if(!inputPassword.getText().equals(inputPassword2.getText())){
                 labelErrorPassword.setText("le password non coincidono");
                 control = false;
             }

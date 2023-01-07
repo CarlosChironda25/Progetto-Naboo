@@ -27,11 +27,11 @@ public class UserRegistrationController {
     @FXML
     private Label labelErrorPassword2;
     @FXML
-    private TextField txtUsername;
+    private TextField inputUsername;
     @FXML
-    private TextField txtPassword;
+    private TextField inputPassword;
     @FXML
-    private TextField txtPassword2;
+    private TextField inputPassword2;
     @FXML
     private Label labelRegistrazione;
     @FXML
@@ -64,20 +64,20 @@ public class UserRegistrationController {
         labelErrorPassword.setText("");
         labelErrorPassword2.setText("");
         boolean control = true;
-        if (txtUsername.getText().isEmpty()) {
+        if (inputUsername.getText().isEmpty()) {
             labelErrorUsername.setText("Username non inserito");
             control = false;
         }
-        if (txtPassword.getText().isEmpty()) {
+        if (inputPassword.getText().isEmpty()) {
             labelErrorPassword.setText("Password non inserita");
             control = false;
         }
-        if (txtPassword2.getText().isEmpty()) {
+        if (inputPassword2.getText().isEmpty()) {
             labelErrorPassword2.setText("Password di controllo non inserita");
             control = false;
         }
 
-        if(!(txtPassword.getText().equals(txtPassword2.getText()))){
+        if(!(inputPassword.getText().equals(inputPassword2.getText()))){
             labelErrorPassword.setText("Errore nelle password");
             control = false;
         }
@@ -88,12 +88,12 @@ public class UserRegistrationController {
     @FXML
     public void registrationOperation(ActionEvent event) throws IOException{
         if(checkAlreadyRegistered()){
-            writeFile(txtUsername.getText(), txtPassword.getText(), boxUtente.isSelected());
+            writeFile(inputUsername.getText(), inputPassword.getText(), boxUtente.isSelected());
             labelRegistrazione.setText("registrazione avvenuta con successo!!");
 
-            txtUsername.setText("");
-            txtPassword.setText("");
-            txtPassword2.setText("");
+            inputUsername.setText("");
+            inputPassword.setText("");
+            inputPassword2.setText("");
             boxUtente.setSelected(true);
         }
     }
