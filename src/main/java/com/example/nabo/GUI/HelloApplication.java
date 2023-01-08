@@ -23,11 +23,11 @@ public class HelloApplication extends Application {
          scene.getStylesheets().add(getClass().getResource("Grafica.css").toExternalForm());per un file, p
        //  String css= this.getClass().getResource("Grafica.css").toExternalForm(); // per tutti i file
         scene.getStylesheets().add(css);*/
-
+        stage.setTitle("Benvenuto in naboo!!");
         stage.setScene(scene);
         stage.show();
     }
-
+    /*
     void NuovoUtente(ActionEvent event) throws IOException {
         root =FXMLLoader.load(getClass().getResource("NuovoUtente.fxml"));
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -35,6 +35,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
+     */
 
     public static void main(String[] args) {
         launch();
