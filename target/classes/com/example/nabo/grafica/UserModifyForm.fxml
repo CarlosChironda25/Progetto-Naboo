@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserModifyController">
+   <children>
+      <TextField fx:id="InputUsername" layoutX="189.0" layoutY="101.0" promptText="Inserisci nuovo username" />
+      <TextField fx:id="inputPassword" layoutX="189.0" layoutY="162.0" promptText="inserisci nuova password" />
+      <TextField fx:id="inputPassword2" layoutX="189.0" layoutY="213.0" promptText="Conferma password" />
+      <Button fx:id="saveChanges" layoutX="247.0" layoutY="315.0" mnemonicParsing="false" onAction="#save" text="Salva Modifica" />
+      <Button fx:id="searchUser" layoutX="307.0" layoutY="59.0" mnemonicParsing="false" onAction="#search" text="Cerca Utente" />
+      <TextField fx:id="inputSearchedUser" layoutX="74.0" layoutY="59.0" prefHeight="25.0" prefWidth="199.0" promptText="Inserisci utente da cercare" />
+      <CheckBox fx:id="boxUtente" layoutX="189.0" layoutY="276.0" mnemonicParsing="false" text="Utente Normale" />
+      <Label fx:id="labelErrorUser" layoutX="205.0" layoutY="134.0" />
+      <Label fx:id="labelErrorPassword" layoutX="205.0" layoutY="191.0" />
+      <Label fx:id="labelPassword2" layoutX="205.0" layoutY="239.0" />
+      <Label fx:id="labelErrorSearchedUser" layoutX="121.0" layoutY="84.0" />
+      <Label fx:id="labelSave" layoutX="205.0" layoutY="319.0" />
+   </children>
+</AnchorPane>
