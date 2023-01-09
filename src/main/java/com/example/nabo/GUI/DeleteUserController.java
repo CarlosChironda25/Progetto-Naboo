@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -27,6 +28,10 @@ public class DeleteUserController {
     public Label labelProperRemoval;
     @FXML
     public TextField inputUsername;
+    @FXML
+    public Button searchUser;
+    @FXML
+    public Button deleteUser;
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
