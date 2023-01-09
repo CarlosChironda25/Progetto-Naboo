@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -27,6 +28,10 @@ public class DeleteNewsController {
     public Label labelProperRemoval;
     @FXML
     public TextField inputTitle;
+    @FXML
+    public Button searchNews;
+    @FXML
+    public Button deleteNews;
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
     public static List<Notizia> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
@@ -65,7 +70,7 @@ public class DeleteNewsController {
     public void deleteNews(ActionEvent event) throws IOException {
         List<Notizia> news = readFile(path);
         if(labelTitle.getText().isEmpty()){
-            labelError.setText("Attenzione, sembra che tu non abbia cercato nessuna news");
+            labelError.setText("Attenzione, sembra che tu non abbia cercato news");
         }else{
             labelError.setText("");
             for(int i = 0; i < news.size(); i++){
