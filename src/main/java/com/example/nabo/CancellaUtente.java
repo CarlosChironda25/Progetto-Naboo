@@ -1,4 +1,4 @@
-package com.example.nabo;
+/*package com.example.nabo;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -99,6 +99,7 @@ public class CancellaUtente {
             }
         }else
             AvisoUsername.setText(" ci sono dei campi vuoti");
-    }*/
+    }
 
 }
+*/

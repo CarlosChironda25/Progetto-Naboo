@@ -1,4 +1,4 @@
-package com.example.nabo;
+/*package com.example.nabo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,3 +53,5 @@ public class CaricaNotizia {
 
     }
 }
+*/
+

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -20,13 +21,13 @@ import java.util.List;
 
 public class LoginController {
     @FXML
-    private Label labelError;
+    public Label labelError;
     @FXML
-    private Label txtUsername;
+    public TextField inputUsername;
     @FXML
-    private Label txtPassword;
+    public TextField inputPassword;
     @FXML
-    private Button btnLogin;
+    public Button btnLogin;
     private static String path = "C:\\Users\\feder\\Downloads\\progetto naboo 23 dicembre\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
@@ -41,7 +42,7 @@ public class LoginController {
         boolean isAdmin = false;
 
         for(int i = 0; i < user.size(); i++){
-            if(user.get(i).getUsername().equals(txtUsername.getText()) && user.get(i).getPassword().equals(txtPassword.getText())){
+            if(user.get(i).getUsername().equals(inputUsername.getText()) && user.get(i).getPassword().equals(inputPassword.getText())){
                 registeredUser = true;
                 if(user.get(i).getIsAdmin() == true){
                     isAdmin = true;
@@ -55,9 +56,9 @@ public class LoginController {
             window.setScene(new Scene(root));
             window.setTitle("Welcome to NABOO");
         }else if(registeredUser){
-            labelError.setText("You are not an admin. You cannot access to this service");
+            labelError.setText("Non sei un amministratore quindi non puoi accedere qui");
         }else{
-            labelError.setText("Username or Password not correct. Check again.");
+            labelError.setText("Username o password non corrette, riprova. ");
         }
     }
 }

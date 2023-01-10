@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\grafica\\Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("Benvenuto in Naboo. Effettua il login");

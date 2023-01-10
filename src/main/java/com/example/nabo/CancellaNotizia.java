@@ -1,3 +1,4 @@
+/*
 package com.example.nabo;
 
 import javafx.event.ActionEvent;
@@ -54,3 +55,4 @@ public class CancellaNotizia {
     }
 
 }
+*/

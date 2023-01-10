@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserModifyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserModifyController">
    <children>
       <TextField fx:id="InputUsername" layoutX="189.0" layoutY="101.0" promptText="Inserisci nuovo username" />
       <TextField fx:id="inputPassword" layoutX="189.0" layoutY="162.0" promptText="inserisci nuova password" />
@@ -17,6 +21,9 @@
       <Label fx:id="labelPassword2" layoutX="205.0" layoutY="239.0" />
       <Label fx:id="labelErrorSearchedUser" layoutX="121.0" layoutY="84.0" />
       <Label fx:id="labelSave" layoutX="205.0" layoutY="319.0" />
-      <Label layoutX="76.0" layoutY="14.0" prefHeight="17.0" prefWidth="458.0" text="Modifica  " />
+      <Label alignment="CENTER" layoutX="76.0" layoutY="14.0" prefHeight="17.0" prefWidth="458.0" text="Modifica utente">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font></Label>
    </children>
 </AnchorPane>
