@@ -28,7 +28,7 @@ public class LoginController {
     public TextField inputPassword;
     @FXML
     public Button btnLogin;
-    private static String path = "C:\\Users\\feder\\Downloads\\progetto naboo 23 dicembre\\Progetto-Naboo-main\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));

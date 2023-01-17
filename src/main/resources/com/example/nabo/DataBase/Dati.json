@@ -7,7 +7,7 @@
   {
     "Username": "Carlos12",
     "Password": "Carlos200",
-    "isAdmin": false
+    "isAdmin": true
   },
   {
     "Username": "roberto",
