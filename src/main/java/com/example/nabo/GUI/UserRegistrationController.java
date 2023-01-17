@@ -40,7 +40,7 @@ public class UserRegistrationController {
     private Button btnConfirm;
 
 
-    private static String path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\Commenti.txt";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
@@ -96,6 +96,9 @@ public class UserRegistrationController {
             inputPassword2.setText("");
             boxUtente.setSelected(true);
         }
+    }
+
+    public void RegistrationOperation(ActionEvent actionEvent) {
     }
 }
 

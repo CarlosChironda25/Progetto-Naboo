@@ -1,4 +1,4 @@
-package com.example.nabo.GUI;
+package com.example.nabo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try{
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(Main.class.getResource("grafica/Login.fxml"));
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("Benvenuto in Naboo. Effettua il login");
@@ -22,15 +22,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    /*
-    void NuovoUtente(ActionEvent event) throws IOException {
-        root =FXMLLoader.load(getClass().getResource("NuovoUtente.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-     */
 
     public static void main(String[] args) {
         launch();

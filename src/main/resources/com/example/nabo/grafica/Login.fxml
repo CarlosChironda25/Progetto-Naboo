@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="597.0" style="-fx-background-color: CCE5FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GUI.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="597.0" style="-fx-background-color: CCE5FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.LoginController">
     <children>
         <ImageView fitHeight="93.0" fitWidth="134.0" layoutX="245.0" layoutY="54.0">
             <image>
-                <Image url="@com/example/nabo/grafica/lucchetto.jpeg" />
+                <Image url="@lucchetto.jpeg" />
             </image>
         </ImageView>
         <Label alignment="CENTER" layoutY="14.0" prefHeight="26.0" prefWidth="597.0" text="WELCOME TO NABOO " textFill="#272c31" textOverrun="CLIP">
@@ -24,7 +24,7 @@
         </Label>
         <TextField fx:id="inputUsername" alignment="CENTER" layoutX="223.0" layoutY="182.0" promptText="Username" />
         <Button fx:id="btnLogin" alignment="CENTER" layoutX="272.0" layoutY="295.0" mnemonicParsing="false" onAction="#login" text="Login" />
-        <Label fx:id="Message" alignment="CENTER" layoutX="1.0" layoutY="256.0" prefHeight="18.0" prefWidth="597.0" textFill="#c81818fa" />
+        <Label fx:id="labelError" alignment="CENTER" layoutX="1.0" layoutY="256.0" prefHeight="18.0" prefWidth="597.0" textFill="#c81818fa" />
         <PasswordField fx:id="inputPassword" alignment="CENTER" layoutX="225.0" layoutY="231.0" prefHeight="26.0" prefWidth="152.0" promptText="Password" />
       <Label layoutX="175.0" layoutY="266.0" prefHeight="17.0" prefWidth="298.0" />
     </children>

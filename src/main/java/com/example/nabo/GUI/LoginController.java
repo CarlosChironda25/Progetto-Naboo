@@ -35,6 +35,7 @@ public class LoginController {
         List<Utente> user = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
         return user;
     }
+    @FXML
     public void login(ActionEvent event) throws IOException {
         List<Utente> user = readFile(path);
 
