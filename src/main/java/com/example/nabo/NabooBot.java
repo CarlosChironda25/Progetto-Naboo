@@ -42,7 +42,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
     boolean booleanTime = false;
     boolean booleanKeyword = false;
 
-    Comment_Vote comment_vote = new Comment_Vote();
+    Commento_Voto commento_voto = new Commento_Voto();
 
     public NabooBot() throws MalformedURLException {
     }
@@ -138,7 +138,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
                 if (voto <= 5 && voto >= 1) {
                     try {
-                        comment_vote.writeVote(voto, news);
+                        commento_voto.writeFileVoti(news.getTitle(), voto);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -150,13 +150,13 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
             } else if (booleanCommento) {
                 try {
-                    comment_vote.writeComment(message, news, usernameControl);
+                    commento_voto.writeFileCommento(news.getTitle(), usernameControl, message);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                this.send("Grazie.");
                 booleanCommento = false;
                 news = null;
+                this.send("Grazie.");
 
             } else {
 
@@ -258,7 +258,8 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 case "CallShowComment&Vote" -> {
                     returnNotizia(update.getCallbackQuery().getMessage().getText());
                     try {
-                        sendMessage.setText("Titolo della notizia : \n" + news.getTitle() + comment_vote.getInfo(news));
+                        sendMessage.setText("Titolo della notizia : \n" + news.getTitle() + commento_voto.getInfo(news));
+
                         try {
                             execute(sendMessage);
                         } catch (TelegramApiException e) {
@@ -607,7 +608,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private boolean register(String messaggio) throws IOException {  //riceviamo richiesta registrazione
 
-        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
 
         String confermaPassword = null;
 
@@ -657,7 +658,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
             return login;
 
 
-        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
+        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
         Gson gson = new Gson();
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
