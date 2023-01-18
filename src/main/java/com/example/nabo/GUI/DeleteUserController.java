@@ -41,10 +41,6 @@ public class DeleteUserController {
     public Label labelProperRemoval;
     @FXML
     public TextField inputUsername;
-    @FXML
-    public Button searchUser;
-    @FXML
-    public Button deleteUser;
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
