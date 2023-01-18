@@ -12,7 +12,7 @@
       <TextField fx:id="InputUsername" layoutX="189.0" layoutY="101.0" promptText="Inserisci nuovo username" />
       <TextField fx:id="inputPassword" layoutX="189.0" layoutY="162.0" promptText="inserisci nuova password" />
       <TextField fx:id="inputPassword2" layoutX="189.0" layoutY="213.0" promptText="Conferma password" />
-      <Button fx:id="saveChanges" layoutX="247.0" layoutY="315.0" mnemonicParsing="false" onAction="#save" text="Salva Modifica" />
+      <Button fx:id="saveChanges" layoutX="227.0" layoutY="315.0" mnemonicParsing="false" onAction="#save" text="Salva Modifica" />
       <Button fx:id="searchUser" layoutX="307.0" layoutY="59.0" mnemonicParsing="false" onAction="#search" text="Cerca Utente" />
       <TextField fx:id="inputSearchedUser" layoutX="74.0" layoutY="59.0" prefHeight="25.0" prefWidth="199.0" promptText="Inserisci utente da cercare" />
       <CheckBox fx:id="boxUtente" layoutX="189.0" layoutY="276.0" mnemonicParsing="false" text="Utente Normale" />
@@ -25,5 +25,6 @@
          <font>
             <Font name="System Bold Italic" size="19.0" />
          </font></Label>
+      <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBackHomePage" text="Torna all'homepage" />
    </children>
 </AnchorPane>

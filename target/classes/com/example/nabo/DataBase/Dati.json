@@ -48,5 +48,15 @@
     "Username": "nuovo",
     "Password": "nuovo",
     "isAdmin": false
+  },
+  {
+    "Username": "fede",
+    "Password": "fede",
+    "isAdmin": true
+  },
+  {
+    "Username": "fede",
+    "Password": "fede",
+    "isAdmin": true
   }
 ]

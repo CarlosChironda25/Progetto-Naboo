@@ -1,5 +1,6 @@
 package com.example.nabo.GUI;
 
+import com.example.nabo.Main;
 import com.example.nabo.Notizia;
 import com.example.nabo.Utente;
 import com.google.gson.Gson;
@@ -8,9 +9,14 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,8 +24,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DeleteNewsController {
+    @FXML
+    private Stage stage;
+    @FXML
+    private Scene scene;
+    @FXML
+    private Parent root;
     @FXML
     public Label labelError;
     @FXML
@@ -82,5 +95,13 @@ public class DeleteNewsController {
             inputTitle.setText("");
             labelTitle.setText("");
         }
+    }
+    @FXML
+    public void goBackHomePage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

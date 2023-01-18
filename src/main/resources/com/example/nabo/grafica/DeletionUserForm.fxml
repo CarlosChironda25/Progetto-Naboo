@@ -19,5 +19,6 @@
             <Font name="System Bold Italic" size="19.0" />
          </font>
       </Label>
+      <Button layoutX="37.0" layoutY="22.0" mnemonicParsing="false" onAction="#goBackHomePage" text="Torna all'homepage" />
    </children>
 </AnchorPane>
