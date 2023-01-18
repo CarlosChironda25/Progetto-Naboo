@@ -23,7 +23,7 @@ public class LogoutController {
         alert.setContentText("Vuoi veramente uscire?");
         if(alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) scenePane.getScene().getWindow();
-            System.out.println("You successfully logged out");
+            System.out.println("Uscito correttamente");
             stage.close();
         }
     }

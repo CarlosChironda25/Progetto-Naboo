@@ -27,12 +27,6 @@ import java.util.Objects;
 
 public class UserRegistrationController {
     @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
-    @FXML
-    private Parent root;
-    @FXML
     private Label labelErrorUsername;
     @FXML
     private Label labelErrorPassword;
@@ -52,15 +46,13 @@ public class UserRegistrationController {
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
-        List<Utente> user = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
-        return user;
+        return gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
     }
     public static void writeFile(String username, String password, boolean isAdmin) throws IOException {
         Utente user = new Utente(username, password, isAdmin);
         List<Utente> users = readFile(path);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Utente> listUser = new ArrayList<>();
-        listUser.addAll(users);
+        List<Utente> listUser = new ArrayList<>(users);
         listUser.add(user);
         String jsonString = gson.toJson(listUser);
         FileWriter fw = new FileWriter(path);
@@ -102,9 +94,9 @@ public class UserRegistrationController {
 
     @FXML
     public void goBackHomePage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

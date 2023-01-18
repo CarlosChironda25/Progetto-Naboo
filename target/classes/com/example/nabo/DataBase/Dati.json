@@ -45,11 +45,6 @@
     "isAdmin": false
   },
   {
-    "Username": "nuovo",
-    "Password": "nuovo",
-    "isAdmin": false
-  },
-  {
     "Username": "fede",
     "Password": "fede",
     "isAdmin": true

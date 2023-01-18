@@ -12,12 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,12 +26,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class UserModifyController {
-    @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
-    @FXML
-    private Parent root;
     @FXML
     public Label labelErrorSearchedUser;
     @FXML
@@ -58,13 +50,11 @@ public class UserModifyController {
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
-        List<Utente> user = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
-        return user;
+        return gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
     }
     public static void writeFile(List<Utente> utente, String path) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Utente> listUser = new ArrayList<>();
-        listUser.addAll(utente);
+        List<Utente> listUser = new ArrayList<>(utente);
         String jsonString = gson.toJson(listUser);
         FileWriter fw = new FileWriter(path);
         fw.write(jsonString);
@@ -80,20 +70,20 @@ public class UserModifyController {
 
         List<Utente> utente = readFile(path);
         boolean userFound = false;
-        for(int i = 0; i < utente.size(); i++){
-            if(utente.get(i).getUsername().equals(inputSearchedUser.getText())){
+        for (Utente value : utente) {
+            if (value.getUsername().equals(inputSearchedUser.getText())) {
                 userFound = true;
-                inputUsername.setText(utente.get(i).getUsername());//modifico username
-                inputPassword.setText(utente.get(i).getPassword());
-                inputPassword2.setText(utente.get(i).getPassword());
-                boxUtente.setSelected(utente.get(i).getIsAdmin());//modifico il permesso
+                inputUsername.setText(value.getUsername());//modifico username
+                inputPassword.setText(value.getPassword());
+                inputPassword2.setText(value.getPassword());
+                boxUtente.setSelected(value.getIsAdmin());//modifico il permesso
             }
-            if(!userFound){
-               labelErrorSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
-               inputUsername.setText("");
-               inputPassword.setText("");
-               inputPassword2.setText("");
-               boxUtente.setSelected(true);
+            if (!userFound) {
+                labelErrorSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
+                inputUsername.setText("");
+                inputPassword.setText("");
+                inputPassword2.setText("");
+                boxUtente.setSelected(true);
             }
         }
     }
@@ -154,9 +144,9 @@ public class UserModifyController {
     }
     @FXML
     public void goBackHomePage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

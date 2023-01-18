@@ -28,12 +28,6 @@ import java.util.Objects;
 
 public class DeleteNewsController {
     @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
-    @FXML
-    private Parent root;
-    @FXML
     public Label labelError;
     @FXML
     public Label labelTitle;
@@ -54,8 +48,7 @@ public class DeleteNewsController {
 
     public static void writeFile(List<Notizia> news, String path) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Notizia> listNews = new ArrayList<>();
-        listNews.addAll(news);
+        List<Notizia> listNews = new ArrayList<>(news);
         String jsonString = gson.toJson(listNews);
         FileWriter fw = new FileWriter(path);
         fw.write(jsonString);
@@ -71,10 +64,12 @@ public class DeleteNewsController {
             if (notizia.getTitle().equals(inputTitle.getText())) {
                 newsFound = true;
                 labelTitle.setText(notizia.getTitle());
+                System.out.println("Questa notizia esiste");
             }
         }
         if(!newsFound){
             labelError.setText("La news che stai cercando non esiste");
+            System.out.println("La notizia non esiste");
             labelTitle.setText("");
         }
     }
@@ -91,16 +86,17 @@ public class DeleteNewsController {
                     writeFile(news, path);
                 }
             }
-            labelProperRemoval.setText("Il titolo della notizia: " + inputTitle.getText() + "da te cercato, è stato rimosso correttamente");
+            labelProperRemoval.setText("Il titolo della notizia: " + inputTitle.getText() + " da te cercato, è stato rimosso correttamente");
+            System.out.println("la notizia è stata rimossa");
             inputTitle.setText("");
             labelTitle.setText("");
         }
     }
     @FXML
     public void goBackHomePage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
