@@ -6,12 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         try{
-            Parent root = FXMLLoader.load(Main.class.getResource("grafica/Login.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/LoginForm.fxml")));
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("Benvenuto in Naboo. Effettua il login");

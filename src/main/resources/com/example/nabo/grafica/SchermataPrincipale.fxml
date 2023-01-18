@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="640.0" stylesheets="@../Schermo.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.SchermataPrincipale">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="640.0" stylesheets="@../Schermo.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.HomepageController">
    <children>
       <Pane layoutY="-1.0" prefHeight="506.0" prefWidth="72.0" style="-fx-background-color: wheat;">
          <children>

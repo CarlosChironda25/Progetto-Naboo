@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.UserRegistrationController">
    <children>
       <TextField fx:id="inputUsername" layoutX="225.0" layoutY="107.0" promptText="inserisci username" />
-      <TextField fx:id="inputPassword" layoutX="225.0" layoutY="145.0" promptText="inserisci pssword" />
+      <TextField fx:id="inputPassword" layoutX="225.0" layoutY="145.0" promptText="inserisci password" />
       <TextField fx:id="inputPassword2" layoutX="225.0" layoutY="187.0" promptText="Conferma Password" />
       <Button fx:id="btnConfirm" layoutX="231.0" layoutY="273.0" mnemonicParsing="false" onAction="#RegistrationOperation" text="Registra Nuovo Utente" />
       <CheckBox fx:id="boxUtente" layoutX="225.0" layoutY="230.0" mnemonicParsing="false" text="Utente normale" />
@@ -19,9 +19,8 @@
             <Font name="System Bold Italic" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="labelErrorUsername" layoutX="391.0" layoutY="111.0" />
-      <Label fx:id="labelErrorPassword" layoutX="377.0" layoutY="149.0" />
-      <Label fx:id="labelErrorPassword2" layoutX="377.0" layoutY="191.0" />
-      <Label fx:id="labelRegistrazione" layoutX="290.0" layoutY="256.0" prefHeight="17.0" prefWidth="20.0" />
+      <Label fx:id="labelErrorUsername" layoutX="391.0" layoutY="111.0" prefHeight="17.0" prefWidth="171.0" />
+      <Label fx:id="labelErrorPassword" layoutX="377.0" layoutY="170.0" prefHeight="17.0" prefWidth="189.0" />
+      <Label fx:id="labelRegistrazione" layoutX="115.0" layoutY="256.0" prefHeight="17.0" prefWidth="364.0" />
    </children>
 </AnchorPane>

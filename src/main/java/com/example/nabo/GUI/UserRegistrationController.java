@@ -25,8 +25,6 @@ public class UserRegistrationController {
     @FXML
     private Label labelErrorPassword;
     @FXML
-    private Label labelErrorPassword2;
-    @FXML
     private TextField inputUsername;
     @FXML
     private TextField inputPassword;
@@ -59,35 +57,29 @@ public class UserRegistrationController {
         fw.write(jsonString);
         fw.close();
     }
-    public boolean checkAlreadyRegistered() {
+    public boolean somethingIsEmpty() {
         labelErrorUsername.setText("");
         labelErrorPassword.setText("");
-        labelErrorPassword2.setText("");
         boolean control = true;
         if (inputUsername.getText().isEmpty()) {
             labelErrorUsername.setText("Username non inserito");
             control = false;
         }
-        if (inputPassword.getText().isEmpty()) {
-            labelErrorPassword.setText("Password non inserita");
+        if (inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()){
+            labelErrorPassword.setText("Non hai inserito una delle password o entrambe!");
             control = false;
-        }
-        if (inputPassword2.getText().isEmpty()) {
-            labelErrorPassword2.setText("Password di controllo non inserita");
+        } else if(!inputPassword.getText().equals(inputPassword2.getText())){
+            labelErrorPassword.setText("le password sono diverse!");
             control = false;
         }
 
-        if(!(inputPassword.getText().equals(inputPassword2.getText()))){
-            labelErrorPassword.setText("Errore nelle password");
-            control = false;
-        }
         return control;
     }
 
 
     @FXML
-    public void registrationOperation(ActionEvent event) throws IOException{
-        if(checkAlreadyRegistered()){
+    public void RegistrationOperation(ActionEvent event) throws IOException{
+        if(somethingIsEmpty()){
             writeFile(inputUsername.getText(), inputPassword.getText(), boxUtente.isSelected());
             labelRegistrazione.setText("registrazione avvenuta con successo!!");
 
@@ -98,7 +90,6 @@ public class UserRegistrationController {
         }
     }
 
-    public void RegistrationOperation(ActionEvent actionEvent) {
-    }
+
 }
 

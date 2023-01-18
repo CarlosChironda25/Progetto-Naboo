@@ -36,8 +36,7 @@ public class DeleteNewsController {
     public static List<Notizia> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
-        List<Notizia> news = gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
-        return news;
+        return gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
     }
 
     public static void writeFile(List<Notizia> news, String path) throws IOException {
@@ -55,10 +54,10 @@ public class DeleteNewsController {
         labelError.setText("");
         List<Notizia> news = readFile(path);
         boolean newsFound = false;
-        for(int i = 0; i < news.size(); i++){
-            if(news.get(i).getTitle().equals(inputTitle.getText())){
+        for (Notizia notizia : news) {
+            if (notizia.getTitle().equals(inputTitle.getText())) {
                 newsFound = true;
-                labelTitle.setText(news.get(i).getTitle());
+                labelTitle.setText(notizia.getTitle());
             }
         }
         if(!newsFound){

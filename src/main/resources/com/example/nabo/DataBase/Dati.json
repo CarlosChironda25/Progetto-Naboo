@@ -20,6 +20,11 @@
     "isAdmin": false
   },
   {
+    "Username": "admin",
+    "Password": "admin",
+    "isAdmin": true
+  },
+  {
     "Username": "roberto2",
     "Password": "password1",
     "isAdmin": false
