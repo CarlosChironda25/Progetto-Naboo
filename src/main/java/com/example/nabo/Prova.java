@@ -32,17 +32,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class Prova extends TelegramLongPollingBot {
-
     private static String path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Progetto\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente>  Utenti;
-
     public static void main(String[] args) throws IOException {
 
     }
-
-
-
-
     @Override
     public String getBotUsername() {
         return "MituNabooBot";

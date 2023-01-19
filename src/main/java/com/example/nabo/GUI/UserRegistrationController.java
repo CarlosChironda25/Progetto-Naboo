@@ -27,9 +27,9 @@ import java.util.Objects;
 
 public class UserRegistrationController {
     @FXML
-    private Label labelErrorUsername;
+    private Label labelErrorEmptySpaces;
     @FXML
-    private Label labelErrorPassword;
+    private Label labelErrorPasswordMismatching;
     @FXML
     private TextField inputUsername;
     @FXML
@@ -43,6 +43,8 @@ public class UserRegistrationController {
 
 
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+
+
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
@@ -59,19 +61,22 @@ public class UserRegistrationController {
         fw.write(jsonString);
         fw.close();
     }
-    public boolean somethingIsEmpty() {
-        labelErrorUsername.setText("");
-        labelErrorPassword.setText("");
+    /*
+    Qui controllo che tutti i campi siano riempiti e che le password combacino.
+    Nel caso ci fossero dei problemi, viene fuori la label relativa all'errore.
+     */
+    public boolean checkProblems() {
+        labelErrorEmptySpaces.setText("");
+        labelErrorPasswordMismatching.setText("");
         boolean control = true;
-        if (inputUsername.getText().isEmpty()) {
-            labelErrorUsername.setText("Username non inserito");
+
+        if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
+            labelErrorEmptySpaces.setText("Tutti i campi sono obbligatori!");
+            System.out.println("Non ha inserito alcuni campi");
             control = false;
-        }
-        if (inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()){
-            labelErrorPassword.setText("Non hai inserito una delle password o entrambe!");
-            control = false;
-        } else if(!inputPassword.getText().equals(inputPassword2.getText())){
-            labelErrorPassword.setText("le password sono diverse!");
+        } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
+            labelErrorPasswordMismatching.setText("le password sono diverse!");
+            System.out.println("le password sono diverse");
             control = false;
         }
 
@@ -81,10 +86,10 @@ public class UserRegistrationController {
 
     @FXML
     public void RegistrationOperation(ActionEvent event) throws IOException{
-        if(somethingIsEmpty()){
+        if(checkProblems()){
             writeFile(inputUsername.getText(), inputPassword.getText(), boxUtente.isSelected());
             labelRegistrazione.setText("registrazione avvenuta con successo!!");
-
+            System.out.println("la registrazione dell'utente è avvenuta con successo");
             inputUsername.setText("");
             inputPassword.setText("");
             inputPassword2.setText("");

@@ -2,7 +2,6 @@ package com.example.nabo.GUI;
 
 import com.example.nabo.Main;
 import com.example.nabo.Notizia;
-import com.example.nabo.Utente;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -43,7 +42,7 @@ public class DeleteNewsController {
     public static List<Notizia> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
-        return gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
+        return gson.fromJson(reader, new TypeToken<List<Notizia>>(){}.getType());
     }
 
     public static void writeFile(List<Notizia> news, String path) throws IOException {
@@ -54,7 +53,10 @@ public class DeleteNewsController {
         fw.write(jsonString);
         fw.close();
     }
-    //Le ricerche per eliminare la notizia le faccio tramite titolo.
+    /*
+    Qui cerco se la notizia effettivamente esiste. Nel caso dovesse esistere viene fuori una label affermativa,
+    in caso contrario viene fuori una label di errore.
+     */
     @FXML
     public void search(ActionEvent event) throws FileNotFoundException {
         labelError.setText("");
@@ -73,11 +75,15 @@ public class DeleteNewsController {
             labelTitle.setText("");
         }
     }
+
+   /*
+   Dopo avere cercato se il titolo della notizia esiste, posso eliminare.
+    */
     @FXML
     public void deleteNews(ActionEvent event) throws IOException {
         List<Notizia> news = readFile(path);
         if(labelTitle.getText().isEmpty()){
-            labelError.setText("Attenzione, sembra che tu non abbia cercato news");
+            labelError.setText("Attenzione, prima devi cercare e selezionare il titolo della notizia");
         }else{
             labelError.setText("");
             for(int i = 0; i < news.size(); i++){

@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,6 +27,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class DeleteUserController {
+    @FXML
+    public Button searchUser;
+    @FXML
+    public Button deleteUser;
     @FXML
     public Label labelError;
     @FXML

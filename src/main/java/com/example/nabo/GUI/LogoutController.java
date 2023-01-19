@@ -19,7 +19,7 @@ public class LogoutController {
     public void logout(ActionEvent event){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
-        alert.setHeaderText("Stai per uscire");
+        alert.setHeaderText("Stai per uscire. Tutte le tue modifiche \n sono state salvate correttamente \n in modo automatico.");
         alert.setContentText("Vuoi veramente uscire?");
         if(alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) scenePane.getScene().getWindow();

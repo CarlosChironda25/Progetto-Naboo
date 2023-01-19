@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,7 +24,8 @@ import java.util.Objects;
 
 
 public class LoginController {
-
+    @FXML
+    public Button btnLogin;
     @FXML
     private Label labelError;
     @FXML
@@ -63,7 +65,7 @@ public class LoginController {
             System.out.println("non è amministratore quindi deve uscire");
         }else{
             labelError.setText("Username o password non corrette, riprova. ");
-            System.out.println("credenziali errate. ");
+            System.out.println("Credenziali errate.");
         }
     }
 }

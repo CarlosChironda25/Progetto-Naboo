@@ -12,6 +12,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.generics.BotSession;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,6 +25,7 @@ import java.util.StringTokenizer;
 
 
 public class NabooBot  extends  TelegramLongPollingBot {
+    public static BotSession botSession;
     public String usernameControl;
     public String passwordControl;
 
@@ -771,6 +774,13 @@ public class NabooBot  extends  TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+    public static BotSession getSession() {
+        return botSession;
+    }
+
+    public static void setSession(BotSession session) {
+        botSession = session;
     }
 
 }

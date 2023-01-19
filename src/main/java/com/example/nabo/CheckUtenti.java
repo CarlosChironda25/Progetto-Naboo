@@ -37,35 +37,4 @@ public class CheckUtenti {
             e.printStackTrace();
         }
     }
-
-
-
-
-    /*private void copy(){
-
-        Reference inputjson = null;
-        JsonReader jsonR = null;
-
-        try {
-            jsonR = new JsonReader(new FileReader("Dati.json"));
-        }catch (FileNotFoundException e){
-            System.out.println("Errore nell'apertura del file " + "Dati.json");
-            System.exit(0);
-        }
-
-        while()
-    }
-
-
-    private void copyFile() {
-
-        URL sourceUrl = JsonManager.class.getClassLoader().getResource("Dati.json"); //Search Data.json in PATonTS.jar
-        File destination = new File(PFolder + "/PATonTSData.json"); //Create the destination file
-
-        try {
-            FileUtils.copyURLToFile(sourceUrl, destination); //Copy file Data.json to PATonTSData.json
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 }
