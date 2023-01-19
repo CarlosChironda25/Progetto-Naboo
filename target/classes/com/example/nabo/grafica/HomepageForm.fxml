@@ -16,32 +16,25 @@
          <Font name="System Bold Italic" size="16.0" />
       </font>
    </Label>
-   <Button layoutX="52.0" layoutY="108.0" mnemonicParsing="false" onAction="#addUser" text="Aggiungi un nuovo utente" />
-   <Button layoutX="234.0" layoutY="108.0" mnemonicParsing="false" onAction="#modifyUser" text="Modifica un utente" />
-   <Button layoutX="385.0" layoutY="108.0" mnemonicParsing="false" onAction="#deleteUser" text="Elimina utente" />
-   <Label layoutX="55.0" layoutY="79.0" text="Operazioni di Controllo profili utenti: ">
+   <Button fx:id="addUser" layoutX="52.0" layoutY="108.0" mnemonicParsing="false" onAction="#addUser" text="Aggiungi un nuovo utente" />
+   <Button fx:id="modifyUser" layoutX="234.0" layoutY="108.0" mnemonicParsing="false" onAction="#modifyUser" text="Modifica un utente" />
+   <Button fx:id="deleteUser" layoutX="385.0" layoutY="108.0" mnemonicParsing="false" onAction="#deleteUser" text="Elimina un utente" />
+   <Label layoutX="55.0" layoutY="79.0" text="Operazioni di controllo profili utenti: ">
       <font>
          <Font size="14.0" />
       </font>
    </Label>
-   <Label layoutX="48.0" layoutY="147.0" text="Operazioni di Controllo notizie: ">
+   <Label layoutX="48.0" layoutY="147.0" text="Operazoni di controllo sulle notizie: ">
       <font>
          <Font size="14.0" />
       </font>
    </Label>
-   <Button layoutX="49.0" layoutY="174.0" mnemonicParsing="false" onAction="#addNews" text="Aggiungi una nuova notizia" />
-   <Button layoutX="234.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteNews" text="Elimina una notizia" />
-   <Button layoutX="48.0" layoutY="244.0" mnemonicParsing="false" onAction="#deleteComment" text="Elimina un commento rilasciato" />
-   <Button layoutX="341.0" layoutY="244.0" mnemonicParsing="false" text="Gestisci fonti " />
-   <Label layoutX="48.0" layoutY="217.0" text="Gestione dei commenti: ">
+   <Button fx:id="deleteNews" layoutX="52.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteNews" text="Elimina una notizia" />
+   <Button fx:id="deleteComment" layoutX="52.0" layoutY="244.0" mnemonicParsing="false" onAction="#deleteComment" text="Elimina un commento rilasciato" />
+   <Label layoutX="48.0" layoutY="217.0" text="Operazione di controllo sui commenti:  ">
       <font>
          <Font size="14.0" />
       </font>
    </Label>
-   <Label layoutX="338.0" layoutY="217.0" text="Gestione fonti delle notizie: ">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Label>
-   <Button layoutX="511.0" layoutY="15.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="63.0" text="Logout" />
+   <Button fx:id="settings" layoutX="478.0" layoutY="19.0" mnemonicParsing="false" onAction="#goToSettings" prefHeight="46.0" prefWidth="107.0" text="Impostazioni" />
 </AnchorPane>

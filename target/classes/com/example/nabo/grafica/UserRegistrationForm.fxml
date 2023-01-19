@@ -10,8 +10,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.UserRegistrationController">
    <children>
       <TextField fx:id="inputUsername" layoutX="225.0" layoutY="107.0" promptText="Inserisci username" />
-      <TextField fx:id="inputPassword" layoutX="225.0" layoutY="145.0" promptText="Inserisci password" />
-      <TextField fx:id="inputPassword2" layoutX="225.0" layoutY="187.0" promptText="Conferma Password" />
+      <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" layoutX="225.0" layoutY="145.0" promptText="Inserisci password" />
+      <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" layoutX="225.0" layoutY="187.0" promptText="Conferma Password" />
       <Button fx:id="btnConfirm" layoutX="231.0" layoutY="273.0" mnemonicParsing="false" onAction="#RegistrationOperation" text="Registra Nuovo Utente" />
       <CheckBox fx:id="boxUtente" layoutX="225.0" layoutY="230.0" mnemonicParsing="false" text="Utente normale" />
       <Label alignment="CENTER" layoutX="-1.0" layoutY="23.0" prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Registrazione nuovo utente" textAlignment="CENTER">

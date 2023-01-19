@@ -32,11 +32,11 @@ public class UserModifyController {
     @FXML
     public Button searchUser;
     @FXML
-    public Label labelErrorSearchedUser;
+    public Label labelInfoSearchedUser;
     @FXML
-    public Label labelErrorUser;
+    public Label labelErrorEmptySpaces;
     @FXML
-    public Label labelErrorPassword;
+    public Label labelErrorPasswordMismatching;
     @FXML
     public Label labelSave;
     @FXML
@@ -51,13 +51,13 @@ public class UserModifyController {
     public CheckBox boxUtente;
 
 
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
-    public static List<Utente> readFile(String path) throws FileNotFoundException {
+    private String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    public List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
         return gson.fromJson(reader, new TypeToken<List<Utente>>(){}.getType());
     }
-    public static void writeFile(List<Utente> utente, String path) throws IOException {
+    public void writeFile(List<Utente> utente, String path) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Utente> listUser = new ArrayList<>(utente);
         String jsonString = gson.toJson(listUser);
@@ -68,9 +68,9 @@ public class UserModifyController {
     @FXML
     public void search(ActionEvent event) throws FileNotFoundException {
         //parto con i campi tutti vuoti, label comprese
-        labelErrorSearchedUser.setText("");
-        labelErrorUser.setText("");
-        labelErrorPassword.setText("");
+        labelInfoSearchedUser.setText("");
+        labelErrorEmptySpaces.setText("");
+        labelErrorPasswordMismatching.setText("");
         labelSave.setText("");
 
         List<Utente> utente = readFile(path);
@@ -78,72 +78,65 @@ public class UserModifyController {
         for (Utente value : utente) {
             if (value.getUsername().equals(inputSearchedUser.getText())) {
                 userFound = true;
-                inputUsername.setText(value.getUsername());//modifico username
+                labelInfoSearchedUser.setText("l'utente " + value.getUsername() + " da te cercato esiste");
+                inputUsername.setText(value.getUsername());
                 inputPassword.setText(value.getPassword());
                 inputPassword2.setText(value.getPassword());
-                boxUtente.setSelected(value.getIsAdmin());//modifico il permesso
+                boxUtente.setSelected(value.getIsAdmin());
             }
             if (!userFound) {
-                labelErrorSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
+                labelInfoSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
                 inputUsername.setText("");
                 inputPassword.setText("");
                 inputPassword2.setText("");
-                boxUtente.setSelected(true);
+                boxUtente.setSelected(false);
             }
         }
     }
     @FXML
-    public void save(ActionEvent event) throws IOException {
-        labelErrorSearchedUser.setText("");
+    public void modifyUserCredentials(ActionEvent event) throws IOException {
+        labelInfoSearchedUser.setText("");
         List<Utente> utente = readFile(path);
         if (inputSearchedUser.getText().isEmpty()) {
-            labelErrorSearchedUser.setText("non hai cercato nessuno");
+            labelInfoSearchedUser.setText("non hai cercato nessuno");
         } else {
-            if (checkModify()) {
-                for (int i = 0; i < utente.size(); i++) {
-                    if (utente.get(i).getUsername().equals(inputSearchedUser.getText())) {
+            if (modifyCredentials()) {
 
-                        utente.get(i).setUsername(inputUsername.getText());
-                        utente.get(i).setPassword(inputPassword.getText());
-                        utente.get(i).setIsAdmin(boxUtente.isSelected());
+                for (Utente value : utente) {
+                    if (value.getUsername().equals(inputSearchedUser.getText())) {
+                        value.setUsername(inputUsername.getText());
+                        value.setPassword(inputPassword.getText());
+                        value.setIsAdmin(boxUtente.isSelected());
                         writeFile(utente, path);
                     }
                 }
-                labelSave.setText("utente " + inputUsername.getText() + "modificato senza prblemi");
-                //Dopo aver salvato svuoto tutti i campi
+                labelSave.setText("utente " + inputUsername.getText() + " modificato senza prblemi");
+                System.out.println("Apportate correttamente le modifiche");
                 inputSearchedUser.setText("");
                 inputUsername.setText("");
                 inputPassword.setText("");
                 inputPassword2.setText("");
-                boxUtente.setSelected(true); //l'utente è di default utente normale
+                boxUtente.setSelected(false);
             }
         }
     }
 
-    private boolean checkModify(){
-        labelErrorSearchedUser.setText("");
-        labelErrorUser.setText("");
-        labelErrorPassword.setText("");
+    private boolean modifyCredentials(){
+        labelInfoSearchedUser.setText("");
+        labelErrorEmptySpaces.setText("");
+        labelErrorPasswordMismatching.setText("");
         labelSave.setText("");
 
         boolean control = true;
 
-        if(inputUsername.getText().isEmpty()){
-            labelErrorUser.setText("Cambia il nome");
+        if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
+            labelErrorEmptySpaces.setText("Tutti i campi sono obbligatori!");
+            System.out.println("Non ha inserito alcuni campi");
             control = false;
-        }
-        if(inputPassword.getText().isEmpty()){
-            labelErrorPassword.setText("Cambia la password");
+        } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
+            labelErrorPasswordMismatching.setText("le password sono diverse!");
+            System.out.println("le password sono diverse");
             control = false;
-        }
-        if(inputUsername.getText().isEmpty() || inputPassword2.getText().isEmpty()){
-            labelErrorUser.setText("Non hai inserito la password e la password di conferma");
-            control = false;
-        }else{
-            if(!inputPassword.getText().equals(inputPassword2.getText())){
-                labelErrorPassword.setText("le password non coincidono");
-                control = false;
-            }
         }
         return control;
     }
@@ -152,6 +145,7 @@ public class UserModifyController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();
     }

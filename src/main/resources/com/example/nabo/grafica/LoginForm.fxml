@@ -17,9 +17,7 @@
         <Blend/>
     </effect>
     <ImageView fitHeight="93.0" fitWidth="134.0" layoutX="245.0" layoutY="54.0">
-        <image>
-            <Image url="@../lucchetto.jpeg"/>
-        </image>
+        <Image url="@../lucchetto.jpeg"/>
     </ImageView>
     <Label alignment="CENTER" layoutY="14.0" prefHeight="26.0" prefWidth="597.0" text="WELCOME TO NABOO "
            textFill="#272c31" textOverrun="CLIP">

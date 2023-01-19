@@ -11,21 +11,20 @@ import java.util.Objects;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
         try{
             Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/LoginForm.fxml")));
             Scene scene = new Scene(root);
-
-            primaryStage.setTitle("Benvenuto in Naboo. Effettua il login");
-
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            stage.setTitle("Effettua il login per entrare in Naboo");
+            stage.setScene(scene);
+            stage.show();
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
+        System.out.println("Naboo è in esecuzione. Si sta caricando");
         launch();
     }
 }
