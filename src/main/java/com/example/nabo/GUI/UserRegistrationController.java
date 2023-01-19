@@ -42,7 +42,7 @@ public class UserRegistrationController {
     private CheckBox boxUtente;
 
 
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json";
 
 
     public static List<Utente> readFile(String path) throws FileNotFoundException {

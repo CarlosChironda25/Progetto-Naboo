@@ -24,7 +24,7 @@ import java.util.List;
 public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
     private ArrayList<String> sources;
-    public static String Path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
+    public static String Path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json";
     public  GestoreNotizia () throws MalformedURLException {
         this.sources = new ArrayList<>();
         listaNotizie = new ArrayList<>();
@@ -93,7 +93,7 @@ public class GestoreNotizia {
                 reader.close();
         }
 
-        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json");
         fileWriter.write( "[");
         Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
 
@@ -142,7 +142,7 @@ public class GestoreNotizia {
 
 
     /*public static void main(String[] args) throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json");
         fileWriter.write( "[");
         ArrayList<String> sources = new ArrayList<String> ();
         sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
