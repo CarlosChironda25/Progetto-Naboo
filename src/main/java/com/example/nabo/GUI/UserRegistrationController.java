@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -27,6 +28,10 @@ import java.util.Objects;
 
 public class UserRegistrationController {
     @FXML
+    public Button goBackHome;
+    @FXML
+    public Button confirm;
+    @FXML
     private Label labelErrorEmptySpaces;
     @FXML
     private Label labelErrorPasswordMismatching;
@@ -39,10 +44,10 @@ public class UserRegistrationController {
     @FXML
     private Label labelRegistrazione;
     @FXML
-    private CheckBox boxUtente;
+    public CheckBox administratorBox;
 
 
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json";
+    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
 
 
     public static List<Utente> readFile(String path) throws FileNotFoundException {
@@ -87,13 +92,13 @@ public class UserRegistrationController {
     @FXML
     public void RegistrationOperation(ActionEvent event) throws IOException{
         if(checkProblems()){
-            writeFile(inputUsername.getText(), inputPassword.getText(), boxUtente.isSelected());
+            writeFile(inputUsername.getText(), inputPassword.getText(), administratorBox.isSelected());
             labelRegistrazione.setText("registrazione avvenuta con successo!!");
             System.out.println("la registrazione dell'utente è avvenuta con successo");
             inputUsername.setText("");
             inputPassword.setText("");
             inputPassword2.setText("");
-            boxUtente.setSelected(false);
+            administratorBox.setSelected(false);
         }
     }
 

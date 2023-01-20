@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.nabo.GUI.DeleteNewsController">
-   <Label fx:id="labelError" alignment="CENTER" layoutX="112.0" layoutY="113.0" prefHeight="17.0" prefWidth="169.0"/>
-   <Label fx:id="labelTitle" alignment="CENTER" layoutX="112.0" layoutY="139.0" prefHeight="17.0" prefWidth="169.0"/>
-   <Label fx:id="labelProperRemoval" alignment="CENTER" layoutX="151.0" layoutY="211.0" prefHeight="17.0"
-          prefWidth="225.0"/>
-   <TextField fx:id="inputTitle" layoutX="62.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0"
-              promptText="Inserisci titolo della notizia da eliminare"/>
-   <Button fx:id="deleteNews" layoutX="233.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteNews"
-           text="Elimina Notizia"/>
-   <Button fx:id="searchNews" layoutX="331.0" layoutY="80.0" mnemonicParsing="false" onAction="#search"
-           text="Cerca News"/>
-   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="24.0" prefHeight="28.0" prefWidth="600.0"
-          style="-fx-background-color: E0E0E0;" text="Eliminazione notizia" textAlignment="CENTER">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.DeleteNewsController">
+   <Label fx:id="labelError" alignment="CENTER" layoutY="113.0" prefHeight="18.0" prefWidth="600.0" style="-fx-text-fill: red;" />
+   <Label fx:id="labelTitle" alignment="CENTER" layoutY="139.0" prefHeight="18.0" prefWidth="600.0" style="-fx-text-fill: green;" />
+   <Label fx:id="labelProperRemoval" alignment="CENTER" layoutX="-1.0" layoutY="211.0" prefHeight="18.0" prefWidth="600.0" style="-fx-text-fill: green;">
       <font>
-         <Font name="System Bold Italic" size="19.0"/>
+         <Font size="14.0" />
+      </font></Label>
+   <TextField fx:id="inputTitle" alignment="CENTER" layoutX="62.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" promptText="Inserisci titolo della notizia da eliminare" />
+   <Button fx:id="deleteNews" layoutX="233.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteNews" text="Elimina Notizia" />
+   <Button fx:id="searchNews" layoutX="331.0" layoutY="80.0" mnemonicParsing="false" onAction="#search" text="Cerca News" />
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="24.0" prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Eliminazione notizia" textAlignment="CENTER">
+      <font>
+         <Font name="System Bold Italic" size="19.0" />
       </font>
    </Label>
-   <Button layoutY="22.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="31.0" prefWidth="86.0"
-           style="-fx-background-color: CCFFE5; -fx-text-fill: black; -fx-text-alignment: right;" text="Home"
-           textAlignment="RIGHT">
+   <Button fx:id="goBackHome" layoutY="22.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black; -fx-text-alignment: right;" text="Home" textAlignment="RIGHT">
       <font>
-         <Font size="9.0"/>
+         <Font size="9.0" />
       </font>
    </Button>
 </AnchorPane>

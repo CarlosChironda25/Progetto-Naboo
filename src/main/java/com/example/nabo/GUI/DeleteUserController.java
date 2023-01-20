@@ -32,6 +32,8 @@ public class DeleteUserController {
     @FXML
     public Button deleteUser;
     @FXML
+    public Button goBackHome;
+    @FXML
     public Label labelError;
     @FXML
     public Label labelUsername;
@@ -39,7 +41,7 @@ public class DeleteUserController {
     public Label labelProperRemoval;
     @FXML
     public TextField inputUsername;
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json";
+    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
@@ -79,13 +81,13 @@ public class DeleteUserController {
             labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
         }else{
             labelError.setText("");
-            for(int i = 0; i < utente.size(); i++){
-                if(utente.get(i).getUsername().equals(inputUsername.getText())){
-                    utente.remove(i);
+            for(Utente value : utente){
+                if(value.getUsername().equals(inputUsername.getText())){
+                    utente.remove(value);
                     writeFile(utente, path);
                 }
             }
-            labelProperRemoval.setText("l'utente " + inputUsername.getText() + "da te cercato, è stato rimosso correttamente");
+            labelProperRemoval.setText("l'utente " + inputUsername.getText() + " da te cercato, è stato rimosso correttamente");
             inputUsername.setText("");
             labelUsername.setText("");
         }

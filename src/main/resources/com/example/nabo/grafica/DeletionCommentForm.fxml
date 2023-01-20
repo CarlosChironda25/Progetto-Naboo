@@ -11,14 +11,14 @@
    <Button fx:id="searchComment" layoutX="365.0" layoutY="122.0" mnemonicParsing="false" onAction="#search" text="cerca" />
    <Button fx:id="deleteComment" layoutX="239.0" layoutY="221.0" mnemonicParsing="false" onAction="#deleteComment" text="Elimina commento" />
 
-   <Label layoutY="147.0" prefHeight="17.0" prefWidth="323.0" style="-fx-text-fill: green;" />
-   <Label layoutX="2.0" layoutY="164.0" prefHeight="17.0" prefWidth="323.0" style="-fx-text-fill: red;" />
-   <Label layoutX="118.0" layoutY="274.0" prefHeight="17.0" prefWidth="357.0" style="-fx-text-fill: green;" />
-   <Label alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Elimina commento">
+   <Label fx:id="labelError" alignment="CENTER" layoutY="147.0" prefHeight="17.0" prefWidth="323.0" style="-fx-text-fill: red;" />
+   <Label fx:id="labelTesto" alignment="CENTER" layoutX="2.0" layoutY="164.0" prefHeight="17.0" prefWidth="323.0" style="-fx-text-fill: green;" />
+   <Label fx:id="labelProperRemoval" alignment="CENTER" layoutX="118.0" layoutY="274.0" prefHeight="17.0" prefWidth="357.0" style="-fx-text-fill: green;" />
+   <Label alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Elimina commento rilasciato">
       <font>
          <Font name="System Bold Italic" size="19.0" />
       </font>
    </Label>
-   <Button layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="40.0" prefWidth="93.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
-   <TextField layoutX="103.0" layoutY="122.0" prefHeight="25.0" prefWidth="234.0" promptText="Inserisci il commento da eliminare" />
+   <Button fx:id="goBackHome" layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="40.0" prefWidth="93.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
+   <TextField fx:id="inputTesto" layoutX="103.0" layoutY="122.0" prefHeight="25.0" prefWidth="234.0" promptText="Inserisci il commento da eliminare" />
 </AnchorPane>

@@ -27,6 +27,8 @@ import java.util.Objects;
 
 public class DeleteNewsController {
     @FXML
+    public Button goBackHome;
+    @FXML
     public Label labelError;
     @FXML
     public Label labelTitle;
@@ -38,7 +40,7 @@ public class DeleteNewsController {
     public Button searchNews;
     @FXML
     public Button deleteNews;
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json";
+    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
     public static List<Notizia> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
@@ -86,9 +88,9 @@ public class DeleteNewsController {
             labelError.setText("Attenzione, prima devi cercare e selezionare il titolo della notizia");
         }else{
             labelError.setText("");
-            for(int i = 0; i < news.size(); i++){
-                if(news.get(i).getTitle().equals(inputTitle.getText())){
-                    news.remove(i);
+            for(Notizia value :  news){
+                if(value.getTitle().equals(inputTitle.getText())){
+                    news.remove(value);
                     writeFile(news, path);
                 }
             }

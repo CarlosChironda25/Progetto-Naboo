@@ -32,6 +32,8 @@ public class UserModifyController {
     @FXML
     public Button searchUser;
     @FXML
+    public Button goBackHome;
+    @FXML
     public Label labelInfoSearchedUser;
     @FXML
     public Label labelErrorEmptySpaces;
@@ -48,10 +50,10 @@ public class UserModifyController {
     @FXML
     public TextField inputPassword2;
     @FXML
-    public CheckBox boxUtente;
+    public CheckBox administratorBox;
 
 
-    private String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json";
+    private String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
@@ -82,14 +84,14 @@ public class UserModifyController {
                 inputUsername.setText(value.getUsername());
                 inputPassword.setText(value.getPassword());
                 inputPassword2.setText(value.getPassword());
-                boxUtente.setSelected(value.getIsAdmin());
+                administratorBox.setSelected(value.getIsAdmin());
             }
             if (!userFound) {
                 labelInfoSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
                 inputUsername.setText("");
                 inputPassword.setText("");
                 inputPassword2.setText("");
-                boxUtente.setSelected(false);
+                administratorBox.setSelected(false);
             }
         }
     }
@@ -106,7 +108,7 @@ public class UserModifyController {
                     if (value.getUsername().equals(inputSearchedUser.getText())) {
                         value.setUsername(inputUsername.getText());
                         value.setPassword(inputPassword.getText());
-                        value.setIsAdmin(boxUtente.isSelected());
+                        value.setIsAdmin(administratorBox.isSelected());
                         writeFile(utente, path);
                     }
                 }
@@ -116,7 +118,7 @@ public class UserModifyController {
                 inputUsername.setText("");
                 inputPassword.setText("");
                 inputPassword2.setText("");
-                boxUtente.setSelected(false);
+                administratorBox.setSelected(false);
             }
         }
     }

@@ -43,5 +43,10 @@
     "Username": "prova",
     "Password": "prova",
     "isAdmin": false
+  },
+  {
+    "Username": "Federica",
+    "Password": "fede",
+    "isAdmin": true
   }
 ]

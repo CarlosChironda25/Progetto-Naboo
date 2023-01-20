@@ -37,4 +37,10 @@
       </font>
    </Label>
    <Button fx:id="settings" layoutX="478.0" layoutY="19.0" mnemonicParsing="false" onAction="#goToSettings" prefHeight="46.0" prefWidth="107.0" text="Impostazioni" />
+   <Label layoutX="48.0" layoutY="292.0" text="Operazioni di controllo sui voti: ">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Button fx:id="deleteGrade" layoutX="48.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteGrade" text="Elimina un voto rilasciato" />
 </AnchorPane>

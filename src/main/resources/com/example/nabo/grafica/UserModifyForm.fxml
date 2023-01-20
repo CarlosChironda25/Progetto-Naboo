@@ -8,21 +8,21 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.UserModifyController">
-   <TextField fx:id="inputUsername" layoutX="189.0" layoutY="130.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuovo username" />
-   <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" layoutX="189.0" layoutY="174.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuova password" />
-   <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" layoutX="189.0" layoutY="209.0" prefHeight="25.0" prefWidth="167.0" promptText="Conferma password" />
+   <TextField fx:id="inputUsername" alignment="CENTER" layoutX="189.0" layoutY="130.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuovo username" />
+   <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="189.0" layoutY="174.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuova password" />
+   <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="189.0" layoutY="209.0" prefHeight="25.0" prefWidth="167.0" promptText="Conferma password" />
    <Button fx:id="saveChanges" layoutX="226.0" layoutY="282.0" mnemonicParsing="false" onAction="#modifyUserCredentials" text="Salva Modifica" />
    <Button fx:id="searchUser" layoutX="308.0" layoutY="77.0" mnemonicParsing="false" onAction="#search" text="Cerca Utente" />
-   <TextField fx:id="inputSearchedUser" layoutX="78.0" layoutY="80.0" prefHeight="25.0" prefWidth="199.0" promptText="Inserisci utente da cercare" />
-   <CheckBox fx:id="boxUtente" layoutX="189.0" layoutY="257.0" mnemonicParsing="false" text="Utente Amministratore" />
-   <Label fx:id="labelInfoSearchedUser" alignment="CENTER" layoutX="4.0" layoutY="108.0" prefHeight="18.0" prefWidth="465.0" style="-fx-text-fill: red;" />
+   <TextField fx:id="inputSearchedUser" alignment="CENTER" layoutX="78.0" layoutY="80.0" prefHeight="25.0" prefWidth="199.0" promptText="Inserisci utente da cercare" />
+   <CheckBox fx:id="administratorBox" layoutX="189.0" layoutY="257.0" mnemonicParsing="false" text="Utente Amministratore" />
+   <Label fx:id="labelInfoSearchedUser" alignment="CENTER" layoutX="4.0" layoutY="108.0" prefHeight="18.0" prefWidth="465.0" style="-fx-text-fill: green;" />
    <Label fx:id="labelSave" layoutX="27.0" layoutY="319.0" prefHeight="18.0" prefWidth="503.0" style="-fx-text-fill: green;" />
    <Label alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Modifica utente">
       <font>
          <Font name="System Bold Italic" size="19.0" />
       </font>
    </Label>
-   <Button layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="40.0" prefWidth="93.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
+   <Button fx:id="goBackHome" layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="40.0" prefWidth="93.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
    <Label fx:id="labelErrorEmptySpaces" alignment="CENTER" layoutX="14.0" layoutY="234.0" prefHeight="18.0" prefWidth="569.0" style="-fx-text-fill: red;" />
    <Label fx:id="labelErrorPasswordMismatching" alignment="CENTER" layoutX="50.0" layoutY="248.0" prefHeight="18.0" prefWidth="465.0" style="-fx-text-fill: red;" />
 </AnchorPane>

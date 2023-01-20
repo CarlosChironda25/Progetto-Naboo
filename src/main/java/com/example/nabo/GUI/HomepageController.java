@@ -32,6 +32,8 @@ public class HomepageController{
     public Button settings;
     @FXML
     public Button deleteNews;
+    @FXML
+    public Button deleteGrade;
 
 
    @FXML
@@ -124,6 +126,22 @@ public class HomepageController{
            e.printStackTrace();
            System.out.println("accesso non riuscito in impostazioni");
        }
+    }
+    @FXML
+    public void deleteGrade(ActionEvent event){
+       try{
+           root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/DeletionGradeForm.fxml")));
+           stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+           scene = new Scene(root);
+           stage.setTitle("Impostazioni di Naboo");
+           stage.setScene(scene);
+           stage.show();
+           System.out.println("accesso riuscito in elimina voto");
+       }catch (Exception e) {
+           e.printStackTrace();
+           System.out.println("accesso non riuscito in elimina voto");
+       }
+
     }
 
 }

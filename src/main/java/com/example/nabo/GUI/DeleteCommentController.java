@@ -77,20 +77,21 @@ public class DeleteCommentController {
         @FXML
         public void deleteComment(ActionEvent event) throws IOException {
             List<CommentoBot> commento = readFile(path);
-            if(labelTesto.getText().isEmpty()){
+            if(inputTesto.getText().isEmpty()){
                 labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
             }else{
                 labelError.setText("");
-                for(int i = 0; i < commento.size(); i++){
-                    if(commento.get(i).getTesto().equals(inputTesto.getText())){
-                        commento.remove(i);
+                for(CommentoBot value : commento){
+                    if(value.getTesto().equals(inputTesto.getText())){
+                        commento.remove(value);
                         writeFile(commento, path);
                     }
                 }
                 labelProperRemoval.setText("il commento: " + inputTesto.getText() + "da te cercato, è stato rimosso correttamente");
                 System.out.println("il commento è stato rimosso correttamente");
-                inputTesto.setText("");
+                labelError.setText("");
                 labelTesto.setText("");
+                inputTesto.setText("");
             }
         }
         @FXML
