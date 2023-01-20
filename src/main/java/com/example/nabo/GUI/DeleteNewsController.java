@@ -1,5 +1,6 @@
 package com.example.nabo.GUI;
 
+import com.example.nabo.GestoreNotizia;
 import com.example.nabo.Main;
 import com.example.nabo.Notizia;
 import com.google.gson.Gson;
@@ -21,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +62,10 @@ public class DeleteNewsController {
     in caso contrario viene fuori una label di errore.
      */
     @FXML
-    public void search(ActionEvent event) throws FileNotFoundException {
+    public void search(ActionEvent event) throws IOException {
+
+        GestoreNotizia gestore = new GestoreNotizia();
+        gestore.caricaNotizie();
         labelError.setText("");
         List<Notizia> news = readFile(path);
         boolean newsFound = false;
@@ -68,12 +73,10 @@ public class DeleteNewsController {
             if (notizia.getTitle().equals(inputTitle.getText())) {
                 newsFound = true;
                 labelTitle.setText(notizia.getTitle());
-                System.out.println("Questa notizia esiste");
             }
         }
         if(!newsFound){
             labelError.setText("La news che stai cercando non esiste");
-            System.out.println("La notizia non esiste");
             labelTitle.setText("");
         }
     }
@@ -88,14 +91,13 @@ public class DeleteNewsController {
             labelError.setText("Attenzione, prima devi cercare e selezionare il titolo della notizia");
         }else{
             labelError.setText("");
-            for(Notizia value :  news){
+            for(Notizia value : news){
                 if(value.getTitle().equals(inputTitle.getText())){
                     news.remove(value);
                     writeFile(news, path);
                 }
             }
             labelProperRemoval.setText("Il titolo della notizia: " + inputTitle.getText() + " da te cercato, è stato rimosso correttamente");
-            System.out.println("la notizia è stata rimossa");
             inputTitle.setText("");
             labelTitle.setText("");
         }

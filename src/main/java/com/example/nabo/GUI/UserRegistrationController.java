@@ -77,11 +77,9 @@ public class UserRegistrationController {
 
         if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
             labelErrorEmptySpaces.setText("Tutti i campi sono obbligatori!");
-            System.out.println("Non ha inserito alcuni campi");
             control = false;
         } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
             labelErrorPasswordMismatching.setText("le password sono diverse!");
-            System.out.println("le password sono diverse");
             control = false;
         }
 
@@ -94,7 +92,6 @@ public class UserRegistrationController {
         if(checkProblems()){
             writeFile(inputUsername.getText(), inputPassword.getText(), administratorBox.isSelected());
             labelRegistrazione.setText("registrazione avvenuta con successo!!");
-            System.out.println("la registrazione dell'utente è avvenuta con successo");
             inputUsername.setText("");
             inputPassword.setText("");
             inputPassword2.setText("");
@@ -107,7 +104,6 @@ public class UserRegistrationController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        System.out.println("ritorna in homepage");
         stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();

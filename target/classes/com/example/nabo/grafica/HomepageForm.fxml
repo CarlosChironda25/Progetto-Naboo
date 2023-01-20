@@ -24,7 +24,7 @@
          <Font size="14.0" />
       </font>
    </Label>
-   <Label layoutX="48.0" layoutY="147.0" text="Operazoni di controllo sulle notizie: ">
+   <Label layoutX="48.0" layoutY="147.0" text="Operazioni di controllo sulle notizie: ">
       <font>
          <Font size="14.0" />
       </font>
@@ -43,4 +43,5 @@
       </font>
    </Label>
    <Button fx:id="deleteGrade" layoutX="48.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina un voto rilasciato" />
+   <Button fx:id="telegramButton" layoutX="28.0" layoutY="26.0" mnemonicParsing="false" onAction="#telegram" style="-fx-background-color: blue; -fx-text-fill: white;" text="Avvia Telegram" />
 </AnchorPane>

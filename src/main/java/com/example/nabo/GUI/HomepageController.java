@@ -1,6 +1,7 @@
 package com.example.nabo.GUI;
 
 import com.example.nabo.Main;
+import com.example.nabo.NabooBot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +12,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.meta.generics.BotSession;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Objects;
 
 public class HomepageController{
+
     @FXML
     private Stage stage;
     @FXML
@@ -31,11 +37,14 @@ public class HomepageController{
     @FXML
     public Button deleteComment;
     @FXML
-    public Button settings;
-    @FXML
     public Button deleteNews;
     @FXML
     public Button deleteGrade;
+    @FXML
+    public Button telegramButton;
+    @FXML
+    public Button logout;
+
 
 
    @FXML
@@ -47,10 +56,8 @@ public class HomepageController{
            stage.setTitle("aggiungi un utente");
            stage.setScene(scene);
            stage.show();
-           System.out.println("accesso riuscito in aggiungi utente");
        } catch (Exception e) {
            e.printStackTrace();
-           System.out.println("accesso non riuscito in aggiungi utente");
        }
    }
     @FXML
@@ -62,10 +69,8 @@ public class HomepageController{
             stage.setTitle("Modifica utente");
             stage.setScene(scene);
             stage.show();
-            System.out.println("accesso riuscito in modifica utente");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("accesso non riuscito in modifica utente");
         }
     }
     @FXML
@@ -77,10 +82,8 @@ public class HomepageController{
             stage.setTitle("Elimina utente");
             stage.setScene(scene);
             stage.show();
-            System.out.println("accesso riuscito in elimina utente");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("accesso non riuscito in elimina utente");
         }
     }
 
@@ -93,10 +96,8 @@ public class HomepageController{
             stage.setTitle("Elimina notizia");
             stage.setScene(scene);
             stage.show();
-            System.out.println("accesso riuscito in elimina notizia");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("accesso non riuscito in elimina notizia");
         }
     }
     @FXML
@@ -108,22 +109,29 @@ public class HomepageController{
             stage.setTitle("Elimina commento rilasciato");
             stage.setScene(scene);
             stage.show();
-           System.out.println("accesso riuscito in elimina commento");
-        }catch (Exception e) {
+       }catch (Exception e) {
             e.printStackTrace();
-            System.out.println("accesso non riuscito in elimina commento");
-           }
+       }
+    }
+    @FXML
+    public void telegram(ActionEvent event){
+        try { //starta il bot
+            TelegramBotsApi botApi1 = new TelegramBotsApi(DefaultBotSession.class);
+            BotSession botSession = botApi1.registerBot(new NabooBot());
+            NabooBot.setSession(botSession);
+
+        } catch (TelegramApiException | MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     public void logout(ActionEvent event){
-       System.out.println("Vorrà effettuare il logout l'amministratore?");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("Stai per uscire. Tutte le tue modifiche \n sono state salvate correttamente \n in modo automatico.");
         alert.setContentText("Vuoi veramente uscire?");
         if(alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            System.out.println("Uscito correttamente");
             stage.close();
         }
     }
@@ -136,10 +144,8 @@ public class HomepageController{
            stage.setTitle("Impostazioni di Naboo");
            stage.setScene(scene);
            stage.show();
-           System.out.println("accesso riuscito in elimina voto");
        }catch (Exception e) {
            e.printStackTrace();
-           System.out.println("accesso non riuscito in elimina voto");
        }
 
     }

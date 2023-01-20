@@ -66,12 +66,10 @@ public class DeleteCommentController {
             if (value.getTesto().equals(inputTesto.getText())) {
                 commentFound = true;
                 labelTesto.setText("il commento " + value.getTesto() + " rilasciato da " + value.getCommentatore() + " da te cercato esiste.");
-                System.out.println("il commento esiste");
             }
         }
         if(!commentFound){
             labelError.setText("Utente non esistente");
-            System.out.println("l'utente non esiste");
             labelTesto.setText("");
         }
     }
@@ -81,7 +79,6 @@ public class DeleteCommentController {
         List<CommentoBot> commento = readFile(path);
         if(inputTesto.getText().isEmpty()){
             labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
-            System.out.println("Premuto il pulsante elimina senza aver cercato l'utente ");
         }else{
             labelError.setText("");
             for(CommentoBot value : commento){
@@ -91,7 +88,6 @@ public class DeleteCommentController {
                 }
             }
             labelProperRemoval.setText("il commento " + inputTesto.getText() + " da te cercato, è stato rimosso correttamente");
-            System.out.println("il commento è stato rimosso dal database");
             inputTesto.setText("");
             labelTesto.setText("");
             labelError.setText("");

@@ -13,7 +13,7 @@
       <font>
          <Font size="14.0" />
       </font></Label>
-   <TextField fx:id="inputTitle" alignment="CENTER" layoutX="62.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" promptText="Inserisci titolo della notizia da eliminare" style="-fx-text-box-border: trasparent;" />
+   <TextField fx:id="inputTitle" alignment="CENTER" layoutX="62.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" promptText="Inserisci titolo della notizia da eliminare" />
    <Button fx:id="deleteNews" layoutX="233.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteNews" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina Notizia" />
    <Button fx:id="searchNews" layoutX="331.0" layoutY="80.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca News" />
    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="24.0" prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Eliminazione notizia" textAlignment="CENTER">

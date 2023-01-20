@@ -113,7 +113,6 @@ public class UserModifyController {
                     }
                 }
                 labelSave.setText("utente " + inputUsername.getText() + " modificato senza problemi");
-                System.out.println("Apportate correttamente le modifiche");
                 inputSearchedUser.setText("");
                 inputUsername.setText("");
                 inputPassword.setText("");
@@ -133,11 +132,9 @@ public class UserModifyController {
 
         if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
             labelErrorEmptySpaces.setText("Tutti i campi sono obbligatori!");
-            System.out.println("Non ha inserito alcuni campi");
             control = false;
         } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
             labelErrorPasswordMismatching.setText("le password sono diverse!");
-            System.out.println("le password sono diverse");
             control = false;
         }
         return control;
@@ -147,7 +144,6 @@ public class UserModifyController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        System.out.println("ritorna in homepage");
         stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();

@@ -66,12 +66,10 @@ public class DeleteUserController {
             if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
                 labelUsername.setText("l'utente " + value.getUsername() + "da te cercato esiste.");
-                System.out.println("l'utente esiste");
             }
         }
         if(!userFound){
             labelError.setText("Utente non esistente");
-            System.out.println("l'utente non esiste");
             labelUsername.setText("");
         }
     }
@@ -81,17 +79,19 @@ public class DeleteUserController {
         List<Utente> utente = readFile(path);
         if(inputUsername.getText().isEmpty()){
             labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
-            System.out.println("Premuto il pulsante elimina senza aver cercato l'utente ");
         }else{
             labelError.setText("");
-            for(Utente value : utente){
-                if(value.getUsername().equals(inputUsername.getText())){
-                    utente.remove(value);
-                    writeFile(utente, path);
+            try {
+                for (Utente value : utente) {
+                    if (value.getUsername().equals(inputUsername.getText())) {
+                        utente.remove(value);
+                        writeFile(utente, path);
+                    }
                 }
+            }catch(Exception e){
+                e.printStackTrace();
             }
             labelProperRemoval.setText("l'utente " + inputUsername.getText() + " da te cercato, è stato rimosso correttamente");
-            System.out.println("l'utente è stato eliminato dal database");
             inputUsername.setText("");
             labelUsername.setText("");
         }
@@ -101,7 +101,6 @@ public class DeleteUserController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-        System.out.println("ritorna in homepage");
         stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();

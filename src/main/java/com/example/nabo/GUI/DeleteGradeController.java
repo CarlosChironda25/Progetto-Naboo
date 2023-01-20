@@ -89,7 +89,6 @@ public class DeleteGradeController {
                 }
             }
             labelProperRemoval.setText("il voto: " + inputGrade.getText() + "da te cercato, è stato rimosso correttamente");
-            System.out.println("il commento è stato rimosso correttamente");
             labelError.setText("");
             labelGrade.setText("");
             inputGrade.setText("");

@@ -93,7 +93,7 @@ public class GestoreNotizia {
                 reader.close();
         }
 
-        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
         fileWriter.write( "[");
         Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
 
