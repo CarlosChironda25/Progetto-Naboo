@@ -112,7 +112,7 @@ public class UserModifyController {
                         writeFile(utente, path);
                     }
                 }
-                labelSave.setText("utente " + inputUsername.getText() + " modificato senza prblemi");
+                labelSave.setText("utente " + inputUsername.getText() + " modificato senza problemi");
                 System.out.println("Apportate correttamente le modifiche");
                 inputSearchedUser.setText("");
                 inputUsername.setText("");
@@ -147,6 +147,7 @@ public class UserModifyController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        System.out.println("ritorna in homepage");
         stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();

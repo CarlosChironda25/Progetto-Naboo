@@ -57,43 +57,46 @@ public class DeleteCommentController {
             fw.close();
         }
 
-        @FXML
-        public void search(ActionEvent event) throws FileNotFoundException {
-            labelError.setText("");
-            List<CommentoBot> commento = readFile(path);
-            boolean commentFound = false;
-            for (CommentoBot value : commento) {
-                if (value.getTesto().equals(inputTesto.getText())) {
-                    commentFound = true;
-                    labelTesto.setText("il commento: " + value.getTesto() + " rilasciato da " + value.getCommentatore() + "esiste");
-                }
-            }
-            if(!commentFound){
-                labelError.setText("commento rilasciato non esistente");
-                labelTesto.setText("");
+    @FXML
+    public void search(ActionEvent event) throws FileNotFoundException {
+        labelError.setText("");
+        List<CommentoBot> commento = readFile(path);
+        boolean commentFound = false;
+        for (CommentoBot value : commento) {
+            if (value.getTesto().equals(inputTesto.getText())) {
+                commentFound = true;
+                labelTesto.setText("il commento " + value.getTesto() + " rilasciato da " + value.getCommentatore() + " da te cercato esiste.");
+                System.out.println("il commento esiste");
             }
         }
+        if(!commentFound){
+            labelError.setText("Utente non esistente");
+            System.out.println("l'utente non esiste");
+            labelTesto.setText("");
+        }
+    }
 
-        @FXML
-        public void deleteComment(ActionEvent event) throws IOException {
-            List<CommentoBot> commento = readFile(path);
-            if(inputTesto.getText().isEmpty()){
-                labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
-            }else{
-                labelError.setText("");
-                for(CommentoBot value : commento){
-                    if(value.getTesto().equals(inputTesto.getText())){
-                        commento.remove(value);
-                        writeFile(commento, path);
-                    }
+    @FXML
+    public void deleteComment(ActionEvent event) throws IOException {
+        List<CommentoBot> commento = readFile(path);
+        if(inputTesto.getText().isEmpty()){
+            labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
+            System.out.println("Premuto il pulsante elimina senza aver cercato l'utente ");
+        }else{
+            labelError.setText("");
+            for(CommentoBot value : commento){
+                if(value.getTesto().equals(inputTesto.getText())){
+                    commento.remove(value);
+                    writeFile(commento, path);
                 }
-                labelProperRemoval.setText("il commento: " + inputTesto.getText() + "da te cercato, è stato rimosso correttamente");
-                System.out.println("il commento è stato rimosso correttamente");
-                labelError.setText("");
-                labelTesto.setText("");
-                inputTesto.setText("");
             }
+            labelProperRemoval.setText("il commento " + inputTesto.getText() + " da te cercato, è stato rimosso correttamente");
+            System.out.println("il commento è stato rimosso dal database");
+            inputTesto.setText("");
+            labelTesto.setText("");
+            labelError.setText("");
         }
+    }
         @FXML
         public void goBackHomePage(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));

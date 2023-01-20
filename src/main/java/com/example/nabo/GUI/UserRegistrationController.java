@@ -107,6 +107,7 @@ public class UserRegistrationController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        System.out.println("ritorna in homepage");
         stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();

@@ -13,6 +13,6 @@
       </font>
    </Label>
    <Button layoutY="28.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="28.0" prefWidth="71.0" style="-fx-background-color: CCFFE5;" text="Home" />
-   <Button fx:id="logoutButton" layoutX="300.0" layoutY="180.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+   <Button fx:id="logoutButton" layoutX="271.0" layoutY="180.0" mnemonicParsing="false" onAction="#logout" prefHeight="55.0" prefWidth="83.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Logout" />
    <CheckBox fx:id="telegramBox" layoutX="204.0" layoutY="113.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="246.0" text="Avvia Telegram cliccando sulla checkbox" />
 </AnchorPane>

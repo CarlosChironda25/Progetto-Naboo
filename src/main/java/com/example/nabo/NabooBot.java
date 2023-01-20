@@ -753,7 +753,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private List<Notizia> loadNews() throws FileNotFoundException {
 
-        JsonReader read = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json"));
+        JsonReader read = new JsonReader(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
 
         Gson gson = new Gson();
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {

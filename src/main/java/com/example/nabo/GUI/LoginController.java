@@ -11,9 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -64,6 +62,14 @@ public class LoginController {
         }else if(registeredUser){
             labelError.setText("Non sei un amministratore quindi non puoi accedere qui");
             System.out.println("non è amministratore quindi deve uscire");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Logout");
+            alert.setHeaderText("Non sei amministratore. Non puoi entrare");
+            if(alert.showAndWait().get() == ButtonType.OK) {
+                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                System.out.println("Uscito correttamente");
+                stage.close();
+            }
         }else{
             labelError.setText("Username o password non corrette, riprova. ");
             System.out.println("Credenziali errate.");

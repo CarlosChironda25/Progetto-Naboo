@@ -7,30 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.nabo.GUI.UserRegistrationController">
-   <TextField fx:id="inputUsername" alignment="CENTER" layoutX="225.0" layoutY="107.0" promptText="Inserisci username"/>
-   <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="225.0" layoutY="145.0"
-              promptText="Inserisci password"/>
-   <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="225.0" layoutY="187.0"
-              promptText="Conferma Password"/>
-   <Button fx:id="confirm" layoutX="231.0" layoutY="273.0" mnemonicParsing="false" onAction="#RegistrationOperation"
-           text="Registra Nuovo Utente"/>
-   <CheckBox fx:id="administratorBox" layoutX="225.0" layoutY="230.0" mnemonicParsing="false"
-             text="Utente amministratore"/>
-   <Label alignment="CENTER" layoutX="-1.0" layoutY="23.0" prefHeight="38.0" prefWidth="600.0"
-          style="-fx-background-color: E0E0E0;" text="Registrazione nuovo utente" textAlignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: CCE5FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.UserRegistrationController">
+   <TextField fx:id="inputUsername" alignment="CENTER" layoutX="225.0" layoutY="107.0" promptText="Inserisci username" />
+   <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="225.0" layoutY="145.0" promptText="Inserisci password" />
+   <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="225.0" layoutY="187.0" promptText="Conferma Password" />
+   <Button fx:id="confirm" layoutX="231.0" layoutY="273.0" mnemonicParsing="false" onAction="#RegistrationOperation" style="-fx-background-color: blue; -fx-text-fill: white;" text="Registra Nuovo Utente" />
+   <CheckBox fx:id="administratorBox" layoutX="225.0" layoutY="230.0" mnemonicParsing="false" text="Utente amministratore" />
+   <Label alignment="CENTER" layoutX="-1.0" layoutY="23.0" prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Registrazione nuovo utente" textAlignment="CENTER">
       <font>
-         <Font name="System Bold Italic" size="19.0"/>
+         <Font name="System Bold Italic" size="19.0" />
       </font>
    </Label>
-   <Label fx:id="labelErrorEmptySpaces" alignment="CENTER" layoutX="213.0" layoutY="77.0" prefHeight="17.0"
-          prefWidth="171.0" style="-fx-text-fill: red;"/>
-   <Label fx:id="labelErrorPasswordMismatching" alignment="CENTER" layoutX="210.0" layoutY="98.0" prefHeight="17.0"
-          prefWidth="189.0" style="-fx-text-fill: red;"/>
-   <Label fx:id="labelRegistrazione" alignment="CENTER" layoutX="119.0" layoutY="319.0" prefHeight="45.0"
-          prefWidth="364.0" style="-fx-text-fill: green;"/>
-   <Button fx:id="goBackHome" layoutY="26.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="31.0"
-           prefWidth="84.0" style="-fx-text-fill: black; -fx-background-color: CCFFE5;" text="Home"/>
+   <Label fx:id="labelErrorEmptySpaces" alignment="CENTER" layoutX="213.0" layoutY="77.0" prefHeight="17.0" prefWidth="171.0" style="-fx-text-fill: red;" />
+   <Label fx:id="labelErrorPasswordMismatching" alignment="CENTER" layoutX="210.0" layoutY="98.0" prefHeight="17.0" prefWidth="189.0" style="-fx-text-fill: red;" />
+   <Label fx:id="labelRegistrazione" alignment="CENTER" layoutX="119.0" layoutY="319.0" prefHeight="45.0" prefWidth="364.0" style="-fx-text-fill: green;" />
+   <Button fx:id="goBackHome" layoutY="26.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="31.0" prefWidth="84.0" style="-fx-text-fill: black; -fx-background-color: CCFFE5;" text="Home" />
 </AnchorPane>

@@ -65,11 +65,13 @@ public class DeleteUserController {
         for (Utente value : utente) {
             if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
-                labelUsername.setText(value.getUsername());
+                labelUsername.setText("l'utente " + value.getUsername() + "da te cercato esiste.");
+                System.out.println("l'utente esiste");
             }
         }
         if(!userFound){
             labelError.setText("Utente non esistente");
+            System.out.println("l'utente non esiste");
             labelUsername.setText("");
         }
     }
@@ -77,8 +79,9 @@ public class DeleteUserController {
     @FXML
     public void deleteUser(ActionEvent event) throws IOException {
         List<Utente> utente = readFile(path);
-        if(labelUsername.getText().isEmpty()){
+        if(inputUsername.getText().isEmpty()){
             labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
+            System.out.println("Premuto il pulsante elimina senza aver cercato l'utente ");
         }else{
             labelError.setText("");
             for(Utente value : utente){
@@ -88,6 +91,7 @@ public class DeleteUserController {
                 }
             }
             labelProperRemoval.setText("l'utente " + inputUsername.getText() + " da te cercato, è stato rimosso correttamente");
+            System.out.println("l'utente è stato eliminato dal database");
             inputUsername.setText("");
             labelUsername.setText("");
         }
@@ -97,6 +101,7 @@ public class DeleteUserController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        System.out.println("ritorna in homepage");
         stage.setTitle("Homepage di Naboo");
         stage.setScene(scene);
         stage.show();
