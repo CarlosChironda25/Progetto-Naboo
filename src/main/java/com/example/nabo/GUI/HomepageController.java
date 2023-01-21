@@ -44,7 +44,8 @@ public class HomepageController{
     public Button telegramButton;
     @FXML
     public Button logout;
-
+    @FXML
+    public Button feedManagement;
 
 
    @FXML
@@ -141,7 +142,7 @@ public class HomepageController{
            root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/DeletionGradeForm.fxml")));
            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
            scene = new Scene(root);
-           stage.setTitle("Impostazioni di Naboo");
+           stage.setTitle("Elimina voto");
            stage.setScene(scene);
            stage.show();
        }catch (Exception e) {
@@ -149,5 +150,17 @@ public class HomepageController{
        }
 
     }
-
+    @FXML
+    public void feedManagement(ActionEvent event){
+        try{
+            root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/FeedRssForm.fxml")));
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setTitle("Gestione feed RSS");
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

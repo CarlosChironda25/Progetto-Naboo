@@ -86,15 +86,16 @@ public class UserModifyController {
                 inputPassword2.setText(value.getPassword());
                 administratorBox.setSelected(value.getIsAdmin());
             }
-            if (!userFound) {
-                labelInfoSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
-                inputUsername.setText("");
-                inputPassword.setText("");
-                inputPassword2.setText("");
-                administratorBox.setSelected(false);
-            }
+        }
+        if (!userFound) {
+            labelInfoSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
+            inputUsername.setText("");
+            inputPassword.setText("");
+            inputPassword2.setText("");
+            administratorBox.setSelected(false);
         }
     }
+
     @FXML
     public void modifyUserCredentials(ActionEvent event) throws IOException {
         labelInfoSearchedUser.setText("");

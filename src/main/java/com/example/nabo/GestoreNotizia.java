@@ -23,13 +23,14 @@ import java.util.List;
 
 public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
-    private ArrayList<String> sources;
+    public ArrayList<String> sources;
     public static String Path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json";
     public  GestoreNotizia () throws MalformedURLException {
         this.sources = new ArrayList<>();
         listaNotizie = new ArrayList<>();
         //caricaNotizie();
     }
+    public ArrayList<String> getSources(){return sources;}
 
     public void importFromFile() throws IOException{
         //mandera' un file TXT così composto:

@@ -41,6 +41,8 @@ public class DeleteNewsController {
     @FXML
     public Button searchNews;
     @FXML
+    public Button caricanews;
+    @FXML
     public Button deleteNews;
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
     public static List<Notizia> readFile(String path) throws FileNotFoundException {
@@ -57,15 +59,16 @@ public class DeleteNewsController {
         fw.write(jsonString);
         fw.close();
     }
-    /*
-    Qui cerco se la notizia effettivamente esiste. Nel caso dovesse esistere viene fuori una label affermativa,
-    in caso contrario viene fuori una label di errore.
-     */
     @FXML
-    public void search(ActionEvent event) throws IOException {
-
+    public void caricanews(ActionEvent event) throws IOException {
         GestoreNotizia gestore = new GestoreNotizia();
         gestore.caricaNotizie();
+    }
+
+    @FXML
+    public void search(ActionEvent event) throws FileNotFoundException {
+
+
         labelError.setText("");
         List<Notizia> news = readFile(path);
         boolean newsFound = false;

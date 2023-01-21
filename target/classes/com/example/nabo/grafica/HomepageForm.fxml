@@ -37,11 +37,17 @@
       </font>
    </Label>
    <Button fx:id="logout" layoutX="478.0" layoutY="19.0" mnemonicParsing="false" onAction="#logout" prefHeight="46.0" prefWidth="107.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Logout" />
-   <Label layoutX="48.0" layoutY="292.0" text="Operazioni di controllo sui voti: ">
+   <Label layoutX="334.0" layoutY="217.0" text="Operazioni di controllo sui voti: ">
       <font>
          <Font size="14.0" />
       </font>
    </Label>
-   <Button fx:id="deleteGrade" layoutX="48.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina un voto rilasciato" />
+   <Button fx:id="deleteGrade" layoutX="337.0" layoutY="244.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina un voto rilasciato" />
    <Button fx:id="telegramButton" layoutX="28.0" layoutY="26.0" mnemonicParsing="false" onAction="#telegram" style="-fx-background-color: blue; -fx-text-fill: white;" text="Avvia Telegram" />
+   <Label layoutX="42.0" layoutY="289.0" text="Operazioni di gestione Feed Rss:">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Button fx:id="feedManagement" layoutX="48.0" layoutY="318.0" mnemonicParsing="false" onAction="#feedManagement" style="-fx-background-color: blue; -fx-text-fill: white;" text="Gestione Feed Rss" />
 </AnchorPane>

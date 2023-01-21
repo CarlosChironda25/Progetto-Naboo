@@ -32,11 +32,6 @@
   {
     "Username": "roberto34",
     "Password": "password2",
-    "isAdmin": false
-  },
-  {
-    "Username": "prova",
-    "Password": "prova",
-    "isAdmin": false
+    "isAdmin": true
   }
 ]

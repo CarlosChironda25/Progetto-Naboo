@@ -34,7 +34,7 @@ public class Utente {
     public boolean getIsAdmin(){
         return isAdmin;
     }
-    public void setIsAdmin(boolean isAdmin){ isAdmin = isAdmin; }
+    public void setIsAdmin(boolean isadmin){ isAdmin = isadmin; }
 
 
     @Override
