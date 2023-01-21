@@ -13,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -60,7 +58,7 @@ public class DeleteNewsController {
         fw.close();
     }
     @FXML
-    public void caricanews(ActionEvent event) throws IOException {
+    public void updateNews(ActionEvent event) throws IOException {
         GestoreNotizia gestore = new GestoreNotizia();
         gestore.caricaNotizie();
     }
@@ -98,8 +96,10 @@ public class DeleteNewsController {
                 if(value.getTitle().equals(inputTitle.getText())){
                     news.remove(value);
                     writeFile(news, path);
+
                 }
             }
+
             labelProperRemoval.setText("Il titolo della notizia: " + inputTitle.getText() + " da te cercato, è stato rimosso correttamente");
             inputTitle.setText("");
             labelTitle.setText("");

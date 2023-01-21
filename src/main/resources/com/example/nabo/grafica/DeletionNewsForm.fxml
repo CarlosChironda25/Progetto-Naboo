@@ -26,5 +26,5 @@
          <Font size="9.0" />
       </font>
    </Button>
-   <Button fx:id="caricanews" layoutX="248.0" layoutY="98.0" mnemonicParsing="false" onAction="#caricanews" style="-fx-background-color: blue; -fx-text-fill: white;" text="Carica Notizie" />
+   <Button fx:id="caricanews" layoutX="248.0" layoutY="98.0" mnemonicParsing="false" onAction="#updateNews" style="-fx-background-color: blue; -fx-text-fill: white;" text="Carica Notizie" />
 </AnchorPane>

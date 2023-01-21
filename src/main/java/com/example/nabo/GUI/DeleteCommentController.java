@@ -85,6 +85,7 @@ public class DeleteCommentController {
                         if(value.getTesto().equals(inputTesto.getText())){
                             commento.remove(value);
                             writeFile(commento, path);
+
                         }
                     }
                 }catch(Exception e){
