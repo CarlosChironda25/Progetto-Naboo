@@ -41,6 +41,10 @@ public class DeleteCommentController {
         public Label labelProperRemoval;
         @FXML
         public TextField inputTesto;
+        @FXML
+        public TextField inputTitolo;
+        @FXML
+        public TextField inputCommentatore;
         private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
 
         public static List<CommentoBot> readFile(String path) throws FileNotFoundException {
@@ -63,7 +67,7 @@ public class DeleteCommentController {
             List<CommentoBot> commento = readFile(path);
             boolean commentoFound = false;
             for(CommentoBot value : commento){
-                if(value.getTesto().equals(inputTesto.getText())){
+                if(value.getTesto().equals(inputTesto.getText()) ){
                     commentoFound = true;
                     labelTesto.setText("Il commento " + value.getTesto() + "da te cercato esiste");
                 }
@@ -82,7 +86,7 @@ public class DeleteCommentController {
                 labelError.setText("");
                 try{
                     for(CommentoBot value : commento){
-                        if(value.getTesto().equals(inputTesto.getText())){
+                        if(value.getTesto().equals(inputTesto.getText()) && value.getCommentatore().equals(inputCommentatore.getText()) && value.getTitolo().equals(inputTitolo.getText())){
                             commento.remove(value);
                             writeFile(commento, path);
 

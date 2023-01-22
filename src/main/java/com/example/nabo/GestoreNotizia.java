@@ -25,6 +25,19 @@ public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
     public ArrayList<String> sources;
     public static String Path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json";
+
+    /*
+    private static GestoreNotizia instance = null;
+
+    public static GestoreNotizia getInstance(){
+        if(instance == null){
+            instance = new GestoreNotizia();
+        }
+        return instance;
+    }
+    */
+
+
     public  GestoreNotizia () throws MalformedURLException {
         this.sources = new ArrayList<>();
         listaNotizie = new ArrayList<>();

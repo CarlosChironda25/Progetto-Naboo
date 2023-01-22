@@ -18,8 +18,7 @@
          <Font name="System Bold Italic" size="19.0" />
       </font>
    </Label>
-   <Label fx:id="labelErrorEmptySpaces" alignment="CENTER" layoutX="213.0" layoutY="77.0" prefHeight="17.0" prefWidth="171.0" style="-fx-text-fill: red;" />
-   <Label fx:id="labelErrorPasswordMismatching" alignment="CENTER" layoutX="210.0" layoutY="98.0" prefHeight="17.0" prefWidth="189.0" style="-fx-text-fill: red;" />
+   <Label fx:id="labelError" alignment="CENTER" layoutX="213.0" layoutY="77.0" prefHeight="17.0" prefWidth="171.0" style="-fx-text-fill: red;" />
    <Label fx:id="labelRegistrazione" alignment="CENTER" layoutX="119.0" layoutY="319.0" prefHeight="45.0" prefWidth="364.0" style="-fx-text-fill: green;" />
    <Button fx:id="goBackHome" layoutY="26.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="31.0" prefWidth="84.0" style="-fx-text-fill: black; -fx-background-color: CCFFE5;" text="Home" />
 </AnchorPane>

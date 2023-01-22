@@ -31,8 +31,8 @@ public class FeedRssController {
     @FXML
     public TextField inputRss;
 
-    GestoreNotizia gestore = new GestoreNotizia();
-
+    //GestoreNotizia gestore = new GestoreNotizia();
+    //GestoreNotizia gestore = GestoreNotizia.getInstance();
 
 
     public FeedRssController() throws MalformedURLException {

@@ -35,11 +35,11 @@ public class DeleteGradeController {
     @FXML
     public TextField inputGrade;
     @FXML
+    public TextField inputNotizia;
+    @FXML
     public Label labelError;
     @FXML
-    public Label labelGrade;
-    @FXML
-    public Label labelProperRemoval;
+    public Label labelAllRight;
     double grade;
 
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
@@ -64,34 +64,34 @@ public class DeleteGradeController {
         boolean gradeFound = false;
         for (VotoBot value : voto) {
             grade = Double.parseDouble(inputGrade.getText());
-            if (value.getVoto() == grade ) {
+            if (value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText())) {
                 gradeFound = true;
-                labelGrade.setText("il commento: " + value.getVoto() + " relativo alla notizia " + value.getTitolo() + "esiste");
+                labelAllRight.setText("il commento: " + value.getVoto() + " relativo alla notizia " + value.getTitolo() + "esiste");
             }
         }
         if (!gradeFound) {
             labelError.setText("commento rilasciato non esistente");
-            labelGrade.setText("");
+            labelAllRight.setText("");
         }
     }
     @FXML
     public void deleteGrade(ActionEvent event) throws IOException {
         List<VotoBot> voto = readFile(path);
-        if(inputGrade.getText().isEmpty()){
+        if(inputGrade.getText().isEmpty() || inputNotizia.getText().isEmpty()){
             labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
         }else{
             labelError.setText("");
             for(VotoBot value : voto ){
                 grade = Double.parseDouble(inputGrade.getText());
-                if(value.getVoto() == grade){
+                if(value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText())){
                     voto.remove(value);
                     writeFile(voto, path);
                 }
             }
-            labelProperRemoval.setText("il voto: " + inputGrade.getText() + "da te cercato, è stato rimosso correttamente");
+            labelAllRight.setText("il voto: " + inputGrade.getText() + "da te cercato, è stato rimosso correttamente");
             labelError.setText("");
-            labelGrade.setText("");
             inputGrade.setText("");
+            inputNotizia.setText("");
         }
     }
     @FXML

@@ -32,9 +32,7 @@ public class UserRegistrationController {
     @FXML
     public Button confirm;
     @FXML
-    private Label labelErrorEmptySpaces;
-    @FXML
-    private Label labelErrorPasswordMismatching;
+    private Label labelError;
     @FXML
     private TextField inputUsername;
     @FXML
@@ -71,15 +69,14 @@ public class UserRegistrationController {
     Nel caso ci fossero dei problemi, viene fuori la label relativa all'errore.
      */
     public boolean checkProblems() {
-        labelErrorEmptySpaces.setText("");
-        labelErrorPasswordMismatching.setText("");
+        labelError.setText("");
         boolean control = true;
 
         if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
-            labelErrorEmptySpaces.setText("Tutti i campi sono obbligatori!");
+            labelError.setText("Tutti i campi sono obbligatori!");
             control = false;
         } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
-            labelErrorPasswordMismatching.setText("le password sono diverse!");
+            labelError.setText("le password sono diverse!");
             control = false;
         }
 
