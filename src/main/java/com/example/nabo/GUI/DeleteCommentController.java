@@ -36,9 +36,7 @@ public class DeleteCommentController {
         @FXML
         public Label labelError;
         @FXML
-        public Label labelTesto;
-        @FXML
-        public Label labelProperRemoval;
+        public Label labelAllRight;
         @FXML
         public TextField inputTesto;
         @FXML
@@ -67,21 +65,24 @@ public class DeleteCommentController {
             List<CommentoBot> commento = readFile(path);
             boolean commentoFound = false;
             for(CommentoBot value : commento){
-                if(value.getTesto().equals(inputTesto.getText()) ){
+                if(value.getTesto().equals(inputTesto.getText()) && value.getTitolo().equals(inputTitolo.getText()) && value.getCommentatore().equals(inputCommentatore.getText())){
                     commentoFound = true;
-                    labelTesto.setText("Il commento " + value.getTesto() + "da te cercato esiste");
+                    labelAllRight.setText("Il commento " + value.getTesto() + "da te cercato esiste");
                 }
             }
             if(!commentoFound){
                 labelError.setText("");
-                labelTesto.setText("");
+                labelAllRight.setText("");
+                inputTesto.setText("");
+                inputTitolo.setText("");
+                inputCommentatore.setText("");
             }
         }
         @FXML
         public void deleteComment(ActionEvent event) throws FileNotFoundException {
             List<CommentoBot> commento = readFile(path);
-            if(inputTesto.getText().isEmpty()){
-                labelError.setText("Attenzione, sembra che tu non abbia cercato nessun commento");
+            if(inputTesto.getText().isEmpty() || inputCommentatore.getText().isEmpty() || inputTitolo.getText().isEmpty()){
+                labelError.setText("Attenzione, tutti i campi sono obbligatori");
             }else{
                 labelError.setText("");
                 try{
@@ -95,9 +96,11 @@ public class DeleteCommentController {
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-                labelProperRemoval.setText("il commento " + inputTesto.getText() + "da te cercato è stato rimosso");
+                labelAllRight.setText("il commento " + inputTesto.getText() + "da te cercato è stato rimosso");
                 inputTesto.setText("");
-                labelTesto.setText("");
+                inputTitolo.setText("");
+                inputCommentatore.setText("");
+                labelAllRight.setText("");
             }
         }
         @FXML

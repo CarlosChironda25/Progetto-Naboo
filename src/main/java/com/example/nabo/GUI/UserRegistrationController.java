@@ -40,7 +40,7 @@ public class UserRegistrationController {
     @FXML
     private TextField inputPassword2;
     @FXML
-    private Label labelRegistrazione;
+    private Label labelAllRight;
     @FXML
     public CheckBox administratorBox;
 
@@ -82,13 +82,35 @@ public class UserRegistrationController {
 
         return control;
     }
+    public boolean checkExistence() throws FileNotFoundException {
+        List<Utente> utente = readFile(path);
+        boolean userFound = false;
+        for (Utente value : utente) {
+            if (value.getUsername().equals(inputUsername.getText())) {
+                userFound = true;
+                labelError.setText("l'utente esiste già");
+                inputUsername.setText(value.getUsername());
+                inputPassword.setText(value.getPassword());
+                inputPassword2.setText(value.getPassword());
+                administratorBox.setSelected(value.getIsAdmin());
+            }
+        }
+        if (!userFound) {
+            labelAllRight.setText("L'utente che stai cercando non esiste nel database. Quindi si può inserire");
+            inputUsername.setText("");
+            inputPassword.setText("");
+            inputPassword2.setText("");
+            administratorBox.setSelected(false);
+        }
+        return userFound;
+    }
 
 
     @FXML
     public void RegistrationOperation(ActionEvent event) throws IOException{
-        if(checkProblems()){
+        if(checkProblems() && !checkExistence()){
             writeFile(inputUsername.getText(), inputPassword.getText(), administratorBox.isSelected());
-            labelRegistrazione.setText("registrazione avvenuta con successo!!");
+            labelAllRight.setText("registrazione avvenuta con successo!!");
             inputUsername.setText("");
             inputPassword.setText("");
             inputPassword2.setText("");

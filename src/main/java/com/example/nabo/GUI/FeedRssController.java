@@ -47,10 +47,12 @@ public class FeedRssController {
 
 
     @FXML
-    public void addRss(ActionEvent event){
-        rssFeedView.getItems().add(inputRss.getText());
-       // gestore.sources.add(inputRss.getText());
-        inputRss.setText("");
+    public void addRss(ActionEvent event) {
+        if (!inputRss.getText().isEmpty()) {
+            rssFeedView.getItems().add(inputRss.getText());
+            // gestore.sources.add(inputRss.getText());
+            inputRss.setText("");
+        }
     }
     @FXML
     public void deleteRss(ActionEvent event){

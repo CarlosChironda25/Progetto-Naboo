@@ -37,6 +37,8 @@ public class DeleteGradeController {
     @FXML
     public TextField inputNotizia;
     @FXML
+    public TextField inputCommentatore;
+    @FXML
     public Label labelError;
     @FXML
     public Label labelAllRight;
@@ -64,26 +66,29 @@ public class DeleteGradeController {
         boolean gradeFound = false;
         for (VotoBot value : voto) {
             grade = Double.parseDouble(inputGrade.getText());
-            if (value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText())) {
+            if (value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText()) && value.getCommentatore().equals(inputCommentatore.getText())) {
                 gradeFound = true;
-                labelAllRight.setText("il commento: " + value.getVoto() + " relativo alla notizia " + value.getTitolo() + "esiste");
+                labelAllRight.setText("il commento: " + value.getVoto() + " esiste");
             }
         }
         if (!gradeFound) {
             labelError.setText("commento rilasciato non esistente");
             labelAllRight.setText("");
+            inputGrade.setText("");
+            inputNotizia.setText("");
+            inputCommentatore.setText("");
         }
     }
     @FXML
     public void deleteGrade(ActionEvent event) throws IOException {
         List<VotoBot> voto = readFile(path);
-        if(inputGrade.getText().isEmpty() || inputNotizia.getText().isEmpty()){
-            labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
+        if(inputGrade.getText().isEmpty() || inputNotizia.getText().isEmpty() || inputCommentatore.getText().isEmpty()){
+            labelError.setText("Attenzione, tutti i campi sono obbligatori");
         }else{
             labelError.setText("");
             for(VotoBot value : voto ){
                 grade = Double.parseDouble(inputGrade.getText());
-                if(value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText())){
+                if(value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText()) && value.getCommentatore().equals(inputCommentatore.getText())){
                     voto.remove(value);
                     writeFile(voto, path);
                 }
@@ -92,6 +97,7 @@ public class DeleteGradeController {
             labelError.setText("");
             inputGrade.setText("");
             inputNotizia.setText("");
+            inputCommentatore.setText("");
         }
     }
     @FXML

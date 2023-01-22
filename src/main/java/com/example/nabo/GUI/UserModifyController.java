@@ -33,14 +33,11 @@ public class UserModifyController {
     public Button searchUser;
     @FXML
     public Button goBackHome;
+
     @FXML
-    public Label labelInfoSearchedUser;
+    public Label labelError;
     @FXML
-    public Label labelErrorEmptySpaces;
-    @FXML
-    public Label labelErrorPasswordMismatching;
-    @FXML
-    public Label labelSave;
+    public Label labelAllRight;
     @FXML
     public TextField inputSearchedUser;
     @FXML
@@ -67,20 +64,29 @@ public class UserModifyController {
         fw.write(jsonString);
         fw.close();
     }
-    @FXML
-    public void search(ActionEvent event) throws FileNotFoundException {
-        //parto con i campi tutti vuoti, label comprese
-        labelInfoSearchedUser.setText("");
-        labelErrorEmptySpaces.setText("");
-        labelErrorPasswordMismatching.setText("");
-        labelSave.setText("");
 
+    private boolean modifyCredentials(){
+        labelError.setText("");
+        labelAllRight.setText("");
+
+        boolean control = true;
+
+        if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
+            labelError.setText("Tutti i campi sono obbligatori!");
+            control = false;
+        } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
+            labelError.setText("le password sono diverse!");
+            control = false;
+        }
+        return control;
+    }
+    public boolean checkExistence() throws FileNotFoundException {
         List<Utente> utente = readFile(path);
         boolean userFound = false;
         for (Utente value : utente) {
-            if (value.getUsername().equals(inputSearchedUser.getText())) {
+            if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
-                labelInfoSearchedUser.setText("l'utente " + value.getUsername() + " da te cercato esiste");
+                labelError.setText("l'utente esiste già");
                 inputUsername.setText(value.getUsername());
                 inputPassword.setText(value.getPassword());
                 inputPassword2.setText(value.getPassword());
@@ -88,7 +94,34 @@ public class UserModifyController {
             }
         }
         if (!userFound) {
-            labelInfoSearchedUser.setText("L'utente che stai cercando non esiste nel database. Riprova ");
+            labelAllRight.setText("L'utente che stai cercando non esiste nel database. Quindi si può inserire");
+            inputUsername.setText("");
+            inputPassword.setText("");
+            inputPassword2.setText("");
+            administratorBox.setSelected(false);
+        }
+        return userFound;
+    }
+    @FXML
+    public void search(ActionEvent event) throws FileNotFoundException {
+        //parto con i campi tutti vuoti, label comprese
+        labelError.setText("");
+        labelAllRight.setText("");
+
+        List<Utente> utente = readFile(path);
+        boolean userFound = false;
+        for (Utente value : utente) {
+            if (value.getUsername().equals(inputSearchedUser.getText())) {
+                userFound = true;
+                labelAllRight.setText("l'utente " + value.getUsername() + " da te cercato esiste");
+                inputUsername.setText(value.getUsername());
+                inputPassword.setText(value.getPassword());
+                inputPassword2.setText(value.getPassword());
+                administratorBox.setSelected(value.getIsAdmin());
+            }
+        }
+        if (!userFound) {
+            labelError.setText("L'utente che stai cercando non esiste nel database. Riprova ");
             inputUsername.setText("");
             inputPassword.setText("");
             inputPassword2.setText("");
@@ -98,12 +131,13 @@ public class UserModifyController {
 
     @FXML
     public void modifyUserCredentials(ActionEvent event) throws IOException {
-        labelInfoSearchedUser.setText("");
+        labelAllRight.setText("");
+        labelError.setText("");
         List<Utente> utente = readFile(path);
         if (inputSearchedUser.getText().isEmpty()) {
-            labelInfoSearchedUser.setText("non hai cercato nessuno");
+            labelError.setText("non hai cercato nessuno");
         } else {
-            if (modifyCredentials()) {
+            if (modifyCredentials() && !checkExistence()) {
 
                 for (Utente value : utente) {
                     if (value.getUsername().equals(inputSearchedUser.getText())) {
@@ -113,7 +147,7 @@ public class UserModifyController {
                         writeFile(utente, path);
                     }
                 }
-                labelSave.setText("utente " + inputUsername.getText() + " modificato senza problemi");
+                labelAllRight.setText("utente " + inputUsername.getText() + " modificato senza problemi");
                 inputSearchedUser.setText("");
                 inputUsername.setText("");
                 inputPassword.setText("");
@@ -123,23 +157,6 @@ public class UserModifyController {
         }
     }
 
-    private boolean modifyCredentials(){
-        labelInfoSearchedUser.setText("");
-        labelErrorEmptySpaces.setText("");
-        labelErrorPasswordMismatching.setText("");
-        labelSave.setText("");
-
-        boolean control = true;
-
-        if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
-            labelErrorEmptySpaces.setText("Tutti i campi sono obbligatori!");
-            control = false;
-        } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
-            labelErrorPasswordMismatching.setText("le password sono diverse!");
-            control = false;
-        }
-        return control;
-    }
     @FXML
     public void goBackHomePage(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));

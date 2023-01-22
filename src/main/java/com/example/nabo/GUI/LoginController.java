@@ -60,7 +60,6 @@ public class LoginController {
             stage.setScene(scene);
             stage.show();
         }else if(registeredUser){
-            labelError.setText("Non sei un amministratore quindi non puoi accedere qui");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Logout");
             alert.setHeaderText("Non sei amministratore. Non puoi entrare");

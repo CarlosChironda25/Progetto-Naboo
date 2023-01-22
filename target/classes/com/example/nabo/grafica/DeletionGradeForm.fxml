@@ -13,10 +13,14 @@
       </font>
    </Label>
    <Button fx:id="goBackHome" layoutX="1.0" layoutY="41.0" minWidth="53.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="28.0" prefWidth="53.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
-   <TextField fx:id="inputGrade" layoutX="84.0" layoutY="114.0" prefHeight="27.0" prefWidth="215.0" promptText="Inserisci voto da eliminare" />
-   <Button fx:id="searchGrade" layoutX="332.0" layoutY="146.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca " />
-   <Button fx:id="deleteGrade" layoutX="252.0" layoutY="276.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina voto" />
-   <Label fx:id="labelAllRight" alignment="CENTER" layoutY="152.0" prefHeight="18.0" prefWidth="419.0" style="-fx-text-fill: green;" />
-   <Label fx:id="labelError" alignment="CENTER" layoutY="170.0" prefHeight="18.0" prefWidth="419.0" style="-fx-text-fill: red;" />
+   <TextField fx:id="inputGrade" layoutX="82.0" layoutY="85.0" prefHeight="27.0" prefWidth="215.0" promptText="Inserisci voto da eliminare" />
+   <Button fx:id="searchGrade" layoutX="340.0" layoutY="134.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca " />
+   <Button fx:id="deleteGrade" layoutX="252.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina voto" />
+   <Label fx:id="labelAllRight" alignment="CENTER" layoutX="61.0" layoutY="206.0" prefHeight="41.0" prefWidth="492.0" style="-fx-text-fill: green;">
+      <font>
+         <Font size="14.0" />
+      </font></Label>
+   <Label fx:id="labelError" alignment="CENTER" layoutX="86.0" layoutY="218.0" prefHeight="18.0" prefWidth="419.0" style="-fx-text-fill: red;" />
    <TextField fx:id="inputNotizia" layoutX="82.0" layoutY="167.0" prefHeight="25.0" prefWidth="215.0" promptText="relativo alla notizia" />
+   <TextField fx:id="inputCommentatore" layoutX="82.0" layoutY="124.0" prefHeight="25.0" prefWidth="215.0" promptText="rilasciato da" />
 </AnchorPane>

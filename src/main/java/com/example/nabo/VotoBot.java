@@ -19,6 +19,8 @@ public class VotoBot {
     public double getVoto() {
         return Voto;
     }
+    public String getCommentatore(){ return Commentatore;}
+
 
     @Override
     public String toString() {

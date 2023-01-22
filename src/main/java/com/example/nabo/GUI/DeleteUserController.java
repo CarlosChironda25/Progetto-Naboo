@@ -36,9 +36,7 @@ public class DeleteUserController {
     @FXML
     public Label labelError;
     @FXML
-    public Label labelUsername;
-    @FXML
-    public Label labelProperRemoval;
+    public Label labelAllRight;
     @FXML
     public TextField inputUsername;
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
@@ -65,12 +63,13 @@ public class DeleteUserController {
         for (Utente value : utente) {
             if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
-                labelUsername.setText("l'utente " + value.getUsername() + "da te cercato esiste.");
+                labelAllRight.setText("l'utente " + value.getUsername() + "da te cercato esiste.");
             }
         }
         if(!userFound){
             labelError.setText("Utente non esistente");
-            labelUsername.setText("");
+            labelAllRight.setText("");
+            inputUsername.setText("");
         }
     }
 
@@ -91,9 +90,9 @@ public class DeleteUserController {
             }catch(Exception e){
                 e.printStackTrace();
             }
-            labelProperRemoval.setText("l'utente " + inputUsername.getText() + " da te cercato, è stato rimosso correttamente");
+            labelAllRight.setText("l'utente " + inputUsername.getText() + " da te cercato, è stato rimosso correttamente");
             inputUsername.setText("");
-            labelUsername.setText("");
+            labelError.setText("");
         }
     }
     @FXML

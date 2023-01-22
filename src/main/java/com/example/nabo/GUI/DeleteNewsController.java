@@ -31,9 +31,7 @@ public class DeleteNewsController {
     @FXML
     public Label labelError;
     @FXML
-    public Label labelTitle;
-    @FXML
-    public Label labelProperRemoval;
+    public Label labelAllRight;
     @FXML
     public TextField inputTitle;
     @FXML
@@ -65,20 +63,19 @@ public class DeleteNewsController {
 
     @FXML
     public void search(ActionEvent event) throws FileNotFoundException {
-
-
         labelError.setText("");
         List<Notizia> news = readFile(path);
         boolean newsFound = false;
         for (Notizia notizia : news) {
             if (notizia.getTitle().equals(inputTitle.getText())) {
                 newsFound = true;
-                labelTitle.setText(notizia.getTitle());
+                labelAllRight.setText(notizia.getTitle());
             }
         }
         if(!newsFound){
             labelError.setText("La news che stai cercando non esiste");
-            labelTitle.setText("");
+            labelAllRight.setText("");
+            inputTitle.setText("");
         }
     }
 
@@ -88,7 +85,7 @@ public class DeleteNewsController {
     @FXML
     public void deleteNews(ActionEvent event) throws IOException {
         List<Notizia> news = readFile(path);
-        if(labelTitle.getText().isEmpty()){
+        if(inputTitle.getText().isEmpty()){
             labelError.setText("Attenzione, prima devi cercare e selezionare il titolo della notizia");
         }else{
             labelError.setText("");
@@ -100,9 +97,8 @@ public class DeleteNewsController {
                 }
             }
 
-            labelProperRemoval.setText("Il titolo della notizia: " + inputTitle.getText() + " da te cercato, è stato rimosso correttamente");
+            labelAllRight.setText("Il titolo della notizia: " + inputTitle.getText() + " da te cercato, è stato rimosso correttamente");
             inputTitle.setText("");
-            labelTitle.setText("");
         }
     }
     @FXML
