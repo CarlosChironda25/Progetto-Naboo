@@ -24,7 +24,7 @@ public class CheckUtenti {
         JsonParser parser = new JsonParser();
 
         try {
-            Object obj = parser.parse(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json"));
+            Object obj = parser.parse(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
             JsonObject jsonObject = (JsonObject) obj;
 
             JsonArray coursesArray = (JsonArray) jsonObject.get("Name");

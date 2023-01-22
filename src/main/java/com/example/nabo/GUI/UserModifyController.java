@@ -87,10 +87,11 @@ public class UserModifyController {
             if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
                 labelError.setText("l'utente esiste già");
-                inputUsername.setText(value.getUsername());
-                inputPassword.setText(value.getPassword());
-                inputPassword2.setText(value.getPassword());
-                administratorBox.setSelected(value.getIsAdmin());
+                inputSearchedUser.setText("");
+                inputUsername.setText("");
+                inputPassword.setText("");
+                inputPassword2.setText("");
+                administratorBox.setSelected(false);
             }
         }
         if (!userFound) {

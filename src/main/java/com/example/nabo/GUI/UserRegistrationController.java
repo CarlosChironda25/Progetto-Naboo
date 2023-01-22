@@ -89,18 +89,14 @@ public class UserRegistrationController {
             if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
                 labelError.setText("l'utente esiste già");
-                inputUsername.setText(value.getUsername());
-                inputPassword.setText(value.getPassword());
-                inputPassword2.setText(value.getPassword());
-                administratorBox.setSelected(value.getIsAdmin());
+                inputUsername.setText("");
+                inputPassword.setText("");
+                inputPassword2.setText("");
             }
         }
         if (!userFound) {
             labelAllRight.setText("L'utente che stai cercando non esiste nel database. Quindi si può inserire");
-            inputUsername.setText("");
-            inputPassword.setText("");
-            inputPassword2.setText("");
-            administratorBox.setSelected(false);
+
         }
         return userFound;
     }
