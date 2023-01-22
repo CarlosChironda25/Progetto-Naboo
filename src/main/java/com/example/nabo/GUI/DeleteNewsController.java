@@ -57,7 +57,7 @@ public class DeleteNewsController {
     }
     @FXML
     public void updateNews(ActionEvent event) throws IOException {
-        GestoreNotizia gestore = new GestoreNotizia();
+        GestoreNotizia gestore = GestoreNotizia.getInstance();
         gestore.caricaNotizie();
     }
 

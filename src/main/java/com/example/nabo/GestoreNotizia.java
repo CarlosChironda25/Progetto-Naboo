@@ -24,10 +24,12 @@ import java.util.List;
 public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
     public ArrayList<String> sources;
-    public static String Path = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
+    public static String Path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
 
-    /*
     private static GestoreNotizia instance = null;
+    private GestoreNotizia(){
+        this.sources = new ArrayList<>();
+        listaNotizie = new ArrayList<>();}
 
     public static GestoreNotizia getInstance(){
         if(instance == null){
@@ -35,14 +37,15 @@ public class GestoreNotizia {
         }
         return instance;
     }
-    */
 
-
+    /*
     public  GestoreNotizia () throws MalformedURLException {
         this.sources = new ArrayList<>();
         listaNotizie = new ArrayList<>();
         //caricaNotizie();
     }
+
+     */
     public ArrayList<String> getSources(){return sources;}
 
     public void importFromFile() throws IOException{
@@ -71,14 +74,20 @@ public class GestoreNotizia {
                 input.close();
         }
     }
-
+    private boolean firstTime = true;
     public void caricaNotizie() throws IOException {
-        sources.clear();
+        listaNotizie.clear();
 
-        sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        sources.add("https://www.repubblica.it/rss/homepage/rss2.0.xml");
-        sources.add("https://www.ilfattoquotidiano.it/feed/");
+        String urlCorriere = "http://xml2.corriereobjects.it/rss/homepage.xml";
+        String urlRepubblica = "https://www.repubblica.it/rss/homepage/rss2.0.xml";
+        String urlFatto = "https://www.ilfattoquotidiano.it/feed/";
 
+        if(firstTime) {
+            sources.add(urlCorriere);
+            sources.add(urlRepubblica);
+            sources.add(urlFatto);
+            firstTime = false;
+        }
         XmlReader reader = null;
         try {
             //Istanziamo uno stream reader dall'url della nostra sorgente feed
@@ -107,7 +116,7 @@ public class GestoreNotizia {
                 reader.close();
         }
 
-        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
         fileWriter.write( "[");
         Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
 

@@ -30,35 +30,51 @@ public class FeedRssController {
     public ListView<String> rssFeedView;
     @FXML
     public TextField inputRss;
-
-    //GestoreNotizia gestore = new GestoreNotizia();
-    //GestoreNotizia gestore = GestoreNotizia.getInstance();
-
-
-    public FeedRssController() throws MalformedURLException {
-        /*
-        gestore.sources.add("a");
-        gestore.sources.add("b");
-        for (String str : gestore.sources)
-            rssFeedView.getItems().add(str);
-    */
+    @FXML
+    public Button caricaFeed;
+    GestoreNotizia gestore;
+    public FeedRssController() throws IOException {
+        gestore = GestoreNotizia.getInstance();
+        gestore.caricaNotizie();
+       // setDisabledItems(false);
+    }
+    private void setDisabledItems(boolean b){
+        addRss.setDisable(b);
+        deleteRss.setDisable(b);
+        inputRss.setDisable(b);
+        rssFeedView.setDisable(b);
+        caricaFeed.setDisable(!b);
     }
 
+    @FXML
+    public void caricaFeed(ActionEvent event){
+        rssFeedView.getItems().clear();
+        for (String str : gestore.sources) {
+            rssFeedView.getItems().add(str);
 
+        }
+        setDisabledItems(false);
+    }
 
     @FXML
-    public void addRss(ActionEvent event) {
+    public void addRss(ActionEvent event) throws IOException {
+        rssFeedView.getItems().clear();
+        for (String str : gestore.sources)
+            rssFeedView.getItems().add(str);
         if (!inputRss.getText().isEmpty()) {
             rssFeedView.getItems().add(inputRss.getText());
-            // gestore.sources.add(inputRss.getText());
+            gestore.sources.add(inputRss.getText());
+
+            gestore.caricaNotizie();
             inputRss.setText("");
         }
     }
     @FXML
-    public void deleteRss(ActionEvent event){
+    public void deleteRss(ActionEvent event) throws IOException {
         int selectedID = rssFeedView.getSelectionModel().getSelectedIndex();
         rssFeedView.getItems().remove(selectedID);
-        //gestore.sources.remove(selectedID);
+        gestore.sources.remove(selectedID);
+        gestore.caricaNotizie();
         inputRss.setText("");
     }
     @FXML

@@ -575,7 +575,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private void news(SendMessage sendMessage) throws IOException, FeedException {
 
-        GestoreNotizia gestoreNews = new GestoreNotizia();
+        GestoreNotizia gestoreNews = GestoreNotizia.getInstance();
         gestoreNews.caricaNotizie();
 
         notizia = loadNews();
