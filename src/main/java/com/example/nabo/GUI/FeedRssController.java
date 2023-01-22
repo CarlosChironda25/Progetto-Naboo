@@ -32,6 +32,7 @@ public class FeedRssController {
     public TextField inputRss;
     @FXML
     public Button caricaFeed;
+
     GestoreNotizia gestore;
     public FeedRssController() throws IOException {
         gestore = GestoreNotizia.getInstance();
