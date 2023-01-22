@@ -14,8 +14,9 @@
       </font>
    </Label>
    <Button fx:id="goBackHome" layoutY="15.0" mnemonicParsing="false" onAction="#goBackHomePage" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
-   <Button fx:id="addRss" alignment="CENTER" layoutX="300.0" layoutY="129.0" mnemonicParsing="false" onAction="#addRss" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Aggiungi Feed" />
-   <TextField fx:id="inputRss" alignment="CENTER" layoutX="49.0" layoutY="129.0" prefHeight="25.0" prefWidth="221.0" promptText="Inserisci il feed rss da aggiungere" />
-   <ListView fx:id="rssFeedView" layoutX="14.0" layoutY="167.0" prefHeight="175.0" prefWidth="590.0" />
-   <Button fx:id="deleteRss" alignment="CENTER" layoutX="240.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteRss" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina Feed" />
+   <Button fx:id="addRss" alignment="CENTER" disable="true" layoutX="300.0" layoutY="129.0" mnemonicParsing="false" onAction="#addRss" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Aggiungi Feed" />
+   <TextField fx:id="inputRss" alignment="CENTER" disable="true" layoutX="49.0" layoutY="129.0" prefHeight="25.0" prefWidth="221.0" promptText="Inserisci il feed rss da aggiungere" />
+   <ListView fx:id="rssFeedView" disable="true" layoutX="5.0" layoutY="168.0" prefHeight="175.0" prefWidth="590.0" />
+   <Button fx:id="deleteRss" alignment="CENTER" disable="true" layoutX="240.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteRss" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina Feed" />
+   <Button fx:id="caricaFeed" layoutX="257.0" layoutY="56.0" mnemonicParsing="false" onAction="#caricaFeed" text="caricafeed" />
 </AnchorPane>
