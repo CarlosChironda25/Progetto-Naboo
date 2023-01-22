@@ -33,5 +33,15 @@
     "Username": "roberto34",
     "Password": "password2",
     "isAdmin": true
+  },
+  {
+    "Username": "federica",
+    "Password": "ciao",
+    "isAdmin": false
+  },
+  {
+    "Username": "hello",
+    "Password": "ciao",
+    "isAdmin": false
   }
 ]
