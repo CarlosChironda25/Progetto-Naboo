@@ -3,10 +3,12 @@ package com.example.nabo;
 public class VotoBot {
 
     private String Titolo;
+    private String Commentatore;
     private double Voto;
 
-    VotoBot(String titolo, double voto){
+    VotoBot(String titolo, String commentatore, double voto){
         this.Titolo = titolo;
+        this.Commentatore = commentatore;
         this.Voto = voto;
     }
 
@@ -22,10 +24,13 @@ public class VotoBot {
     public String toString() {
         return "VotoBot{" +
                 "Titolo='" + this.Titolo + '\'' +
+                "Commentatore='" + this.Commentatore + '\'' +
                 ", Voto='" + this.Voto + '\'' +
                 '}';
     }
 
 
 }
+
+
 

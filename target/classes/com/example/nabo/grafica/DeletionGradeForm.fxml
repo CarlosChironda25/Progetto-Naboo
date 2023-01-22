@@ -16,8 +16,7 @@
    <TextField fx:id="inputGrade" layoutX="84.0" layoutY="114.0" prefHeight="27.0" prefWidth="215.0" promptText="Inserisci voto da eliminare" />
    <Button fx:id="searchGrade" layoutX="332.0" layoutY="146.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca " />
    <Button fx:id="deleteGrade" layoutX="252.0" layoutY="276.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina voto" />
-   <Label fx:id="labelGrade" alignment="CENTER" layoutY="152.0" prefHeight="18.0" prefWidth="419.0" style="-fx-text-fill: green;" />
+   <Label fx:id="labelAllRight" alignment="CENTER" layoutY="152.0" prefHeight="18.0" prefWidth="419.0" style="-fx-text-fill: green;" />
    <Label fx:id="labelError" alignment="CENTER" layoutY="170.0" prefHeight="18.0" prefWidth="419.0" style="-fx-text-fill: red;" />
-   <Label fx:id="labelProperRemoval" alignment="CENTER" layoutX="23.0" layoutY="244.0" prefHeight="18.0" prefWidth="545.0" style="-fx-text-fill: green;" />
    <TextField fx:id="inputNotizia" layoutX="82.0" layoutY="167.0" prefHeight="25.0" prefWidth="215.0" promptText="relativo alla notizia" />
 </AnchorPane>

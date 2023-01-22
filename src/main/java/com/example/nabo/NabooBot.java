@@ -141,7 +141,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
                 if (voto <= 5 && voto >= 1) {
                     try {
-                        commento_voto.writeFileVoti(news.getTitle(), voto);
+                        commento_voto.writeFileVoti(news.getTitle(), usernameControl,voto);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -611,7 +611,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private boolean register(String messaggio) throws IOException {  //riceviamo richiesta registrazione
 
-        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json";
+        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
 
         String confermaPassword = null;
 
@@ -661,7 +661,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
             return login;
 
 
-        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\elimina.json"));
+        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
         Gson gson = new Gson();
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
@@ -675,6 +675,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
         return login;
     }
+
 
     private void mainButton() {
         if (update.hasMessage()) {                  //aggiorna : ho un messaggio ? TRUE
@@ -753,7 +754,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private List<Notizia> loadNews() throws FileNotFoundException {
 
-        JsonReader read = new JsonReader(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
+        JsonReader read = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json"));
 
         Gson gson = new Gson();
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {

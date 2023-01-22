@@ -14,8 +14,8 @@ import java.util.List;
 
 public class Commento_Voto {
 
-    private String pathCommenti = "C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
-    private String pathVoti = "C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
+    private String pathCommenti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
+    private String pathVoti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
 
     private List<VotoBot> votoBot;
 
@@ -45,8 +45,8 @@ public class Commento_Voto {
     }
 
 
-    public void writeFileVoti(String titolo, double text) throws IOException {
-        VotoBot voto = new VotoBot(titolo, text);
+    public void writeFileVoti(String titolo, String username, double votoNews) throws IOException {
+        VotoBot voto = new VotoBot(titolo, username, votoNews);
         List<VotoBot> voti = readFileVoto(pathVoti);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<VotoBot> listVoto = new ArrayList<>();
