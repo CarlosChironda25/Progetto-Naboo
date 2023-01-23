@@ -29,7 +29,8 @@ public class GestoreNotizia {
     private static GestoreNotizia instance = null;
     private GestoreNotizia(){
         this.sources = new ArrayList<>();
-        listaNotizie = new ArrayList<>();}
+        listaNotizie = new ArrayList<>();
+    }
 
     public static GestoreNotizia getInstance(){
         if(instance == null){
@@ -38,56 +39,19 @@ public class GestoreNotizia {
         return instance;
     }
 
-    /*
-    public  GestoreNotizia () throws MalformedURLException {
-        this.sources = new ArrayList<>();
-        listaNotizie = new ArrayList<>();
-        //caricaNotizie();
-    }
-
-     */
     public ArrayList<String> getSources(){return sources;}
 
-    public void importFromFile() throws IOException{
-        //mandera' un file TXT così composto:
-           /*
-           "link1",
-           "link2",
-           "link3"
-            */
-
-           /*
-           l'amministratore dall'interfaccia carica il file TXT preme un pulsante di OK
-           viene attivato importFromFile()
-           il GestoreNotizie legge questo file TXT, crea un ArrayList di stringhe
-           composto dagli elementi del file e poi scrive quell'ArrayList dentro sources
-            */
-        BufferedReader input = null;
-        try{
-            String link;
-            input = new BufferedReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\links.txt"));
-            while((link = input.readLine()) != null){
-                sources.add(link);
-            }
-        }finally{
-            if(input != null)
-                input.close();
-        }
-    }
     private boolean firstTime = true;
     public void caricaNotizie() throws IOException {
         listaNotizie.clear();
 
-        String urlCorriere = "http://xml2.corriereobjects.it/rss/homepage.xml";
-        String urlRepubblica = "https://www.repubblica.it/rss/homepage/rss2.0.xml";
-        String urlFatto = "https://www.ilfattoquotidiano.it/feed/";
-
         if(firstTime) {
-            sources.add(urlCorriere);
-            sources.add(urlRepubblica);
-            sources.add(urlFatto);
+            sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
+            sources.add("https://www.repubblica.it/rss/homepage/rss2.0.xml");
+            sources.add("https://www.ilfattoquotidiano.it/feed/");
             firstTime = false;
         }
+
         XmlReader reader = null;
         try {
             //Istanziamo uno stream reader dall'url della nostra sorgente feed
@@ -129,67 +93,5 @@ public class GestoreNotizia {
         fileWriter.close();
 
     }
-
-        /*//questo metodo scorre le fonti RSS, prende le notizie e le scrive nel file JSON
-        for(int i = 0; i< sources.size(); i++){
-            URL feedUrl = new URL(sources.get(i));
-            System.out.println(sources.size());
-            SyndFeedInput input = new SyndFeedInput();
-
-            try {
-                SyndFeed feed = input.build(new InputSource(feedUrl.openStream()));
-
-                List<SyndEntry> entries = feed.getEntries();
-
-                Iterator<SyndEntry> itEntries = entries.iterator();
-                while (itEntries.hasNext()) {
-                    System.out.println("sto prendendo notizie dalla fonte:"+i);
-
-                    SyndEntry entry = itEntries.next();
-
-                    //System.out.println(entry.getCategories().get(0));
-                    //Date tempo, String title, String link,SyndContent discrizione, String autore, SyndFeed fonte
-                    try {
-                        Notizia notizia = new Notizia((Date) entry.getPublishedDate(), entry.getTitle(), entry.getLink(), entry.getDescription().getValue(), entry.getAuthor(), entry.getSource(), entry.getCategories().get(0).getName());
-                        listaNotizie.add(notizia);
-                    } catch (Exception e){}
-
-                }
-            } catch (IllegalArgumentException | FeedException | IOException e) {
-                // Errore lettura feed
-                e.printStackTrace();
-            }
-        }
-    }*/
-
-
-
-    /*public static void main(String[] args) throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\eliminanoti.json");
-        fileWriter.write( "[");
-        ArrayList<String> sources = new ArrayList<String> ();
-        sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        sources.add("https://www.ilfattoquotidiano.it/feed/");
-        sources.add("https://www.repubblica.it/rss/homepage/rss2.0.xml");
-        //sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        //sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        //sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
-        GestoreNotizia gestoreNotizia = new GestoreNotizia(sources);
-        //System.out.println( gestoreNotizia.getNotizia());
-        for( Notizia i : gestoreNotizia.getNotizia()) {
-            Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
-            String jsonString = gson4.toJson(i);
-            fileWriter.write(jsonString + ",");
-
-        }
-
-        fileWriter.write( " ]");
-        fileWriter.close();
-
-    }
-
-    private ArrayList<Notizia> getNotizia() {
-        return listaNotizie;
-    }*/
 
 }

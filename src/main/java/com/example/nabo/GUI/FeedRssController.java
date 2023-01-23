@@ -35,7 +35,7 @@ public class FeedRssController {
     public FeedRssController() throws IOException {
         gestore = GestoreNotizia.getInstance();
         gestore.caricaNotizie();
-       // setDisabledItems(false);
+
     }
     private void setDisabledItems(boolean b){
         addRss.setDisable(b);

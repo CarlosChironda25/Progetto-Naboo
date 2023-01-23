@@ -64,6 +64,15 @@ public class UserModifyController {
         fw.write(jsonString);
         fw.close();
     }
+    private void setDisabledItems(boolean b){
+        inputUsername.setDisable(b);
+        inputPassword.setDisable(b);
+        inputPassword2.setDisable(b);
+        saveChanges.setDisable(b);
+        administratorBox.setDisable(b);
+        searchUser.setDisable(!b);
+        inputSearchedUser.setDisable(!b);
+    }
 
     private boolean modifyCredentials(){
         labelError.setText("");
@@ -128,6 +137,7 @@ public class UserModifyController {
             inputPassword2.setText("");
             administratorBox.setSelected(false);
         }
+        setDisabledItems(false);
     }
 
     @FXML

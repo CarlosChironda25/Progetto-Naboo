@@ -18,5 +18,5 @@
    <TextField fx:id="inputRss" alignment="CENTER" disable="true" layoutX="49.0" layoutY="129.0" prefHeight="25.0" prefWidth="221.0" promptText="Inserisci il feed rss da aggiungere" />
    <ListView fx:id="rssFeedView" disable="true" layoutX="5.0" layoutY="168.0" prefHeight="175.0" prefWidth="590.0" />
    <Button fx:id="deleteRss" alignment="CENTER" disable="true" layoutX="240.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteRss" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina Feed" />
-   <Button fx:id="caricaFeed" layoutX="257.0" layoutY="56.0" mnemonicParsing="false" onAction="#caricaFeed" text="caricafeed" />
+   <Button fx:id="caricaFeed" layoutX="240.0" layoutY="55.0" mnemonicParsing="false" onAction="#caricaFeed" prefHeight="44.0" prefWidth="119.0" style="-fx-background-color: blue; -fx-text-fill: white;" text="Carica Feed" />
 </AnchorPane>
