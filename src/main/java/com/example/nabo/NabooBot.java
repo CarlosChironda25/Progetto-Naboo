@@ -25,27 +25,28 @@ import java.util.StringTokenizer;
 
 
 public class NabooBot  extends  TelegramLongPollingBot {
+
     public static BotSession botSession;
-    public String usernameControl;
-    public String passwordControl;
 
-    public Notizia news;
+    private String usernameControl;
+    private String passwordControl;
 
-    List<Utente> Utenti;
-    List<Notizia> notizia;
-    boolean login;
+    private Notizia news;
 
-    boolean register;
-    Update update;
+    private List<Utente> Utenti;
+    private List<Notizia> notizia;
+    private boolean userLoggato;
 
-    boolean booleanAuthors = false;
-    boolean booleanCategories = false;
-    boolean booleanCommento = false;
-    boolean booleanVoto = false;
-    boolean booleanTime = false;
-    boolean booleanKeyword = false;
+    private Update update;
 
-    Commento_Voto commento_voto = new Commento_Voto();
+    private boolean booleanAuthors = false;
+    private boolean booleanCategories = false;
+    private boolean booleanCommento = false;
+    private boolean booleanVoto = false;
+    private boolean booleanTime = false;
+    private boolean booleanKeyword = false;
+
+    private Commento_Voto commento_voto = new Commento_Voto();
 
     public NabooBot() throws MalformedURLException {
     }
@@ -53,12 +54,12 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "MituNabooBot";
+        return "NewsNabooBot";
     }
 
     @Override
     public String getBotToken() {
-        return "5457602202:AAEFla9Exb6dxvQgQe_iRLvD_dxs7ls7_Ow";
+        return "5762706960:AAGdkhqbAE8V8NPRmN4MJ2gWGe38Sh_BZMM";
     }
 
 
@@ -66,163 +67,199 @@ public class NabooBot  extends  TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         this.update = update;
 
-        if (update.hasMessage() && update.getMessage().hasText()) {    // if (bot riceives a message)
+        if (update.hasMessage() && update.getMessage().hasText()) {    // if (bot riceve un messaggio)
 
-            String message = update.getMessage().getText();    // String = message received
+            String message = update.getMessage().getText();    // String = message ricevuto
             System.out.println("Messaggio ricevuto  : " + message);
 
-            if (message.startsWith("Login = ") || message.startsWith("login = ")) {
-                try {
-                    login = login(message);     //try login
-                    if (login) {      //if ( login is correct )
-                        this.send("Login effettuato con successo! ");
-                        this.send("Benvenuto " + usernameControl);
-                        mainButton();
-                    } else
-                        this.send(""" 
-                                Errore col login,
-                                provare nuovamente cliccando : /login""");
+            if(!userLoggato) {
 
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
-            } else if (message.startsWith("Register = ") || message.startsWith("register = ")) {
-                try {
-                    register = register(message);     //try login
-                    if (register) {      //if ( login is correct )
-                        this.send("Registrazione effettuata con successo! ");
-                        this.send("Benvenuto " + usernameControl);
-                        login = true;
-                        mainButton();
-                    } else
-                        this.send(""" 
-                                Errore con la registrazione,
-                                provare nuovamente cliccando : 
-                                /register""");
-
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-            } else if (booleanCategories) {
-                try {
-                    filterCategory(message);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
-            } else if (booleanKeyword) {
-                try {
-                    filterKeyword(message);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }else if (booleanAuthors) {
-                try {
-                    filterAuthors(message);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
-            } else if (booleanTime) {
-                try {
-                    filterTime(message);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
-            } else if (booleanVoto) {
-
-                int voto = Integer.parseInt(message);
-
-                if (voto <= 5 && voto >= 1) {
+                if (message.startsWith("Login = ") || message.startsWith("login = ")) {
                     try {
-                        commento_voto.writeFileVoti(news.getTitle(), usernameControl,voto);
+                        userLoggato = login(message);     //try login
+                        if (userLoggato) {      //if ( login is correct )
+                            this.send("Login effettuato con successo! ");
+                            this.send("Benvenuto " + usernameControl);
+                            mainButton();
+                        } else
+                            this.send(""" 
+                                    Errore col login,
+                                    provare nuovamente cliccando : /login""");
+
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+
+                else if (message.startsWith("Register = ") || message.startsWith("register = ")) {
+                    try {
+                        userLoggato = register(message);     //try login
+                        if (userLoggato) {      //if ( register is correct )
+                            this.send("Registrazione effettuata con successo! ");
+                            this.send("Benvenuto " + usernameControl);
+                            userLoggato = true;
+                            mainButton();
+                        } else
+                            this.send("""
+                                    Errore con la registrazione,
+                                    provare nuovamente cliccando :\s
+                                    /register""");
+
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    booleanVoto = false;
-                    news = null;
-                    this.send("Grazie.");
-                } else
-                    this.send("Inserisci un voto\n(da 1 a 5)");
 
-            } else if (booleanCommento) {
-                try {
-                    commento_voto.writeFileCommento(news.getTitle(), usernameControl, message);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
                 }
-                booleanCommento = false;
-                news = null;
-                this.send("Grazie.");
 
-            } else {
 
-                switch (message) {
+                else {
 
-                    case "/start":
-                        this.send("""
+                    switch (message) {
+                        case "/start" -> this.send("""
                                 Grazie per essere entrato in NabooNews.
                                 \nPer vedere le notizie è necessario autenticarsi.
-                                
+                                                                
                                 Per il login usare il seguente formato :
                                 ( ex. : Login = username password )
-                                
+                                                                
                                 oppure registrarsi usando il seguente formato :
                                 ( ex. : Register = username password password)""");
+                        case "/login" ->
+                                this.send("Inserire username e password.\n( ex. : Login = username password )");
+                        case "/register" ->
+                                this.send("Inserire username password e confermaPassword.\n( ex. : Register = username password passoword)");
+                        default ->
+                                this.send("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando : \"/start");
+                    }
+                }
 
-                        break;
+            }
 
-                    case "/logout":
-                        usernameControl = null;
-                        passwordControl = null;
-                        login = false;
-                        register = false;
-                        this.send("Logout effettuato.");
-                        break;
+            else {   //utenteLoggato == true
 
-                    case "/login":
-                        this.send("Inserire username e password.\n( ex. : Login = username password )");
-                        break;
+                if (booleanCategories == true) {
+                    if (message.equalsIgnoreCase("Si")) {
+                        this.send("Scegliere la nuova categoria");
+                    }
+                    else if(message.equalsIgnoreCase("No")) {
+                        booleanCategories = false;
+                        mainButton();
+                    }
+                    else {
+                        try {
+                            filterCategory(message);
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
 
-                    case "/register":
-                        this.send("Inserire username password e confermaPassword.\n( ex. : Register = username password passoword)");
-                        break;
+                else if (booleanKeyword == true) {
+                    if (message.equalsIgnoreCase("Si")) {
+                        this.send("Scegliere la nuova parola chiave");
+                    } else if(message.equalsIgnoreCase("No")) {
+                        booleanKeyword = false;
+                        mainButton();
+                    } else {
+                        try {
+                            filterKeyword(message);
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
 
-                    case "/news":
-                        if (login) {
+                else if (booleanAuthors == true) {
+                    if (message.equalsIgnoreCase("Si")) {
+                        this.send("Scegliere il nuovo autore");
+                    } else if(message.equalsIgnoreCase("No")) {
+                        booleanAuthors = false;
+                        mainButton();
+                    } else {
+                        try {
+                            filterAuthors(message);
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+
+                }
+
+                else if (booleanTime == true) {
+                    if (message.equalsIgnoreCase("Si")) {
+                        this.send("Scegliere una nuovo data");
+                    } else if(message.equalsIgnoreCase("No")) {
+                        booleanTime = false;
+                        mainButton();
+                    } else {
+                        try {
+                            filterTime(message);
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+
+                }
+
+                else if (booleanVoto == true) {
+
+                    int voto = Integer.parseInt(message);
+
+                    if (voto <= 5 && voto >= 1) {
+                        try {
+                            commento_voto.writeFileVoti(news.getTitle(), usernameControl, voto);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        booleanVoto = false;
+                        news = null;
+                        this.send("Grazie.");
+                    } else
+                        this.send("Inserisci un voto\n(da 1 a 5)");
+
+                }
+
+                else if (booleanCommento == true) {
+                    try {
+                        commento_voto.writeFileCommento(news.getTitle(), usernameControl, message);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    booleanCommento = false;
+                    news = null;
+                    this.send("Grazie.");
+
+                }
+
+                else {
+
+                    switch (message) {
+                        case "/logout" -> {
+                            usernameControl = null;
+                            passwordControl = null;
+                            userLoggato = false;
+                            this.send("Logout effettuato.");
+                        }
+                        case "/news" -> {
                             Message message2 = update.getCallbackQuery().getMessage();
                             SendMessage sendMessage = new SendMessage();
                             sendMessage.setChatId(message2.getChatId().toString());
                             try {
                                 news(sendMessage);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            } catch (FeedException e) {
+                            } catch (IOException | FeedException e) {
                                 throw new RuntimeException(e);
                             }
-                        } else
-                            this.send("\uD83D\uDC49\uD83C\uDFFCPrima di vedere le notizie è necessario effettuare il login, cliccando su : \"/login");
-                        break;
-
-                    case "/menu":
-                        if(login){
-                            mainButton();
-                        } else
-                            this.send("\uD83D\uDC49\uD83C\uDFFCPer poter selezionare il comando è necessario effettuare il login, cliccando su : \"/login");
-                        break;
-
-                    default:
-                        this.send("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando : \"/start");
-                        break;
-
+                        }
+                        case "/menu" -> mainButton();
+                        default ->
+                                this.send("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando : \"/start");
+                    }
                 }
             }
+
+
+
 
         } else if (update.hasCallbackQuery()) {
 
@@ -232,7 +269,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
             SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(message.getChatId().toString());
-
 
             switch (data) {
 
@@ -276,12 +312,12 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
                 case "CallCommand" -> {
                     sendMessage.setText("""
-                                        /start : messaggio iniziale;
-                                        \n/login : richiesta di login;
-                                        \n/register : richiesta di registrazione;
-                                        \n/news : visuallizzazione delle notizie;
-                                        \n/menu : visualizzazione bottoni principali;
-                                        \n/logout : logout utente.""");
+                                /start : messaggio iniziale;
+                                \n/login : richiesta di login;
+                                \n/register : richiesta di registrazione;
+                                \n/news : visuallizzazione delle notizie;
+                                \n/menu : visualizzazione bottoni principali;
+                                \n/logout : logout utente.""");
                     try {
                         execute(sendMessage);
                     } catch (TelegramApiException e) {
@@ -293,9 +329,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
                 case "CallNotizie" -> {
                     try {
                         news(sendMessage);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (FeedException e) {
+                    } catch (IOException | FeedException e) {
                         throw new RuntimeException(e);
                     }
 
@@ -349,6 +383,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
             }
 
+
         }
 
     }
@@ -392,7 +427,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
     }
 
     private void filterAuthors(String author) throws FileNotFoundException {
-        booleanAuthors = false;
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(this.update.getMessage().getChatId()));
 
@@ -415,22 +449,23 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
         }
         if (!trova) {
-            this.send("Autore non valido");
-        }
-
-        sendMessage.setReplyMarkup(null);
-        sendMessage.setText("\u293E/menu");
-        try {
-            execute(sendMessage);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
+            this.send("Nessun risultato trovato per " + author);
+            this.send("Inserire un nuovo autore ? \n(Si/No)");
+        } else {
+            booleanAuthors = false;
+            sendMessage.setReplyMarkup(null);
+            sendMessage.setText("\u293E/menu");
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
 
     }
 
 
     private void filterCategory(String category) throws FileNotFoundException {
-        booleanCategories = false;
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(this.update.getMessage().getChatId()));
 
@@ -454,23 +489,24 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
         }
 
+
         if (!trova) {
-            this.send("Categoria non valida");
+            this.send("Nessun risultato trovato per " + category);
+            this.send("Inserire una nuova categoria ? \n(Si/No)");
+        } else {
+            booleanCategories = false;
+            sendMessage.setReplyMarkup(null);
+            sendMessage.setText("\u293E/menu");
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
-
-        sendMessage.setReplyMarkup(null);
-        sendMessage.setText("\u293E/menu");
-        try {
-            execute(sendMessage);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-
 
     }
 
     private void filterKeyword(String keyword) throws FileNotFoundException {
-        booleanKeyword = false;
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(this.update.getMessage().getChatId()));
 
@@ -494,18 +530,18 @@ public class NabooBot  extends  TelegramLongPollingBot {
             }
         }
 
-
-
         if (!trova) {
-            this.send("Non è stata trovata nessuna notizia con la parola chiave \"" + keyword + "\"");
-        }
-
-        sendMessage.setReplyMarkup(null);
-        sendMessage.setText("\u293E/menu");
-        try {
-            execute(sendMessage);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
+            this.send("Nessun risultato trovato con la parola chiave \"" + keyword + "\"");
+            this.send("Inserire una nuova parola chiave ? \n(Si/No)");
+        } else {
+            booleanKeyword = false;
+            sendMessage.setReplyMarkup(null);
+            sendMessage.setText("\u293E/menu");
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -513,7 +549,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
 
     private void filterTime(String time) throws FileNotFoundException {
-        booleanTime = false;
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(this.update.getMessage().getChatId()));
@@ -528,9 +563,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
         dataNews.setMinutes(0);
         dataNews.setSeconds(0);
 
-
         boolean trova = false;
-
         for (Notizia n : notizia) {
             if (n == null ) {
                 break;
@@ -548,16 +581,18 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
         }
 
-
-        if(!trova) {
-            this.send("Data non valida");
-        }
-        sendMessage.setReplyMarkup(null);
-        sendMessage.setText("\u293E/menu");
-        try {
-            execute(sendMessage);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
+        if (!trova) {
+            this.send("Nessun risultato per " + time);
+            this.send("Inserire una nuova data ? \n(Si/No)");
+        } else {
+            booleanTime = false;
+            sendMessage.setReplyMarkup(null);
+            sendMessage.setText("\u293E/menu");
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -575,7 +610,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private void news(SendMessage sendMessage) throws IOException, FeedException {
 
-        GestoreNotizia gestoreNews = GestoreNotizia.getInstance();
+        GestoreNotizia gestoreNews = new GestoreNotizia();
         gestoreNews.caricaNotizie();
 
         notizia = loadNews();
@@ -611,9 +646,9 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private boolean register(String messaggio) throws IOException {  //riceviamo richiesta registrazione
 
-        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+        String path ="C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
 
-        String confermaPassword = null;
+        String confermaPassword;
 
         messaggio = messaggio.substring(11);  //username password confPassword
 
@@ -623,10 +658,11 @@ public class NabooBot  extends  TelegramLongPollingBot {
             passwordControl = string.nextToken();
             confermaPassword = string.nextToken();
             if(!passwordControl.equals(confermaPassword))   //verifichiamo che le due password coincidano
-                return register;
+                return userLoggato;
         } else {
-            return register;
+            return userLoggato;
         }
+
 
         JsonReader leggi = new JsonReader(new FileReader(path));
         Gson gson = new Gson();
@@ -635,15 +671,16 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
         for (Utente control : Utenti) {
             if (usernameControl.equals(control.getUsername())) {  //verifichiamo che non esistano altri utenti con lo stesso username
-                return register;
+                return userLoggato;
             }
         }
+
 
         UserRegistrationController userReg = new UserRegistrationController();
 
         userReg.writeFile(usernameControl, passwordControl, false );   //possiamo scrivere i dati sul file json
-        register = true;
-        return register;
+        userLoggato = true;
+        return userLoggato;
     }
 
 
@@ -661,7 +698,8 @@ public class NabooBot  extends  TelegramLongPollingBot {
             return login;
 
 
-        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
+
+        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
         Gson gson = new Gson();
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
@@ -675,7 +713,6 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
         return login;
     }
-
 
     private void mainButton() {
         if (update.hasMessage()) {                  //aggiorna : ho un messaggio ? TRUE
@@ -691,19 +728,19 @@ public class NabooBot  extends  TelegramLongPollingBot {
             List<InlineKeyboardButton> firstBottonRow = new ArrayList<>();
             List<InlineKeyboardButton> secondBottonRow = new ArrayList<>();
 
-            /** InlineButton 1 **/
+            /// InlineButton 1
             InlineKeyboardButton newsButton = new InlineKeyboardButton();   //nuovo bottone
             newsButton.setText("\uD83D\uDCF0Vedi notizie");
             newsButton.setCallbackData("CallNotizie");
             firstBottonRow.add(newsButton);             //aggiungo a riga 1
 
-            /** InlineButton 2 **/
+            // InlineButton 2
             InlineKeyboardButton filterButton = new InlineKeyboardButton();
             filterButton.setText("\uD83D\uDCCAFiltra notizie");
             filterButton.setCallbackData("CallFilter");
             firstBottonRow.add(filterButton);
 
-            /** InlineButton 3 **/
+            // InlineButton 3
             InlineKeyboardButton commandButton = new InlineKeyboardButton();
             commandButton.setText("\u2699Comandi");
             commandButton.setCallbackData("CallCommand");
@@ -754,7 +791,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private List<Notizia> loadNews() throws FileNotFoundException {
 
-        JsonReader read = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json"));
+        JsonReader read = new JsonReader(new FileReader("C:\\Users\\mitug\\OneDrive\\Desktop\\ultimo\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json"));
 
         Gson gson = new Gson();
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {
@@ -764,7 +801,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
     }
 
 
-    public void send(String msg) {
+    private void send(String msg) {
         SendMessage send = new SendMessage();
         send.setChatId(this.update.getMessage().getChatId().toString());
 
@@ -785,4 +822,3 @@ public class NabooBot  extends  TelegramLongPollingBot {
     }
 
 }
-

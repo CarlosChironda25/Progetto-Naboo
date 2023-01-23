@@ -14,20 +14,15 @@ import java.util.List;
 
 public class Commento_Voto {
 
-    private String pathCommenti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
-    private String pathVoti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
-
-    private List<VotoBot> votoBot;
-
-    private List<CommentoBot> commentoBot;
-
+    private final String pathCommenti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
+    private final String pathVoti = "C:\\Users\\mitug\\OneDrive\\Desktop\\Nuova cartella\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
 
 
     public Commento_Voto() {
     }
 
 
-    public List<VotoBot> readFileVoto(String path) throws FileNotFoundException {
+    private List<VotoBot> readFileVoto(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
         List<VotoBot> votiFile = gson.fromJson(reader, new TypeToken<List<VotoBot>>() {
@@ -36,7 +31,7 @@ public class Commento_Voto {
     }
 
 
-    public List<CommentoBot> readFileCommento(String path) throws FileNotFoundException {
+    private List<CommentoBot> readFileCommento(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
         List<CommentoBot> commentiFile = gson.fromJson(reader, new TypeToken<List<CommentoBot>>() {
@@ -83,13 +78,15 @@ public class Commento_Voto {
         JsonReader leggiVoti = new JsonReader(new FileReader(pathVoti));
         Gson gson1 = new Gson();
 
-        votoBot = gson1.fromJson(leggiVoti, (new TypeToken<List<VotoBot>>() {
+        List<VotoBot> votoBot = gson1.fromJson(leggiVoti, (new TypeToken<List<VotoBot>>() {
         }).getType());
+
 
         //leggiamo i commenti dal file json 'Commento.json'
         JsonReader leggiCommenti = new JsonReader(new FileReader(pathCommenti));
         Gson gson2 = new Gson();
-        commentoBot = gson2.fromJson(leggiCommenti, (new TypeToken<List<CommentoBot>>() {
+
+        List<CommentoBot> commentoBot = gson2.fromJson(leggiCommenti, (new TypeToken<List<CommentoBot>>() {
         }).getType());
 
 
@@ -133,6 +130,5 @@ public class Commento_Voto {
             return "\n\nCommenti : " + outputComment + "\n\nMedia dei voti : " + outputVote;
 
     }
-
 
 }

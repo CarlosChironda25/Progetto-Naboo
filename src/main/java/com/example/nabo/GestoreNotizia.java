@@ -27,7 +27,7 @@ public class GestoreNotizia {
     public static String Path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
 
     private static GestoreNotizia instance = null;
-    private GestoreNotizia(){
+    GestoreNotizia(){
         this.sources = new ArrayList<>();
         listaNotizie = new ArrayList<>();
     }

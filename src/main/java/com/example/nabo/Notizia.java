@@ -6,14 +6,15 @@ import java.util.Date;
 
 public class Notizia {
 
-      public Date Data;
-      public String Title;
-      public String Link;
-      public String Descrizione;
-      public String Autore;
-      public SyndFeed Fonte;
-      public String Category;
+    private Date Data;
+    private String Title;
+    private String Link;
+    private String Descrizione;
+    private String Autore;
+    private SyndFeed Fonte;
+    private String Category;
 
+    public Notizia(){ }
 
     public Notizia(Date data, String title, String link, String descrizione, String autore, SyndFeed fonte, String category) {
         this.Data = data;
@@ -25,27 +26,9 @@ public class Notizia {
         this.Category = category;
     }
 
-    public void setDiscrizione(String descrizione) {this.Descrizione = descrizione;}
-
     public String getAutore() {
         return Autore;
     }
-
-    public void setAutore(String autore) {
-        autore = autore;
-    }
-
-    public SyndFeed getFonte(SyndFeed source) {
-        return Fonte;
-    }
-
-    public void setFonte(SyndFeed fonte) {
-        Fonte = fonte;
-    }
-
-    public Notizia(){
-
-      }
 
     public String getCategory() {
             return Category;
@@ -62,27 +45,12 @@ public class Notizia {
         return Title;
     }
 
-    public void setData(Date data) {
-        this.Data = data;
-    }
-
-    public void setCategory(String category) {this.Category = category;}
-
-    public void setTitle(String title) {
-        this.Title = title;
-    }
-
-    public void setLink(String link) {
-        this.Link = link;
-    }
-
     public String getDescrizione() {
         return Descrizione;
     }
 
     @Override
     public String toString() {
-
         return Title + "\n\n" +
                 //descrizione + "\n\n" +
                 Data + "\n\n" +
@@ -91,6 +59,6 @@ public class Notizia {
                 Link;
                 //+ "\n\n" +
                 //Fonte + "\n\n" +
-
     }
+
 }

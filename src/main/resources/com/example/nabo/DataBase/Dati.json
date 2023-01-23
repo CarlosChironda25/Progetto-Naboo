@@ -1,10 +1,5 @@
 [
   {
-    "Username": "Prova1",
-    "Password": "Prova11",
-    "isAdmin": true
-  },
-  {
     "Username": "Carlos12",
     "Password": "Carlos200",
     "isAdmin": true
@@ -12,12 +7,7 @@
   {
     "Username": "roberto",
     "Password": "password1",
-    "isAdmin": false
-  },
-  {
-    "Username": "roberto1",
-    "Password": "password1",
-    "isAdmin": false
+    "isAdmin": true
   },
   {
     "Username": "admin",
@@ -25,19 +15,24 @@
     "isAdmin": true
   },
   {
-    "Username": "roberto2",
-    "Password": "password1",
-    "isAdmin": false
-  },
-  {
-    "Username": "roberto34",
-    "Password": "password2",
-    "isAdmin": true
-  },
-  {
     "Username": "federica",
     "Password": "ciao",
     "isAdmin": false
+  },
+  {
+    "Username": "Chiara",
+    "Password": "Chiaretta1234",
+    "isAdmin": false
+  },
+  {
+    "Username": "Mario",
+    "Password": "Rossi",
+    "isAdmin": false
+  },
+  {
+    "Username": "Luigi",
+    "Password": "Verdi",
+    "isAdmin": true
   },
   {
     "Username": "hello",
@@ -52,11 +47,6 @@
   {
     "Username": "tomaso",
     "Password": "tomaso",
-    "isAdmin": false
-  },
-  {
-    "Username": "fabrizia1",
-    "Password": "a",
     "isAdmin": false
   }
 ]
