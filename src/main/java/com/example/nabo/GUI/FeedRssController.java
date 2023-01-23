@@ -2,7 +2,6 @@ package com.example.nabo.GUI;
 
 import com.example.nabo.GestoreNotizia;
 import com.example.nabo.Main;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Objects;
 
 
@@ -52,7 +50,6 @@ public class FeedRssController {
         rssFeedView.getItems().clear();
         for (String str : gestore.sources) {
             rssFeedView.getItems().add(str);
-
         }
         setDisabledItems(false);
     }

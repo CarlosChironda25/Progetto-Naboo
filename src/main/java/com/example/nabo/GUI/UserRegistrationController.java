@@ -83,6 +83,8 @@ public class UserRegistrationController {
         return control;
     }
     public boolean checkExistence() throws FileNotFoundException {
+        labelError.setText("");
+        labelAllRight.setText("");
         List<Utente> utente = readFile(path);
         boolean userFound = false;
         for (Utente value : utente) {
@@ -94,16 +96,15 @@ public class UserRegistrationController {
                 inputPassword2.setText("");
             }
         }
-        if (!userFound) {
-            labelAllRight.setText("L'utente che stai cercando non esiste nel database. Quindi si può inserire");
 
-        }
         return userFound;
     }
 
 
     @FXML
     public void RegistrationOperation(ActionEvent event) throws IOException{
+        labelError.setText("");
+        labelAllRight.setText("");
         if(checkProblems() && !checkExistence()){
             writeFile(inputUsername.getText(), inputPassword.getText(), administratorBox.isSelected());
             labelAllRight.setText("registrazione avvenuta con successo!!");
