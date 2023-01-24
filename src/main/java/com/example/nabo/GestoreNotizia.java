@@ -45,6 +45,7 @@ public class GestoreNotizia {
     public void caricaNotizie() throws IOException {
         listaNotizie.clear();
 
+
         if(firstTime) {
             sources.add("http://xml2.corriereobjects.it/rss/homepage.xml");
             sources.add("https://www.repubblica.it/rss/homepage/rss2.0.xml");

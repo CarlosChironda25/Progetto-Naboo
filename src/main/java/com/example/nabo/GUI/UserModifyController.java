@@ -128,7 +128,7 @@ public class UserModifyController {
         if (inputSearchedUser.getText().isEmpty()) {
             labelError.setText("non hai cercato nessuno");
         } else {
-            if (!modifyCredentials() && !checkExistence()) {
+            if ( !modifyCredentials() && !checkExistence()  ) {
                 for (Utente value : utente) {
                     if (value.getUsername().equals(inputSearchedUser.getText())) {
                         value.setUsername(inputUsername.getText());

@@ -21,7 +21,6 @@ import java.net.MalformedURLException;
 import java.util.Objects;
 
 public class HomepageController{
-
     @FXML
     private Stage stage;
     @FXML
@@ -116,7 +115,7 @@ public class HomepageController{
     }
     @FXML
     public void telegram(ActionEvent event){
-        try { //starta il bot
+        try {
             TelegramBotsApi botApi1 = new TelegramBotsApi(DefaultBotSession.class);
             BotSession botSession = botApi1.registerBot(new NabooBot());
             NabooBot.setSession(botSession);
