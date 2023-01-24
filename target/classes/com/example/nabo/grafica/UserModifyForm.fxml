@@ -8,13 +8,13 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: CCE5FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nabo.GUI.UserModifyController">
-   <TextField fx:id="inputUsername" alignment="CENTER" disable="true" layoutX="189.0" layoutY="174.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuovo username" />
-   <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" alignment="CENTER" disable="true" layoutX="189.0" layoutY="212.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuova password" />
-   <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" alignment="CENTER" disable="true" layoutX="189.0" layoutY="249.0" prefHeight="25.0" prefWidth="167.0" promptText="Conferma password" />
-   <Button fx:id="saveChanges" disable="true" layoutX="228.0" layoutY="336.0" mnemonicParsing="false" onAction="#modifyUserCredentials" style="-fx-background-color: blue; -fx-text-fill: white;" text="Salva Modifica" />
-   <Button fx:id="searchUser" layoutX="308.0" layoutY="77.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca Utente" />
+   <TextField fx:id="inputUsername" alignment="CENTER" layoutX="189.0" layoutY="174.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuovo username" />
+   <TextField fx:id="inputPassword" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="189.0" layoutY="212.0" prefHeight="25.0" prefWidth="167.0" promptText="Inserisci nuova password" />
+   <TextField fx:id="inputPassword2" accessibleRole="PASSWORD_FIELD" alignment="CENTER" layoutX="189.0" layoutY="249.0" prefHeight="25.0" prefWidth="167.0" promptText="Conferma password" />
+   <Button fx:id="saveChanges" layoutX="228.0" layoutY="336.0" mnemonicParsing="false" onAction="#modifyUserCredentials" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Salva Modifica" />
+   <Button fx:id="searchUser" layoutX="308.0" layoutY="77.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Cerca Utente" />
    <TextField fx:id="inputSearchedUser" alignment="CENTER" layoutX="78.0" layoutY="80.0" prefHeight="25.0" prefWidth="199.0" promptText="Inserisci utente da cercare" />
-   <CheckBox fx:id="administratorBox" disable="true" layoutX="194.0" layoutY="284.0" mnemonicParsing="false" text="Utente Amministratore" />
+   <CheckBox fx:id="administratorBox" alignment="CENTER" layoutX="194.0" layoutY="284.0" mnemonicParsing="false" text="Utente Amministratore" />
    <Label fx:id="labelAllRight" alignment="CENTER" layoutX="46.0" layoutY="122.0" prefHeight="31.0" prefWidth="503.0" style="-fx-text-fill: green;">
       <font>
          <Font size="14.0" />

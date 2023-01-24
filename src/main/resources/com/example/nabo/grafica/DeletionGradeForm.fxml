@@ -14,8 +14,8 @@
    </Label>
    <Button fx:id="goBackHome" layoutX="1.0" layoutY="41.0" minWidth="53.0" mnemonicParsing="false" onAction="#goBackHomePage" prefHeight="28.0" prefWidth="53.0" style="-fx-background-color: CCFFE5; -fx-text-fill: black;" text="Home" />
    <TextField fx:id="inputGrade" layoutX="82.0" layoutY="85.0" prefHeight="27.0" prefWidth="215.0" promptText="Inserisci voto da eliminare" />
-   <Button fx:id="searchGrade" layoutX="340.0" layoutY="134.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca " />
-   <Button fx:id="deleteGrade" layoutX="252.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina voto" />
+   <Button fx:id="searchGrade" layoutX="340.0" layoutY="134.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Cerca " />
+   <Button fx:id="deleteGrade" layoutX="252.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteGrade" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Elimina voto" />
    <Label fx:id="labelAllRight" alignment="CENTER" layoutX="61.0" layoutY="206.0" prefHeight="41.0" prefWidth="492.0" style="-fx-text-fill: green;">
       <font>
          <Font size="14.0" />

@@ -13,8 +13,8 @@
          <Font size="14.0" />
       </font></Label>
    <TextField fx:id="inputTitle" alignment="CENTER" layoutX="73.0" layoutY="157.0" prefHeight="25.0" prefWidth="258.0" promptText="Inserisci titolo della notizia da eliminare" />
-   <Button fx:id="deleteNews" layoutX="245.0" layoutY="275.0" mnemonicParsing="false" onAction="#deleteNews" style="-fx-background-color: blue; -fx-text-fill: white;" text="Elimina Notizia" />
-   <Button fx:id="searchNews" layoutX="351.0" layoutY="154.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: blue; -fx-text-fill: white;" text="Cerca News" />
+   <Button fx:id="deleteNews" layoutX="245.0" layoutY="275.0" mnemonicParsing="false" onAction="#deleteNews" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Elimina Notizia" />
+   <Button fx:id="searchNews" layoutX="351.0" layoutY="154.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Cerca News" />
    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="24.0" prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: E0E0E0;" text="Eliminazione notizia" textAlignment="CENTER">
       <font>
          <Font name="System Bold Italic" size="19.0" />
@@ -25,5 +25,5 @@
          <Font size="9.0" />
       </font>
    </Button>
-   <Button fx:id="caricanews" layoutX="248.0" layoutY="98.0" mnemonicParsing="false" onAction="#updateNews" style="-fx-background-color: blue; -fx-text-fill: white;" text="Carica Notizie" />
+   <Button fx:id="caricanews" layoutX="248.0" layoutY="98.0" mnemonicParsing="false" onAction="#updateNews" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Carica Notizie" />
 </AnchorPane>

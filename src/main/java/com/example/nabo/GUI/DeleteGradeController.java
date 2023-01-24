@@ -70,9 +70,10 @@ public class DeleteGradeController {
                 gradeFound = true;
                 labelAllRight.setText("il commento: " + value.getVoto() + " esiste");
             }
+
         }
         if (!gradeFound) {
-            labelError.setText("commento rilasciato non esistente");
+            labelError.setText("voto rilasciato non esistente");
             labelAllRight.setText("");
             inputGrade.setText("");
             inputNotizia.setText("");

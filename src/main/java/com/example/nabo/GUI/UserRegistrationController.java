@@ -65,8 +65,7 @@ public class UserRegistrationController {
         fw.close();
     }
     /*
-    Qui controllo che tutti i campi siano riempiti e che le password combacino.
-    Nel caso ci fossero dei problemi, viene fuori la label relativa all'errore.
+    Controllo che tutti i campi siano riempiti e che le password corrispondano.
      */
     public boolean checkProblems() {
         labelError.setText("");
@@ -82,6 +81,10 @@ public class UserRegistrationController {
 
         return control;
     }
+
+    /*
+    Controllo se l'utente che voglio inserire esiste già nel database dati.json
+     */
     public boolean checkExistence() throws FileNotFoundException {
         labelError.setText("");
         labelAllRight.setText("");
@@ -96,7 +99,6 @@ public class UserRegistrationController {
                 inputPassword2.setText("");
             }
         }
-
         return userFound;
     }
 

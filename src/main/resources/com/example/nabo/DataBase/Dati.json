@@ -38,15 +38,5 @@
     "Username": "hello",
     "Password": "ciao",
     "isAdmin": false
-  },
-  {
-    "Username": "fabrizia",
-    "Password": "ciao",
-    "isAdmin": true
-  },
-  {
-    "Username": "tomaso",
-    "Password": "tomaso",
-    "isAdmin": false
   }
 ]

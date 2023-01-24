@@ -64,28 +64,16 @@ public class UserModifyController {
         fw.write(jsonString);
         fw.close();
     }
-    private void setDisabledItems(boolean b){
-        inputUsername.setDisable(b);
-        inputPassword.setDisable(b);
-        inputPassword2.setDisable(b);
-        saveChanges.setDisable(b);
-        administratorBox.setDisable(b);
-        searchUser.setDisable(!b);
-        inputSearchedUser.setDisable(!b);
-    }
-
     private boolean modifyCredentials(){
         labelError.setText("");
         labelAllRight.setText("");
-
-        boolean control = true;
-
+        boolean control = false;
         if (inputUsername.getText().isEmpty() || inputPassword.getText().isEmpty() || inputPassword2.getText().isEmpty()) {
             labelError.setText("Tutti i campi sono obbligatori!");
-            control = false;
+            control = true;
         } else if (!inputPassword.getText().equals(inputPassword2.getText())) {
             labelError.setText("le password sono diverse!");
-            control = false;
+            control = true;
         }
         return control;
     }
@@ -103,13 +91,7 @@ public class UserModifyController {
                 administratorBox.setSelected(false);
             }
         }
-        if (!userFound) {
-            labelAllRight.setText("L'utente che stai cercando non esiste nel database. Quindi si può inserire");
-            inputUsername.setText("");
-            inputPassword.setText("");
-            inputPassword2.setText("");
-            administratorBox.setSelected(false);
-        }
+
         return userFound;
     }
     @FXML
@@ -117,7 +99,6 @@ public class UserModifyController {
         //parto con i campi tutti vuoti, label comprese
         labelError.setText("");
         labelAllRight.setText("");
-
         List<Utente> utente = readFile(path);
         boolean userFound = false;
         for (Utente value : utente) {
@@ -137,7 +118,6 @@ public class UserModifyController {
             inputPassword2.setText("");
             administratorBox.setSelected(false);
         }
-        setDisabledItems(false);
     }
 
     @FXML
@@ -148,8 +128,7 @@ public class UserModifyController {
         if (inputSearchedUser.getText().isEmpty()) {
             labelError.setText("non hai cercato nessuno");
         } else {
-            if (modifyCredentials() && !checkExistence()) {
-
+            if (!modifyCredentials() && !checkExistence()) {
                 for (Utente value : utente) {
                     if (value.getUsername().equals(inputSearchedUser.getText())) {
                         value.setUsername(inputUsername.getText());
