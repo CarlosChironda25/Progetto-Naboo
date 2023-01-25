@@ -92,9 +92,10 @@ public class DeleteGradeController {
                 if(value.getVoto() == grade && value.getTitolo().equals(inputNotizia.getText()) && value.getCommentatore().equals(inputCommentatore.getText())){
                     voto.remove(value);
                     writeFile(voto, path);
+                    break;
                 }
             }
-            labelAllRight.setText("il voto: " + inputGrade.getText() + "da te cercato, è stato rimosso correttamente");
+            labelAllRight.setText("il voto " + inputGrade.getText() + " da te cercato, è stato rimosso correttamente");
             labelError.setText("");
             inputGrade.setText("");
             inputNotizia.setText("");

@@ -93,6 +93,7 @@ public class DeleteNewsController {
                 if(value.getTitle().equals(inputTitle.getText())){
                     news.remove(value);
                     writeFile(news, path);
+                    break;
                 }
             }
             labelAllRight.setText("Il titolo da te cercato, è stato rimosso correttamente");

@@ -33,10 +33,5 @@
     "Username": "Luigi",
     "Password": "Verdi",
     "isAdmin": true
-  },
-  {
-    "Username": "hello",
-    "Password": "ciao",
-    "isAdmin": false
   }
 ]

@@ -74,7 +74,7 @@ public class DeleteUserController {
             inputUsername.setText("");
         }
     }
-
+    /*
     @FXML
     private void deleteUser(ActionEvent event) throws IOException {
         labelAllRight.setText("");
@@ -95,7 +95,7 @@ public class DeleteUserController {
             }
         }
     }
-    /*
+    */
 
     @FXML
     private void deleteUser(ActionEvent event) throws IOException {
@@ -111,6 +111,7 @@ public class DeleteUserController {
                     if (value.getUsername().equals(inputUsername.getText())) {
                         utente.remove(value);
                         writeFile(utente, path);
+                        break;
                     }
                 }
             }catch(Exception e){
@@ -121,7 +122,6 @@ public class DeleteUserController {
             labelError.setText("");
         }
     }
-*/
 
     @FXML
     public void goBackHomePage(ActionEvent event) throws IOException {

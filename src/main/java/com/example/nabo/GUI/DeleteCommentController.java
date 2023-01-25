@@ -65,18 +65,12 @@ public class DeleteCommentController {
            List<CommentoBot> commento = readFile(path);
            boolean commentoFound = false;
            for(CommentoBot value : commento){
-               System.out.println("entrato in for");
                if(value.getTesto().equals(inputTesto.getText()) && value.getTitolo().equals(inputTitolo.getText()) && value.getCommentatore().equals(inputCommentatore.getText())){
                    commentoFound = true;
-                   System.out.println("entrato in if");
                    labelAllRight.setText("il commento " + value.getTesto() + " da te cercato esiste");
-                   System.out.println(value.getTesto());
-               }else{
-                   System.out.println("entrato in else");
                }
            }
            if(!commentoFound){
-               System.out.println("commento non trovat");
                labelError.setText("commento non esistente");
                labelAllRight.setText("");
                inputTesto.setText("");
@@ -86,18 +80,16 @@ public class DeleteCommentController {
        }
        @FXML
        public void deleteComment(ActionEvent event) throws IOException {
-           System.out.println("entrato in delete");
            List<CommentoBot> commento = readFile(path);
            if(inputTesto.getText().isEmpty()){
                labelError.setText("Attenzione campo vuoto");
            }else{
                labelError.setText("");
                for(CommentoBot value : commento){
-                   System.out.println("for delete");
                    if(value.getTesto().equals(inputTesto.getText()) && value.getCommentatore().equals(inputCommentatore.getText()) && value.getTitolo().equals(inputTitolo.getText())){
-                       System.out.println("if for delete");
                        commento.remove(value);
                        writeFile(commento, path);
+                       break;
                    }
                }
                labelAllRight.setText("il commento " + inputTesto.getText() + " da te cercato è stato rimosso correttamente");
