@@ -2,6 +2,7 @@ package com.example.nabo.GUI;
 
 import com.example.nabo.Main;
 import com.example.nabo.Utente;
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -24,21 +25,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Objects;
 
 public class DeleteUserController {
     @FXML
-    public Button searchUser;
+    private Button searchUser;
     @FXML
-    public Button deleteUser;
+    private Button deleteUser;
     @FXML
-    public Button goBackHome;
+    private Button goBackHome;
     @FXML
-    public Label labelError;
+    private Label labelError;
     @FXML
-    public Label labelAllRight;
+    private Label labelAllRight;
     @FXML
-    public TextField inputUsername;
+    private TextField inputUsername;
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
@@ -56,14 +58,14 @@ public class DeleteUserController {
     }
 
     @FXML
-    public void search(ActionEvent event) throws FileNotFoundException {
+    private void search(ActionEvent event) throws FileNotFoundException {
         labelError.setText("");
         List<Utente> utente = readFile(path);
         boolean userFound = false;
         for (Utente value : utente) {
             if (value.getUsername().equals(inputUsername.getText())) {
                 userFound = true;
-                labelAllRight.setText("l'utente " + value.getUsername() + "da te cercato esiste.");
+                labelAllRight.setText("l'utente " + value.getUsername() + " da te cercato esiste.");
             }
         }
         if(!userFound){
@@ -74,7 +76,31 @@ public class DeleteUserController {
     }
 
     @FXML
-    public void deleteUser(ActionEvent event) throws IOException {
+    private void deleteUser(ActionEvent event) throws IOException {
+        labelAllRight.setText("");
+        labelError.setText("");
+        List<Utente> utente = readFile(path);
+        ListIterator<Utente> ut = utente.listIterator();
+        if(inputUsername.getText().isEmpty()){
+            labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
+        }else {
+            labelError.setText("");
+            while (ut.hasNext()) {
+               String valueName = ut.next().getUsername();
+               if(valueName.equals(inputUsername.getText())) {
+                   ut.remove();
+                   utente = Lists.newArrayList(ut);
+                   writeFile(utente, path);
+               }
+            }
+        }
+    }
+    /*
+
+    @FXML
+    private void deleteUser(ActionEvent event) throws IOException {
+        labelAllRight.setText("");
+        labelError.setText("");
         List<Utente> utente = readFile(path);
         if(inputUsername.getText().isEmpty()){
             labelError.setText("Attenzione, sembra che tu non abbia cercato nessun utente");
@@ -95,6 +121,8 @@ public class DeleteUserController {
             labelError.setText("");
         }
     }
+*/
+
     @FXML
     public void goBackHomePage(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));

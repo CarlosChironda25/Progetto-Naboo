@@ -2,7 +2,6 @@ package com.example.nabo.GUI;
 
 import com.example.nabo.CommentoBot;
 import com.example.nabo.Main;
-import com.example.nabo.Utente;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -28,81 +27,89 @@ import java.util.Objects;
 
 public class DeleteCommentController {
         @FXML
-        public Button goBackHome;
+        private Button goBackHome;
         @FXML
-        public Button searchComment;
+        private Button searchComment;
         @FXML
-        public Button deleteComment;
+        private Button deleteComment;
         @FXML
-        public Label labelError;
+        private Label labelError;
         @FXML
-        public Label labelAllRight;
+        private Label labelAllRight;
         @FXML
-        public TextField inputTesto;
+        private TextField inputTesto;
         @FXML
-        public TextField inputTitolo;
+        private TextField inputTitolo;
         @FXML
-        public TextField inputCommentatore;
+        private TextField inputCommentatore;
         private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
 
-        public static List<CommentoBot> readFile(String path) throws FileNotFoundException {
-            Gson gson = new Gson();
-            JsonReader reader = new JsonReader(new FileReader(path));
-            return gson.fromJson(reader, new TypeToken<List<CommentoBot>>(){}.getType());
-        }
-        public static void writeFile(List<CommentoBot> commento, String path) throws IOException {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            List<CommentoBot> listCommenti = new ArrayList<>(commento);
-            String jsonString = gson.toJson(listCommenti);
-            FileWriter fw = new FileWriter(path);
-            fw.write(jsonString);
-            fw.close();
-        }
+       public static List<CommentoBot> readFile(String path) throws FileNotFoundException {
+           Gson gson = new Gson();
+           JsonReader reader = new JsonReader(new FileReader(path));
+           return gson.fromJson(reader, new TypeToken<List<CommentoBot>>(){}.getType());
+       }
+       public static void writeFile(List<CommentoBot> commento, String path) throws IOException {
+           Gson gson = new GsonBuilder().setPrettyPrinting().create();
+           List<CommentoBot> listCommenti = new ArrayList<>(commento);
+           String jsonString = gson.toJson(listCommenti);
+           FileWriter fw = new FileWriter(path);
+           fw.write(jsonString);
+           fw.close();
+       }
 
-        @FXML
-        public void search(ActionEvent event) throws FileNotFoundException {
-            labelError.setText("");
-            List<CommentoBot> commento = readFile(path);
-            boolean commentoFound = false;
-            for(CommentoBot value : commento){
-                if(value.getTesto().equals(inputTesto.getText()) && value.getTitolo().equals(inputTitolo.getText()) && value.getCommentatore().equals(inputCommentatore.getText())){
-                    commentoFound = true;
-                    labelAllRight.setText("Il commento " + value.getTesto() + "da te cercato esiste");
-                }
-            }
-            if(!commentoFound){
-                labelError.setText("");
-                labelAllRight.setText("");
-                inputTesto.setText("");
-                inputTitolo.setText("");
-                inputCommentatore.setText("");
-            }
-        }
-        @FXML
-        public void deleteComment(ActionEvent event) throws FileNotFoundException {
-            List<CommentoBot> commento = readFile(path);
-            if(inputTesto.getText().isEmpty() || inputCommentatore.getText().isEmpty() || inputTitolo.getText().isEmpty()){
-                labelError.setText("Attenzione, tutti i campi sono obbligatori");
-            }else{
-                labelError.setText("");
-                try{
-                    for(CommentoBot value : commento){
-                        if(value.getTesto().equals(inputTesto.getText()) && value.getCommentatore().equals(inputCommentatore.getText()) && value.getTitolo().equals(inputTitolo.getText())){
-                            commento.remove(value);
-                            writeFile(commento, path);
+       @FXML
+       public void search(ActionEvent event) throws FileNotFoundException {
+           System.out.println("entrato in search");
+           labelError.setText("");
+           List<CommentoBot> commento = readFile(path);
+           boolean commentoFound = false;
+           for(CommentoBot value : commento){
+               System.out.println("entrato in for");
+               if(value.getTesto().equals(inputTesto.getText()) && value.getTitolo().equals(inputTitolo.getText()) && value.getCommentatore().equals(inputCommentatore.getText())){
+                   commentoFound = true;
+                   System.out.println("entrato in if");
+                   labelAllRight.setText("il commento " + value.getTesto() + " da te cercato esiste");
+                   System.out.println(value.getTesto());
+               }else{
+                   System.out.println("entrato in else");
+               }
+           }
+           if(!commentoFound){
+               System.out.println("commento non trovat");
+               labelError.setText("commento non esistente");
+               labelAllRight.setText("");
+               inputTesto.setText("");
+               inputTitolo.setText("");
+               inputCommentatore.setText("");
+           }
+       }
+       @FXML
+       public void deleteComment(ActionEvent event) throws IOException {
+           System.out.println("entrato in delete");
+           List<CommentoBot> commento = readFile(path);
+           if(inputTesto.getText().isEmpty()){
+               labelError.setText("Attenzione campo vuoto");
+           }else{
+               labelError.setText("");
+               for(CommentoBot value : commento){
+                   System.out.println("for delete");
+                   if(value.getTesto().equals(inputTesto.getText()) && value.getCommentatore().equals(inputCommentatore.getText()) && value.getTitolo().equals(inputTitolo.getText())){
+                       System.out.println("if for delete");
+                       commento.remove(value);
+                       writeFile(commento, path);
+                   }
+               }
+               labelAllRight.setText("il commento " + inputTesto.getText() + " da te cercato è stato rimosso correttamente");
+               labelError.setText("");
+               inputTesto.setText("");
+               inputCommentatore.setText("");
+               inputTitolo.setText("");
+           }
+       }
 
-                        }
-                    }
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-                labelAllRight.setText("il commento " + inputTesto.getText() + "da te cercato è stato rimosso");
-                inputTesto.setText("");
-                inputTitolo.setText("");
-                inputCommentatore.setText("");
-                labelAllRight.setText("");
-            }
-        }
+
+
         @FXML
         public void goBackHomePage(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/HomepageForm.fxml")));

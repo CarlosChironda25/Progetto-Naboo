@@ -50,4 +50,5 @@
       </font>
    </Label>
    <Button fx:id="feedManagement" layoutX="48.0" layoutY="318.0" mnemonicParsing="false" onAction="#feedManagement" style="-fx-background-color: #1180da; -fx-text-fill: white;" text="Gestione Feed Rss" />
+   <Button fx:id="prova" layoutX="337.0" layoutY="321.0" mnemonicParsing="false" onAction="#prova" text="prova" />
 </AnchorPane>

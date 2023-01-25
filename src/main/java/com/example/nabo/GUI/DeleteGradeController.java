@@ -27,21 +27,21 @@ import java.util.Objects;
 
 public class DeleteGradeController {
     @FXML
-    public Button goBackHome;
+    private Button goBackHome;
     @FXML
-    public Button searchGrade;
+    private Button searchGrade;
     @FXML
-    public Button deleteGrade;
+    private Button deleteGrade;
     @FXML
-    public TextField inputGrade;
+    private TextField inputGrade;
     @FXML
     public TextField inputNotizia;
     @FXML
-    public TextField inputCommentatore;
+    private TextField inputCommentatore;
     @FXML
-    public Label labelError;
+    private Label labelError;
     @FXML
-    public Label labelAllRight;
+    private Label labelAllRight;
     double grade;
 
     private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
