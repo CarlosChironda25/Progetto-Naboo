@@ -45,23 +45,6 @@ public class HomepageController{
     public Button logout;
     @FXML
     public Button feedManagement;
-    @FXML
-    public Button prova;
-
-    @FXML
-    public void prova(ActionEvent event){
-        try {
-            root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("grafica/provaform.fxml")));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setTitle("prova");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
    @FXML
    public void addUser(ActionEvent event) {
