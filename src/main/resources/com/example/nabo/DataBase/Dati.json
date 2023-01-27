@@ -38,5 +38,10 @@
     "Username": "feder",
     "Password": "f",
     "isAdmin": false
+  },
+  {
+    "Username": "federica",
+    "Password": "f",
+    "isAdmin": false
   }
 ]
