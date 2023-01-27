@@ -15,11 +15,6 @@
     "isAdmin": true
   },
   {
-    "Username": "federica1",
-    "Password": "hi",
-    "isAdmin": false
-  },
-  {
     "Username": "Chiara",
     "Password": "Chiaretta1234",
     "isAdmin": false
@@ -33,5 +28,15 @@
     "Username": "Luigi",
     "Password": "Verdi",
     "isAdmin": true
+  },
+  {
+    "Username": "fede",
+    "Password": "f",
+    "isAdmin": false
+  },
+  {
+    "Username": "feder",
+    "Password": "f",
+    "isAdmin": false
   }
 ]

@@ -14,9 +14,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,7 +32,10 @@ public class LoginController {
     private TextField inputUsername;
     @FXML
     private TextField inputPassword;
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+    //private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+
+    private static String path = "main/resources/com/example/nabo/DataBase/Dati.json";
+
     public static List<Utente> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));
@@ -38,6 +43,7 @@ public class LoginController {
     }
     @FXML
     public void login(ActionEvent event) throws IOException {
+
         List<Utente> user = readFile(path);
 
         boolean registeredUser = false;
@@ -70,6 +76,7 @@ public class LoginController {
         }else{
             labelError.setText("Username o password non corrette, riprova. ");
         }
+
     }
 }
 

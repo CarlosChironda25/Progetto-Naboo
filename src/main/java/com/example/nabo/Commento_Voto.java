@@ -14,9 +14,11 @@ import java.util.List;
 
 public class Commento_Voto {
 
-    private final String pathCommenti = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
-    private final String pathVoti = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
+    //private final String pathCommenti = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
+    //private final String pathVoti = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
 
+    private final String pathCommenti = "./main/resources/com/example/nabo/DataBase/Commento.json";
+    private final String pathVoti = "./main/resources/com/example/nabo/DataBase/Voto.json" ;
 
     public Commento_Voto() {
     }

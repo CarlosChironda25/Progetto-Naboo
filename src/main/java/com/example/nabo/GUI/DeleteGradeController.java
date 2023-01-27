@@ -44,8 +44,8 @@ public class DeleteGradeController {
     private Label labelAllRight;
     double grade;
 
-    private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
-
+    //private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Voto.json";
+    private static String path = "main/resources/com/example/nabo/DataBase/Voto.json";
     public static List<VotoBot> readFile(String path) throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(path));

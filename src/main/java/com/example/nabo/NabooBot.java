@@ -646,8 +646,8 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private boolean register(String messaggio) throws IOException {  //riceviamo richiesta registrazione
 
-        String path ="C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
-
+        //String path ="C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json";
+        String path = "main/resources/com/example/nabo/DataBase/Dati.json" ;
         String confermaPassword;
 
         messaggio = messaggio.substring(11);  //username password confPassword
@@ -699,7 +699,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
 
 
-        JsonReader leggi = new JsonReader(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Dati.json"));
+        JsonReader leggi = new JsonReader(new FileReader("main/resources/com/example/nabo/DataBase/Dati.json"));
         Gson gson = new Gson();
         Utenti = gson.fromJson(leggi, (new TypeToken<List<Utente>>() {
         }).getType());
@@ -791,7 +791,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     private List<Notizia> loadNews() throws FileNotFoundException {
 
-        JsonReader read = new JsonReader(new FileReader("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json"));
+        JsonReader read = new JsonReader(new FileReader("main/resources/com/example/nabo/DataBase/Info-Notizie.json"));
 
         Gson gson = new Gson();
         notizia = gson.fromJson(read, (new TypeToken<List<Notizia>>() {

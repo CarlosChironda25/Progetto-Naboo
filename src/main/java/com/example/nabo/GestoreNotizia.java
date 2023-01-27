@@ -24,7 +24,8 @@ import java.util.List;
 public class GestoreNotizia {
     private ArrayList<Notizia> listaNotizie;
     public ArrayList<String> sources;
-    public static String Path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
+    public static String Path = "./main/resources/com/example/nabo/DataBase/Info-Notizie.json";
+    //public static String Path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json";
 
     private static GestoreNotizia instance = null;
     GestoreNotizia(){
@@ -81,7 +82,7 @@ public class GestoreNotizia {
                 reader.close();
         }
 
-        FileWriter fileWriter = new FileWriter("C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Info-Notizie.json");
+        FileWriter fileWriter = new FileWriter("main/resources/com/example/nabo/DataBase/Info-Notizie.json");
         fileWriter.write( "[");
         Gson gson4 = new GsonBuilder().setPrettyPrinting().create();
 

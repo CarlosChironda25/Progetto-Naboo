@@ -17,10 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -42,11 +39,14 @@ public class DeleteCommentController {
         private TextField inputTitolo;
         @FXML
         private TextField inputCommentatore;
-        private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
+        //private static String path = "C:\\Users\\feder\\IdeaProjects\\Progetto-Naboo\\src\\main\\resources\\com\\example\\nabo\\DataBase\\Commento.json";
+
+        private static String path = "main/resources/com/example/nabo/DataBase/Commento.json";
 
        public static List<CommentoBot> readFile(String path) throws FileNotFoundException {
            Gson gson = new Gson();
            JsonReader reader = new JsonReader(new FileReader(path));
+
            return gson.fromJson(reader, new TypeToken<List<CommentoBot>>(){}.getType());
        }
        public static void writeFile(List<CommentoBot> commento, String path) throws IOException {
