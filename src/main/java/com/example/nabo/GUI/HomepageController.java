@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.checkerframework.checker.units.qual.A;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.BotSession;
@@ -112,6 +113,7 @@ public class HomepageController{
             e.printStackTrace();
        }
     }
+    /*
     @FXML
     public void telegram(ActionEvent event){
         try {
@@ -123,6 +125,24 @@ public class HomepageController{
             e.printStackTrace();
         }
     }
+
+     */
+    private boolean checkTelegram = false;
+    @FXML
+    public void telegram(ActionEvent event) throws TelegramApiException, MalformedURLException {
+
+        TelegramBotsApi botApi1 = new TelegramBotsApi(DefaultBotSession.class);
+        BotSession botSession = botApi1.registerBot(new NabooBot());
+
+        if (checkTelegram == false) {
+            NabooBot.setSession(botSession);
+            checkTelegram = true;
+        } else {
+            botSession.stop();
+            checkTelegram = false;
+        }
+    }
+
     @FXML
     public void logout(ActionEvent event){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
