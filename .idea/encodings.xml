@@ -3,5 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/example/nabo/DataBase/Commento.json" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/example/nabo/DataBase/Info-Notizie.json" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/com/example/nabo/DataBase/Voto.json" charset="windows-1252" />
   </component>
 </project>

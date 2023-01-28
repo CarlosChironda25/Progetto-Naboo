@@ -30,18 +30,18 @@
     "isAdmin": true
   },
   {
-    "Username": "fede",
-    "Password": "f",
+    "Username": "Cosmo",
+    "Password": "Kramer",
     "isAdmin": false
   },
   {
-    "Username": "feder",
-    "Password": "f",
+    "Username": "Jerry",
+    "Password": "Seinfeld",
     "isAdmin": false
   },
   {
-    "Username": "federica",
-    "Password": "f",
+    "Username": "Meryl",
+    "Password": "Streep",
     "isAdmin": false
   }
 ]
