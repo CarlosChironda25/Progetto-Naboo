@@ -56,10 +56,20 @@ public class DeleteNewsController {
         fw.write(jsonString);
         fw.close();
     }
+
+    private void setDisabledItems(boolean b){
+        searchNews.setDisable(b);
+        deleteNews.setDisable(b);
+        inputTitle.setDisable(b);
+        caricanews.setDisable(!b);
+    }
     @FXML
     public void updateNews(ActionEvent event) throws IOException {
         GestoreNotizia gestore = GestoreNotizia.getInstance();
         gestore.caricaNotizie();
+        //Disabilito il pulsante perchè altrimenti se elimino una notizia, e ricarico le news, quella
+        //ricompare.
+        setDisabledItems(false);
     }
 
     @FXML

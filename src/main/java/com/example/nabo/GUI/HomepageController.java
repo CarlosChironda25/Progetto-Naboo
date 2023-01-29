@@ -140,6 +140,7 @@ public class HomepageController{
         } else {
             botSession.stop();
             checkTelegram = false;
+            System.out.println("telegram disattivato");
         }
     }
 
