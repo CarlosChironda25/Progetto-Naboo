@@ -325,6 +325,7 @@ public class NabooBot  extends  TelegramLongPollingBot {
                                 \n/register : richiesta di registrazione;
                                 \n/news : visuallizzazione delle notizie;
                                 \n/menu : visualizzazione bottoni principali;
+                                \n/stop : stop bot;
                                 \n/logout : logout utente.""");
                     try {
                         execute(sendMessage);
