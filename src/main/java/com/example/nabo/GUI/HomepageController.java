@@ -113,7 +113,7 @@ public class HomepageController{
             e.printStackTrace();
        }
     }
-    /*
+
     @FXML
     public void telegram(ActionEvent event){
         try {
@@ -126,24 +126,7 @@ public class HomepageController{
         }
     }
 
-     */
-    private boolean checkTelegram = false;
-    @FXML
-    public void telegram(ActionEvent event) throws TelegramApiException, MalformedURLException {
 
-        TelegramBotsApi botApi1 = new TelegramBotsApi(DefaultBotSession.class);
-        BotSession botSession = botApi1.registerBot(new NabooBot());
-
-        if (checkTelegram == false) {
-            NabooBot.setSession(botSession);
-            checkTelegram = true;
-        } else {
-            telegramButton.setDisable(true);
-            //botSession.stop();
-            checkTelegram = false;
-            System.out.println("telegram disattivato");
-        }
-    }
 
     @FXML
     public void logout(ActionEvent event){
