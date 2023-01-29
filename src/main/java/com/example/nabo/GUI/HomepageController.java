@@ -138,7 +138,8 @@ public class HomepageController{
             NabooBot.setSession(botSession);
             checkTelegram = true;
         } else {
-            botSession.stop();
+            telegramButton.setDisable(true);
+            //botSession.stop();
             checkTelegram = false;
             System.out.println("telegram disattivato");
         }
