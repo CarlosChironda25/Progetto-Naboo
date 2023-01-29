@@ -54,12 +54,12 @@ public class NabooBot  extends  TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "NewsNabooBot";
+        return "NabooProgetto_bot";
     }
 
     @Override
     public String getBotToken() {
-        return "5762706960:AAGdkhqbAE8V8NPRmN4MJ2gWGe38Sh_BZMM";
+        return "6197481926:AAENtN0mlQyQwY8FqDBEy6h6kf2h96NSf8c";
     }
 
 
@@ -129,6 +129,10 @@ public class NabooBot  extends  TelegramLongPollingBot {
                                 this.send("Inserire username e password.\n( ex. : Login = username password )");
                         case "/register" ->
                                 this.send("Inserire username password e confermaPassword.\n( ex. : Register = username password passoword)");
+                        case "/stop" -> {
+                                botSession.stop();
+                                this.send("Bot spento");
+                            }
                         default ->
                                 this.send("\uD83D\uDC49\uD83C\uDFFCScusa, non ho capito la richiesta. Selezionare il comando : \"/start");
                     }
@@ -250,6 +254,10 @@ public class NabooBot  extends  TelegramLongPollingBot {
                             } catch (IOException | FeedException e) {
                                 throw new RuntimeException(e);
                             }
+                        }
+                        case "/stop" -> {
+                            botSession.stop();
+                            this.send("Bot spento");
                         }
                         case "/menu" -> mainButton();
                         default ->

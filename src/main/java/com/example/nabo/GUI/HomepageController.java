@@ -116,6 +116,7 @@ public class HomepageController{
 
     @FXML
     public void telegram(ActionEvent event){
+
         try {
             TelegramBotsApi botApi1 = new TelegramBotsApi(DefaultBotSession.class);
             BotSession botSession = botApi1.registerBot(new NabooBot());
@@ -125,8 +126,6 @@ public class HomepageController{
             e.printStackTrace();
         }
     }
-
-
 
     @FXML
     public void logout(ActionEvent event){
