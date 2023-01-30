@@ -116,14 +116,21 @@ public class HomepageController{
 
     @FXML
     public void telegram(ActionEvent event){
-        try {
+       try {
             TelegramBotsApi botApi1 = new TelegramBotsApi(DefaultBotSession.class);
             BotSession botSession = botApi1.registerBot(new NabooBot());
             NabooBot.setSession(botSession);
 
-        } catch (TelegramApiException | MalformedURLException e) {
+       } catch (TelegramApiException | MalformedURLException e) {
             e.printStackTrace();
-        }
+       }
+       Alert alert  = new Alert(Alert.AlertType.INFORMATION);
+       alert.setTitle("avvio telegram bot");
+       alert.setHeaderText("Questo pulsante serve solo per avviare il bot. \nIl bot si chiude all'interno del bot stesso. \nBisogna attendere 50 secondi dopo");
+       alert.setContentText("Conferma per aver compreso l'informazione");
+       if(alert.showAndWait().get() == ButtonType.OK){
+           System.out.println("compresa l'informazione");
+       }
     }
 
     @FXML
